@@ -39,22 +39,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Xcode project中引入Cocoapods管理项目组件化、平台化是技术公司的共同目标，越来越多的技术公司推崇使用pod管理第三方库以及私有组件，一方面使项目架构更加清晰，一方面现有的工具Cocoapods提供了近乎完美的解决方案。这里我们来讨论一下如何在Xcode 工程中集成Cocoapods，这里提供入门级别的集成和进阶集成方式。
+<meta name="description" content="项目组件化、平台化是技术公司的共同目标，越来越多的技术公司推崇使用pod管理第三方库以及私有组件，一方面使项目架构更加清晰，一方面现有的工具Cocoapods提供了近乎完美的解决方案。这里我们来讨论一下如何在Xcode 工程中集成Cocoapods，这里提供入门级别的集成和进阶集成方式。
 本文目录参考文档汇总
-Cocoapods官网:https">
+Cocoapods官网:https://cocoapods.org/
+Cocoapods">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hi gaohu">
+<meta property="og:title" content="Xcode project中引入Cocoapods管理">
 <meta property="og:url" content="http://yoursite.com/2016/08/01/Cocoapods/index.html">
 <meta property="og:site_name" content="Hi gaohu">
-<meta property="og:description" content="Xcode project中引入Cocoapods管理项目组件化、平台化是技术公司的共同目标，越来越多的技术公司推崇使用pod管理第三方库以及私有组件，一方面使项目架构更加清晰，一方面现有的工具Cocoapods提供了近乎完美的解决方案。这里我们来讨论一下如何在Xcode 工程中集成Cocoapods，这里提供入门级别的集成和进阶集成方式。
+<meta property="og:description" content="项目组件化、平台化是技术公司的共同目标，越来越多的技术公司推崇使用pod管理第三方库以及私有组件，一方面使项目架构更加清晰，一方面现有的工具Cocoapods提供了近乎完美的解决方案。这里我们来讨论一下如何在Xcode 工程中集成Cocoapods，这里提供入门级别的集成和进阶集成方式。
 本文目录参考文档汇总
-Cocoapods官网:https">
-<meta property="og:updated_time" content="2016-08-01T02:15:37.000Z">
+Cocoapods官网:https://cocoapods.org/
+Cocoapods">
+<meta property="og:updated_time" content="2016-10-08T15:24:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hi gaohu">
-<meta name="twitter:description" content="Xcode project中引入Cocoapods管理项目组件化、平台化是技术公司的共同目标，越来越多的技术公司推崇使用pod管理第三方库以及私有组件，一方面使项目架构更加清晰，一方面现有的工具Cocoapods提供了近乎完美的解决方案。这里我们来讨论一下如何在Xcode 工程中集成Cocoapods，这里提供入门级别的集成和进阶集成方式。
+<meta name="twitter:title" content="Xcode project中引入Cocoapods管理">
+<meta name="twitter:description" content="项目组件化、平台化是技术公司的共同目标，越来越多的技术公司推崇使用pod管理第三方库以及私有组件，一方面使项目架构更加清晰，一方面现有的工具Cocoapods提供了近乎完美的解决方案。这里我们来讨论一下如何在Xcode 工程中集成Cocoapods，这里提供入门级别的集成和进阶集成方式。
 本文目录参考文档汇总
-Cocoapods官网:https">
+Cocoapods官网:https://cocoapods.org/
+Cocoapods">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +67,7 @@ Cocoapods官网:https">
   };
 </script>
 
-  <title>  | Hi gaohu </title>
+  <title> Xcode project中引入Cocoapods管理 | Hi gaohu </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -204,7 +207,7 @@ Cocoapods官网:https">
           
           
             
-              
+              Xcode project中引入Cocoapods管理
             
           
         </h1>
@@ -244,7 +247,7 @@ Cocoapods官网:https">
       
 
       
-        <span itemprop="articleBody"><h3 id="Xcode-project中引入Cocoapods管理"><a href="#Xcode-project中引入Cocoapods管理" class="headerlink" title="Xcode project中引入Cocoapods管理"></a>Xcode project中引入Cocoapods管理</h3><p><em>项目组件化、平台化是技术公司的共同目标，越来越多的技术公司推崇使用pod管理第三方库以及私有组件，一方面使项目架构更加清晰，一方面现有的工具Cocoapods提供了近乎完美的解决方案。这里我们来讨论一下如何在Xcode 工程中集成Cocoapods，这里提供入门级别的集成和进阶集成方式。</em></p>
+        <span itemprop="articleBody"><p><em>项目组件化、平台化是技术公司的共同目标，越来越多的技术公司推崇使用pod管理第三方库以及私有组件，一方面使项目架构更加清晰，一方面现有的工具Cocoapods提供了近乎完美的解决方案。这里我们来讨论一下如何在Xcode 工程中集成Cocoapods，这里提供入门级别的集成和进阶集成方式。</em></p>
 <h4 id="本文目录"><a href="#本文目录" class="headerlink" title="本文目录"></a>本文目录</h4><h4 id="参考文档汇总"><a href="#参考文档汇总" class="headerlink" title="参考文档汇总"></a>参考文档汇总</h4><ol>
 <li>Cocoapods官网:<a href="https://cocoapods.org/" target="_blank" rel="external">https://cocoapods.org/</a></li>
 <li>Cocoapods在github上的开发仓库：<a href="https://github.com/CocoaPods/CocoaPods" target="_blank" rel="external">https://github.com/CocoaPods/CocoaPods</a></li>
@@ -512,43 +515,68 @@ Cocoapods官网:https">
 <li><p>Pods依赖库已经更新</p>
 </li>
 <li><p>Cocoapods无法安装的问题。</p>
-<p>Mac系统升级到10.11使用Cocoapods出现pod:command not found 解决方案</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;        $ sudo gem install -n /usr/local/bin cocoapods</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
+<pre><code>Mac系统升级到10.11使用Cocoapods出现pod:command not found 解决方案
+
+​<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;           $ sudo gem install -n /usr/local/bin cocoapods</div><div class="line">&gt;           ​</div></pre></td></tr></table></figure>
+</code></pre></li>
 </ol>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
 <pre><code>如果podupdate 或者pod install 还卡在哪儿，则
 </code></pre><ol>
 <li><p>pod install 或者pod update 速度慢的问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;        查看ruby源，更换为淘宝镜像，如果还出现问题，则</div><div class="line">&gt;        原因可能是：当执行以上两个命令时会升级Cocoapods的Specs仓库，加一个参数就可以省略这一步，然后速度可能会提升。参数命令如下：</div><div class="line">&gt;        pod install --verbose --no-repo-update</div><div class="line">&gt;        pod update --verbose --no-repo-update </div><div class="line">&gt;        执行完命令以后有时还是会报错，不妨更新一下本地repo</div><div class="line">&gt;        pod repo update </div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
+<pre><code>​<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;           查看ruby源，更换为淘宝镜像，如果还出现问题，则</div><div class="line">&gt;           原因可能是：当执行以上两个命令时会升级Cocoapods的Specs仓库，加一个参数就可以省略这一步，然后速度可能会提升。参数命令如下：</div><div class="line">&gt;           pod install --verbose --no-repo-update</div><div class="line">&gt;           pod update --verbose --no-repo-update </div><div class="line">&gt;           执行完命令以后有时还是会报错，不妨更新一下本地repo</div><div class="line">&gt;           pod repo update </div><div class="line">&gt;           ​</div></pre></td></tr></table></figure>
+</code></pre></li>
 </ol>
 </blockquote>
 <p>&gt;</p>
 <blockquote>
 <ol>
 <li><p>这个问题是比较常见的问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;        &quot;podfile.lock&quot; not such file or directory......</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
+<pre><code>​<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;           &quot;podfile.lock&quot; not such file or directory......</div><div class="line">&gt;           ​</div></pre></td></tr></table></figure>
+</code></pre></li>
 </ol>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
 <pre><code>http://stackoverflow.com/questions/17072396/cocoapods-errors-on-project-build
 </code></pre><ol>
 <li><p>集成Cocoapods编译通过但是链接不通过的问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;        Undefined symbols for architecture x86_64:</div><div class="line">&gt;</div><div class="line">&gt;          &quot;_OBJC_CLASS_$_AFNetworking&quot;, referenced from:</div><div class="line">&gt;</div><div class="line">&gt;              objc-class-ref in HJCXMPPTools.o</div><div class="line">&gt;</div><div class="line">&gt;        ld: symbol(s) not found for architecture x86_64</div><div class="line">&gt;</div><div class="line">&gt;        clang: error: linker command failed with exit code 1 (use -v to see invocation)</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
+<pre><code>​<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;           Undefined symbols for architecture x86_64:</div><div class="line">&gt;           </div><div class="line">&gt;             &quot;_OBJC_CLASS_$_AFNetworking&quot;, referenced from:</div><div class="line">&gt;           </div><div class="line">&gt;                 objc-class-ref in HJCXMPPTools.o</div><div class="line">&gt;           </div><div class="line">&gt;           ld: symbol(s) not found for architecture x86_64</div><div class="line">&gt;           </div><div class="line">&gt;           clang: error: linker command failed with exit code 1 (use -v to see invocation)</div><div class="line">&gt;           ​</div></pre></td></tr></table></figure>
+</code></pre></li>
 </ol>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
 <pre><code>小编发现，小编之前是手动导入的AFNetworking这个第三方库，小编估计是手动导入时更改了某些配置文件导致与Cocoapods集成时的配置文件发生冲突，导致无法link。于是小编在此用Cocoapods更新框架时，发现终端的一段警告：
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;        [!] The `myQQ [Debug]` target overrides the `OTHER_LDFLAGS` build setting defined in `Pods/Target Support Files/Pods/Pods.debug.xcconfig&apos;. This can lead to problems with the CocoaPods installation</div><div class="line">&gt;</div><div class="line">&gt;        - Use the `$(inherited)` flag, or</div><div class="line">&gt;</div><div class="line">&gt;        - Remove the build settings from the target.</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</code></pre>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt;    这下的思路应该是，手动导入AFN时修改了某些配置，修改了Other Linker Flags。</div><div class="line">&gt;</div><div class="line">&gt;    所以解决方案是：</div><div class="line">&gt;</div><div class="line">&gt;    按照提示，在Build setting里的Other Linker Flags增加$(inherited)。喜大普奔，这个错误算是解决了。</div><div class="line">&gt;</div><div class="line">&gt;    over.</div><div class="line">&gt;</div><div class="line">&gt; 6. 需要加入gitignore的文件：</div><div class="line">&gt;</div><div class="line">&gt; 7. 对途牛包大小的影响、对编译时间和编译速度的影响</div><div class="line">&gt;</div><div class="line">&gt; 8. 如何更新第三方库</div><div class="line">&gt;</div><div class="line">&gt; 9. 第三方库与项目代码中的文件重名冲突</div><div class="line">&gt;</div><div class="line">&gt; 10. 第三方库的sdk版本与项目sdk版本不符时解决方案</div><div class="line">&gt;</div><div class="line">&gt; 11. Cocoapods软件版本更新</div><div class="line">&gt;</div><div class="line">&gt; 12. Cocoapods 目前版本为 0.39.0， 最新的1.0.0为测试版</div><div class="line">&gt;</div><div class="line">&gt; 13. 当两个库同时需要使用AFNetworking时，Cocoapods会确定一个同时能被这两个库使用的版本，然后将同一个安装版本链接到两个不同的库中。</div><div class="line">&gt;</div><div class="line">&gt; 14. 安装pod install 第三方库过程中，Cocoapods会使用递归来分析所有的需求，并且建立一个代码相关性的图，最后将Podfile序列化为Podfile.lock</div><div class="line">&gt;</div><div class="line">&gt; 15. 选择的文件夹对：</div><div class="line">&gt;</div><div class="line">&gt;     ```shell</div><div class="line">&gt;     Could not automatically select an Xcode project. Specify one in your Podfile like so: xcodeproj &apos;path/to/Project.xcodeproj&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+​<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;           [!] The `myQQ [Debug]` target overrides the `OTHER_LDFLAGS` build setting defined in `Pods/Target Support Files/Pods/Pods.debug.xcconfig&apos;. This can lead to problems with the CocoaPods installation</div><div class="line">&gt;</div><div class="line">&gt;       - Use the `$(inherited)` flag, or</div><div class="line">&gt;</div><div class="line">&gt;       - Remove the build settings from the target.</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>   这下的思路应该是，手动导入AFN时修改了某些配置，修改了Other Linker Flags。</p>
+<p>   所以解决方案是：</p>
+<p>   按照提示，在Build setting里的Other Linker Flags增加$(inherited)。喜大普奔，这个错误算是解决了。</p>
+<p>   over.</p>
+<ol>
+<li><p>需要加入gitignore的文件：</p>
+</li>
+<li><p>对途牛包大小的影响、对编译时间和编译速度的影响</p>
+</li>
+<li><p>如何更新第三方库</p>
+</li>
+<li><p>第三方库与项目代码中的文件重名冲突</p>
+</li>
+<li><p>第三方库的sdk版本与项目sdk版本不符时解决方案</p>
+</li>
+<li><p>Cocoapods软件版本更新</p>
+</li>
+<li><p>Cocoapods 目前版本为 0.39.0， 最新的1.0.0为测试版</p>
+</li>
+<li><p>当两个库同时需要使用AFNetworking时，Cocoapods会确定一个同时能被这两个库使用的版本，然后将同一个安装版本链接到两个不同的库中。</p>
+</li>
+<li><p>安装pod install 第三方库过程中，Cocoapods会使用递归来分析所有的需求，并且建立一个代码相关性的图，最后将Podfile序列化为Podfile.lock</p>
+</li>
+<li><p>选择的文件夹对：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;     Could not automatically select an Xcode project. Specify one in your Podfile like so: xcodeproj &apos;path/to/Project.xcodeproj&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
 </blockquote>
 <p>&gt;</p>
 <blockquote>
@@ -557,7 +585,7 @@ Cocoapods官网:https">
 <li><p>如果项目中有与Pod同名的文件。编译不会通过。</p>
 </li>
 <li><p>对于那些不在Cocoapods公共Git仓库中的库，可以用任何一个Git,Mercurial或者是SVN仓库取代，并且还可以指定具体的commit，branch或者tag。 即私有pod。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;     pod &apos;Y&apos;, :git =&gt; &apos;https://github.com/NSHipster/Y.git&apos;, :commit =&gt; &apos;b4dc0ffee&apos; </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      pod &apos;Y&apos;, :git =&gt; &apos;https://github.com/NSHipster/Y.git&apos;, :commit =&gt; &apos;b4dc0ffee&apos; </div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 </blockquote>
@@ -592,8 +620,8 @@ Cocoapods官网:https">
 <li><p>首先将组件从项目中拆分出来，组建自己的组件库</p>
 </li>
 <li><p>然后在终端用 一下命令创建一个pod文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;                          $ pod lib create PodLibrary </div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;                             $ pod lib create PodLibrary </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></li>
 </ul>
 </blockquote>
 <p>&gt;</p>
@@ -604,21 +632,26 @@ Cocoapods官网:https">
 <li><p>每次向Pod添加了新的文件或者以后更新了podspec的版本都需要重新执行一遍pod update命令</p>
 </li>
 <li><p>测试无误后，将项目推送到远程仓库，并编辑podspec</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;                          $pod repo push MyDemoSpec PodLibrary.podspec #前面是本地Repo名字，后面是podspec名字</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;                             $pod repo push MyDemoSpec PodLibrary.podspec #前面是本地Repo名字，后面是podspec名字</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></li>
 </ul>
 </blockquote>
 <p>&gt;</p>
 <blockquote>
 <ul>
 <li><p>编辑podspec，podspec文件的格式和定制如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt;                          Pod::Spec.new do |s|</div><div class="line">&gt;                            s.name             = &quot;PodLibrary&quot;</div><div class="line">&gt;                            s.version          = &quot;0.1.0&quot;</div><div class="line">&gt;                            #项目总结</div><div class="line">&gt;                            s.summary          = &quot;My PodLibrary is a repo for UIButton+Positioning assembly.&quot;</div><div class="line">&gt;                            #项目描述，貌似描述的文字要多于总结的，否则会报警告</div><div class="line">&gt;                            s.description      = &lt;&lt;-DESC</div><div class="line">&gt;                                                 My Private UIButton+Positioning assembly</div><div class="line">&gt;                          * MarkDown format </div><div class="line">&gt;                          * It is a nice world!</div><div class="line">&gt;</div><div class="line">&gt;                          DESC</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<p>#项目的主页，要求可以访问<br>s.homepage         = “<a href="https://git.coding.net" target="_blank" rel="external">https://git.coding.net</a>“<br>#项目的证书类型，一开始在git 就要配置好<br>s.license          = ‘MIT’<br>s.author           = { “gaolong” =&gt; “gaolong@tuniu.com” }<br>#最重要的一部分，项目的源地址，目前只支持Http\Https, 不支持SSH，小编曾经犯了一个低级错误，将这个source指向了以前建立的一个Spec.git,然后一直报”The <code>PodLibrary.podspec</code> specification does not validate”的错误，小编又不会调试，所以很丢人的折腾了两个小时。<br>s.source           = { :git =&gt; “<a href="https://git.coding.net/schiller/MyDemoSpec.git" target="_blank" rel="external">https://git.coding.net/schiller/MyDemoSpec.git</a>“, :tag =&gt; “0.1.0” }<br>s.platform     = :ios, ‘7.0’<br>s.requires_arc = true<br>#表示项目的源文件在Pods/Classes文件夹下<br>s.source_files = ‘Pod/Classes/<em>*/</em>‘<br>s.resource_bundles = {<br>‘PodLibrary’ =&gt; [‘Pod/Assets/*.png’]<br>}</p>
-<p>#项目的依赖库等等</p>
-<h1 id="s-public-header-files-‘Pod-Classes-h’"><a href="#s-public-header-files-‘Pod-Classes-h’" class="headerlink" title="s.public_header_files = ‘Pod/Classes/*/.h’"></a>s.public_header_files = ‘Pod/Classes/<em>*/</em>.h’</h1><h1 id="s-frameworks-‘UIKit’-‘MapKit’"><a href="#s-frameworks-‘UIKit’-‘MapKit’" class="headerlink" title="s.frameworks = ‘UIKit’, ‘MapKit’"></a>s.frameworks = ‘UIKit’, ‘MapKit’</h1><h1 id="s-dependency-‘AFNetworking’-‘-gt-2-3’"><a href="#s-dependency-‘AFNetworking’-‘-gt-2-3’" class="headerlink" title="s.dependency ‘AFNetworking’, ‘~&gt; 2.3’"></a>s.dependency ‘AFNetworking’, ‘~&gt; 2.3’</h1><p>end</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt;   编辑podspec文件之后，需要验证该文件是否可用，如果有任何WARNING 或者ERROR都是不行的，它就不能被添加到Spec repo ，需要执行以下代码验证</div><div class="line">&gt;</div><div class="line">&gt;   ```shell</div><div class="line">&gt;   $ pod lib lint </div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt;                             Pod::Spec.new do |s|</div><div class="line">&gt;                               s.name             = &quot;PodLibrary&quot;</div><div class="line">&gt;                               s.version          = &quot;0.1.0&quot;</div><div class="line">&gt;                               #项目总结</div><div class="line">&gt;                               s.summary          = &quot;My PodLibrary is a repo for UIButton+Positioning assembly.&quot;</div><div class="line">&gt;                               #项目描述，貌似描述的文字要多于总结的，否则会报警告</div><div class="line">&gt;                               s.description      = &lt;&lt;-DESC</div><div class="line">&gt;                                                    My Private UIButton+Positioning assembly</div><div class="line">&gt;      * MarkDown format </div><div class="line">&gt;      * It is a nice world!</div><div class="line">&gt;</div><div class="line">&gt;      DESC</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></li>
 </ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&gt;   #项目的主页，要求可以访问</div><div class="line">&gt;     s.homepage         = &quot;https://git.coding.net&quot;</div><div class="line">&gt;     #项目的证书类型，一开始在git 就要配置好</div><div class="line">&gt;     s.license          = &apos;MIT&apos;</div><div class="line">&gt;     s.author           = &#123; &quot;gaolong&quot; =&gt; &quot;gaolong@tuniu.com&quot; &#125;</div><div class="line">&gt;     #最重要的一部分，项目的源地址，目前只支持Http\Https, 不支持SSH，小编曾经犯了一个低级错误，将这个source指向了以前建立的一个Spec.git,然后一直报&quot;The `PodLibrary.podspec` specification does not validate&quot;的错误，小编又不会调试，所以很丢人的折腾了两个小时。</div><div class="line">&gt;     s.source           = &#123; :git =&gt; &quot;https://git.coding.net/schiller/MyDemoSpec.git&quot;, :tag =&gt; &quot;0.1.0&quot; &#125;</div><div class="line">&gt;     s.platform     = :ios, &apos;7.0&apos;</div><div class="line">&gt;     s.requires_arc = true</div><div class="line">&gt;   #表示项目的源文件在Pods/Classes文件夹下</div><div class="line">&gt;     s.source_files = &apos;Pod/Classes/**/*&apos;</div><div class="line">&gt;     s.resource_bundles = &#123;</div><div class="line">&gt;       &apos;PodLibrary&apos; =&gt; [&apos;Pod/Assets/*.png&apos;]</div><div class="line">&gt;     &#125;</div><div class="line">&gt;</div><div class="line">&gt;   #项目的依赖库等等</div><div class="line">&gt;     # s.public_header_files = &apos;Pod/Classes/**/*.h&apos;</div><div class="line">&gt;     # s.frameworks = &apos;UIKit&apos;, &apos;MapKit&apos;</div><div class="line">&gt;     # s.dependency &apos;AFNetworking&apos;, &apos;~&gt; 2.3&apos;</div><div class="line">&gt;   end</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>  编辑podspec文件之后，需要验证该文件是否可用，如果有任何WARNING 或者ERROR都是不行的，它就不能被添加到Spec repo ，需要执行以下代码验证</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   $ pod lib lint </div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
 <p>&gt;</p>
 <blockquote>
@@ -648,8 +681,8 @@ Cocoapods官网:https">
 <pre><code>3. over.
 </code></pre><ul>
 <li><p>本地测试PodSpec文件</p>
-<p>我们可以创建一个新的项目，这个项目的Podfile 文件直接指定刚才创建好的podspec文件，看是否可用（我这里选Demos ,这个我的测试项目），在Podfile中我们可以这样编辑，有两种方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;      platform :ios, &apos;7.0&apos;</div><div class="line">&gt;      pod &apos;PodLibrary&apos;, :path =&gt; &apos;/Users/schiller/Desktop/PodLibrary/PodLibrary.podspec&apos; #指定podspec 文件</div><div class="line">&gt;      #或者这样</div><div class="line">&gt;      pod &apos;PodLibrary&apos;, :path =&gt; &apos;/Users/schiller/Desktop/PodLibrary&apos; #指定路径</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>   我们可以创建一个新的项目，这个项目的Podfile 文件直接指定刚才创建好的podspec文件，看是否可用（我这里选Demos ,这个我的测试项目），在Podfile中我们可以这样编辑，有两种方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;         platform :ios, &apos;7.0&apos;</div><div class="line">&gt;         pod &apos;PodLibrary&apos;, :path =&gt; &apos;/Users/schiller/Desktop/PodLibrary/PodLibrary.podspec&apos; #指定podspec 文件</div><div class="line">&gt;         #或者这样</div><div class="line">&gt;         pod &apos;PodLibrary&apos;, :path =&gt; &apos;/Users/schiller/Desktop/PodLibrary&apos; #指定路径</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -658,32 +691,32 @@ Cocoapods官网:https">
 <pre><code>然后执行pod install 命令安装第三方库，就像安装AFNetworking那样安装自己的公共组件库，然后发现库文件被加到Pods子项目去了。测试无误后进行下一步，提交podspec到Spec repo中。
 </code></pre><ul>
 <li><p>向Spec Repo提交podspec</p>
-<p>回顾一下我们1,2两步所做的工作，接下来我们向我们的私有Spec Repo提交podspec，只需要一个命令，要cd 到私有项目的目录下执行该命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      $pod repo push MyDemoSpec PodLibrary.podspec #前面是本地Repo名字，后面是podspec名字</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>   回顾一下我们1,2两步所做的工作，接下来我们向我们的私有Spec Repo提交podspec，只需要一个命令，要cd 到私有项目的目录下执行该命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;         $pod repo push MyDemoSpec PodLibrary.podspec #前面是本地Repo名字，后面是podspec名字</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
 <p>&gt;</p>
 <blockquote>
-<pre><code>如果pod repo push 出现报错:
+<pre><code>   如果pod repo push 出现报错:
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      [!]The `PodLibrary.podspec` specification does not validate </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;         [!]The `PodLibrary.podspec` specification does not validate </div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </code></pre></blockquote>
 <p>&gt;</p>
 <blockquote>
-<pre><code>多半是你的podspec文件配置不成功。
+<pre><code>   多半是你的podspec文件配置不成功。
 
-小编在第三步执行pod lib lint 命令，一直显示该文件pass validate ,但是将 私有项目push 到 本地spec仓库时出现以上报错，于是小编机智地执行一下命令
+   小编在第三步执行pod lib lint 命令，一直显示该文件pass validate ,但是将 私有项目push 到 本地spec仓库时出现以上报错，于是小编机智地执行一下命令
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      $pod repo push MyDemoSpec PodLibrary.podspec --allow-warnings </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;         $pod repo push MyDemoSpec PodLibrary.podspec --allow-warnings </div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </code></pre></blockquote>
 <p>&gt;</p>
 <blockquote>
-<pre><code>允许报警，然而并没有起到作用
+<pre><code>   允许报警，然而并没有起到作用
 
-于是小编查看详细日志
+   于是小编查看详细日志
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      $pod repo push MyDemoSpec PodLibrary.podspec --verbose</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;         $pod repo push MyDemoSpec PodLibrary.podspec --verbose</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </code></pre></blockquote>
 <p>&gt;</p>
 <blockquote>
@@ -692,7 +725,7 @@ Cocoapods官网:https">
 <li><p>通过$ pod lib lint 命令查看私有组件库是否通过验证的问题，</p>
 </li>
 <li><p>所以首先一定要确定自己的podspec通过验证无误，再一个就是删除无用的注释，尽量规范，完成之后，这个名叫PodLibrary的组建就添加到了我们的私有Spec Repo ,可以进入~/.cocoapods/repos/MyDemoSpec目录下查看</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      在MyDemoSpec目录下，有PodLibrary文件夹，下面有0.1.0文件夹，PodLibrary.podspec</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;         在MyDemoSpec目录下，有PodLibrary文件夹，下面有0.1.0文件夹，PodLibrary.podspec</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -700,7 +733,7 @@ Cocoapods官网:https">
 <blockquote>
 <ul>
 <li><p>然后我们执行pod search ,就会发现自己的库可以搜到了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;       $ pod search podTestLibrary</div><div class="line">&gt;       -&gt; podTestLibrary (1.0.0)</div><div class="line">&gt;         XTURLRequest Assembly</div><div class="line">&gt;         pod &apos;podTestLibrary&apos;, &apos;~&gt; 1.0.0&apos;</div><div class="line">&gt;      - Homepage: https://coding.net/u/schiller/p/podTestLibrary</div><div class="line">&gt;      - Source:   https://git.coding.net/schiller/podTestLibrary.git</div><div class="line">&gt;      - Versions: 1.0.0 [GLSpecs repo] - 0.1.0 [master repo] </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;          $ pod search podTestLibrary</div><div class="line">&gt;          -&gt; podTestLibrary (1.0.0)</div><div class="line">&gt;            XTURLRequest Assembly</div><div class="line">&gt;            pod &apos;podTestLibrary&apos;, &apos;~&gt; 1.0.0&apos;</div><div class="line">&gt;      - Homepage: https://coding.net/u/schiller/p/podTestLibrary</div><div class="line">&gt;      - Source:   https://git.coding.net/schiller/podTestLibrary.git</div><div class="line">&gt;      - Versions: 1.0.0 [GLSpecs repo] - 0.1.0 [master repo] </div><div class="line">&gt;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt; - over.</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -886,7 +919,7 @@ Cocoapods官网:https">
           <div class="comments" id="comments">
             
               <div class="ds-thread" data-thread-key="2016/08/01/Cocoapods/"
-                   data-title="" data-url="http://yoursite.com/2016/08/01/Cocoapods/">
+                   data-title="Xcode project中引入Cocoapods管理" data-url="http://yoursite.com/2016/08/01/Cocoapods/">
               </div>
             
           </div>
@@ -1036,7 +1069,7 @@ Cocoapods官网:https">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Xcode-project中引入Cocoapods管理"><span class="nav-number">1.</span> <span class="nav-text">Xcode project中引入Cocoapods管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文目录"><span class="nav-number">1.1.</span> <span class="nav-text">本文目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文档汇总"><span class="nav-number">1.2.</span> <span class="nav-text">参考文档汇总</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目中配置Cocoapods解决方案"><span class="nav-number">1.3.</span> <span class="nav-text">项目中配置Cocoapods解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods简介"><span class="nav-number">1.3.1.</span> <span class="nav-text">Cocoapods简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods发展背景"><span class="nav-number">1.3.2.</span> <span class="nav-text">Cocoapods发展背景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods核心组件"><span class="nav-number">1.3.3.</span> <span class="nav-text">Cocoapods核心组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods与项目sdk化"><span class="nav-number">1.3.4.</span> <span class="nav-text">Cocoapods与项目sdk化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gitmodule的关系与解决方案"><span class="nav-number">1.3.5.</span> <span class="nav-text">gitmodule的关系与解决方案</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装和使用Cocoapods"><span class="nav-number">1.4.</span> <span class="nav-text">安装和使用Cocoapods</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CocoaPods安装步骤"><span class="nav-number">1.4.1.</span> <span class="nav-text">CocoaPods安装步骤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Pod-常用命令"><span class="nav-number">1.4.2.</span> <span class="nav-text">Pod 常用命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pod语义化版本规范"><span class="nav-number">1.4.3.</span> <span class="nav-text">pod语义化版本规范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#主App-link-Pods库"><span class="nav-number">1.4.4.</span> <span class="nav-text">主App link Pods库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装和更新Cocoapods"><span class="nav-number">1.4.5.</span> <span class="nav-text">安装和更新Cocoapods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Podfile文件配置"><span class="nav-number">1.4.6.</span> <span class="nav-text">Podfile文件配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Podfile与多target"><span class="nav-number">1.4.7.</span> <span class="nav-text">Podfile与多target</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods与持续集成"><span class="nav-number">1.4.8.</span> <span class="nav-text">Cocoapods与持续集成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods与项目SDK化"><span class="nav-number">1.4.9.</span> <span class="nav-text">Cocoapods与项目SDK化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods与git-submodule子模块"><span class="nav-number">1.4.10.</span> <span class="nav-text">Cocoapods与git submodule子模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods与App打包"><span class="nav-number">1.4.11.</span> <span class="nav-text">Cocoapods与App打包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocopods集成时间表"><span class="nav-number">1.4.12.</span> <span class="nav-text">Cocopods集成时间表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods常见问题汇总"><span class="nav-number">1.4.13.</span> <span class="nav-text">Cocoapods常见问题汇总</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#私有Pods-进阶篇"><span class="nav-number">1.5.</span> <span class="nav-text">私有Pods(进阶篇)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#私有Pod-Spec-repo"><span class="nav-number">1.5.1.</span> <span class="nav-text">私有Pod Spec repo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在coding上创建自己的spec私有仓库，本地跟踪管理"><span class="nav-number">1.5.2.</span> <span class="nav-text">在coding上创建自己的spec私有仓库，本地跟踪管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建自己的私有组件"><span class="nav-number">1.5.3.</span> <span class="nav-text">创建自己的私有组件</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-public-header-files-‘Pod-Classes-h’"><span class="nav-number"></span> <span class="nav-text">s.public_header_files = ‘Pod/Classes/*/.h’</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-frameworks-‘UIKit’-‘MapKit’"><span class="nav-number"></span> <span class="nav-text">s.frameworks = ‘UIKit’, ‘MapKit’</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-dependency-‘AFNetworking’-‘-gt-2-3’"><span class="nav-number"></span> <span class="nav-text">s.dependency ‘AFNetworking’, ‘~> 2.3’</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用制作好的Pod"><span class="nav-number">0.0.1.</span> <span class="nav-text">使用制作好的Pod</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#私有Pod协同合作"><span class="nav-number">0.0.2.</span> <span class="nav-text">私有Pod协同合作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除私有库"><span class="nav-number">0.0.3.</span> <span class="nav-text">删除私有库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#部署到公有库"><span class="nav-number">0.0.4.</span> <span class="nav-text">部署到公有库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提供私有pod测试项目"><span class="nav-number">0.0.5.</span> <span class="nav-text">提供私有pod测试项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#私有组件建立目录层级（配置subspec）"><span class="nav-number">0.0.6.</span> <span class="nav-text">私有组件建立目录层级（配置subspec）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cocoapods番外篇"><span class="nav-number">0.1.</span> <span class="nav-text">Cocoapods番外篇</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods制作篇，创建属于自己或者团队的开源项目，供他人使用"><span class="nav-number">0.1.1.</span> <span class="nav-text">Cocoapods制作篇，创建属于自己或者团队的开源项目，供他人使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用Cocoapods里没有的第三方库新版本（奇巧淫技）"><span class="nav-number">0.1.2.</span> <span class="nav-text">使用Cocoapods里没有的第三方库新版本（奇巧淫技）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cocoapods实战篇记录"><span class="nav-number">0.2.</span> <span class="nav-text">Cocoapods实战篇记录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TN当前项目架构"><span class="nav-number">0.2.1.</span> <span class="nav-text">TN当前项目架构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#迁移测试"><span class="nav-number">0.2.2.</span> <span class="nav-text">迁移测试</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文目录"><span class="nav-number">1.</span> <span class="nav-text">本文目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文档汇总"><span class="nav-number">2.</span> <span class="nav-text">参考文档汇总</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目中配置Cocoapods解决方案"><span class="nav-number">3.</span> <span class="nav-text">项目中配置Cocoapods解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods简介"><span class="nav-number">3.1.</span> <span class="nav-text">Cocoapods简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods发展背景"><span class="nav-number">3.2.</span> <span class="nav-text">Cocoapods发展背景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods核心组件"><span class="nav-number">3.3.</span> <span class="nav-text">Cocoapods核心组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods与项目sdk化"><span class="nav-number">3.4.</span> <span class="nav-text">Cocoapods与项目sdk化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gitmodule的关系与解决方案"><span class="nav-number">3.5.</span> <span class="nav-text">gitmodule的关系与解决方案</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装和使用Cocoapods"><span class="nav-number">4.</span> <span class="nav-text">安装和使用Cocoapods</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CocoaPods安装步骤"><span class="nav-number">4.1.</span> <span class="nav-text">CocoaPods安装步骤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Pod-常用命令"><span class="nav-number">4.2.</span> <span class="nav-text">Pod 常用命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pod语义化版本规范"><span class="nav-number">4.3.</span> <span class="nav-text">pod语义化版本规范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#主App-link-Pods库"><span class="nav-number">4.4.</span> <span class="nav-text">主App link Pods库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装和更新Cocoapods"><span class="nav-number">4.5.</span> <span class="nav-text">安装和更新Cocoapods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Podfile文件配置"><span class="nav-number">4.6.</span> <span class="nav-text">Podfile文件配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Podfile与多target"><span class="nav-number">4.7.</span> <span class="nav-text">Podfile与多target</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods与持续集成"><span class="nav-number">4.8.</span> <span class="nav-text">Cocoapods与持续集成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods与项目SDK化"><span class="nav-number">4.9.</span> <span class="nav-text">Cocoapods与项目SDK化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods与git-submodule子模块"><span class="nav-number">4.10.</span> <span class="nav-text">Cocoapods与git submodule子模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods与App打包"><span class="nav-number">4.11.</span> <span class="nav-text">Cocoapods与App打包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocopods集成时间表"><span class="nav-number">4.12.</span> <span class="nav-text">Cocopods集成时间表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods常见问题汇总"><span class="nav-number">4.13.</span> <span class="nav-text">Cocoapods常见问题汇总</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#私有Pods-进阶篇"><span class="nav-number">5.</span> <span class="nav-text">私有Pods(进阶篇)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#私有Pod-Spec-repo"><span class="nav-number">5.1.</span> <span class="nav-text">私有Pod Spec repo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在coding上创建自己的spec私有仓库，本地跟踪管理"><span class="nav-number">5.2.</span> <span class="nav-text">在coding上创建自己的spec私有仓库，本地跟踪管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建自己的私有组件"><span class="nav-number">5.3.</span> <span class="nav-text">创建自己的私有组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用制作好的Pod"><span class="nav-number">5.4.</span> <span class="nav-text">使用制作好的Pod</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#私有Pod协同合作"><span class="nav-number">5.5.</span> <span class="nav-text">私有Pod协同合作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除私有库"><span class="nav-number">5.6.</span> <span class="nav-text">删除私有库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#部署到公有库"><span class="nav-number">5.7.</span> <span class="nav-text">部署到公有库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提供私有pod测试项目"><span class="nav-number">5.8.</span> <span class="nav-text">提供私有pod测试项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#私有组件建立目录层级（配置subspec）"><span class="nav-number">5.9.</span> <span class="nav-text">私有组件建立目录层级（配置subspec）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cocoapods番外篇"><span class="nav-number">6.</span> <span class="nav-text">Cocoapods番外篇</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Cocoapods制作篇，创建属于自己或者团队的开源项目，供他人使用"><span class="nav-number">6.1.</span> <span class="nav-text">Cocoapods制作篇，创建属于自己或者团队的开源项目，供他人使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用Cocoapods里没有的第三方库新版本（奇巧淫技）"><span class="nav-number">6.2.</span> <span class="nav-text">使用Cocoapods里没有的第三方库新版本（奇巧淫技）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cocoapods实战篇记录"><span class="nav-number">7.</span> <span class="nav-text">Cocoapods实战篇记录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TN当前项目架构"><span class="nav-number">7.1.</span> <span class="nav-text">TN当前项目架构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#迁移测试"><span class="nav-number">7.2.</span> <span class="nav-text">迁移测试</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
