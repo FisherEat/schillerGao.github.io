@@ -1,0 +1,929 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="浮萍漂泊本无根，天涯游子君莫问" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="https://github.com/schillerGao" title="Hi schillerGao(高龙)" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="打包打包是难免的，每次需要给测试、产品或者UI或者在没有加入调试的真机上看效果的时候需要打ipa包。打包方式有很多种，不乏黑客技。以下是app几种打包方式，部分还待整理，希望大家一起补充。
+
+
+脚本打包
+步骤：工程项目中有AutoArchive文件夹下的ipa_generator.sh脚本是用来打包的脚本工具，直接在终端运行该脚本即可。例如：
+12&amp;gt;   sh  /Users/schille">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之打包">
+<meta property="og:url" content="http://yoursite.com/2016/08/01/打包 2.0/index.html">
+<meta property="og:site_name" content="Hi schillerGao(高龙)">
+<meta property="og:description" content="打包打包是难免的，每次需要给测试、产品或者UI或者在没有加入调试的真机上看效果的时候需要打ipa包。打包方式有很多种，不乏黑客技。以下是app几种打包方式，部分还待整理，希望大家一起补充。
+
+
+脚本打包
+步骤：工程项目中有AutoArchive文件夹下的ipa_generator.sh脚本是用来打包的脚本工具，直接在终端运行该脚本即可。例如：
+12&amp;gt;   sh  /Users/schille">
+<meta property="og:image" content="http://yoursite.com/Users/schiller/Desktop/bug.png">
+<meta property="og:image" content="http://yoursite.com/Users/schiller/Desktop/packagetxt/add.png">
+<meta property="og:image" content="http://yoursite.com/Users/schiller/Desktop/packagetxt/屏幕快照 2016-02-16 上午11.11.00.png">
+<meta property="og:image" content="http://yoursite.com/Users/schiller/Desktop/packagetxt/屏幕快照 2016-02-16 上午10.58.16.png">
+<meta property="og:image" content="http://yoursite.com/Users/schiller/Desktop/packagetxt/屏幕快照 2016-02-16 下午3.21.43.png">
+<meta property="og:updated_time" content="2016-10-09T15:16:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之打包">
+<meta name="twitter:description" content="打包打包是难免的，每次需要给测试、产品或者UI或者在没有加入调试的真机上看效果的时候需要打ipa包。打包方式有很多种，不乏黑客技。以下是app几种打包方式，部分还待整理，希望大家一起补充。
+
+
+脚本打包
+步骤：工程项目中有AutoArchive文件夹下的ipa_generator.sh脚本是用来打包的脚本工具，直接在终端运行该脚本即可。例如：
+12&amp;gt;   sh  /Users/schille">
+<meta name="twitter:image" content="http://yoursite.com/Users/schiller/Desktop/bug.png">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> iOS开发之打包 | Hi schillerGao(高龙) </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">高龙的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+
+
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'm6MupqWb8-J_VwiMZsWk','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              iOS开发之打包
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-08-01T10:15:37+08:00" content="2016-08-01">
+            2016-08-01
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2016/08/01/打包 2.0/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/打包 2.0/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2016/08/01/打包 2.0/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h4 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h4><p><em>打包是难免的，每次需要给测试、产品或者UI或者在没有加入调试的真机上看效果的时候需要打ipa包。打包方式有很多种，不乏黑客技。以下是app几种打包方式，部分还待整理，希望大家一起补充。</em></p>
+<blockquote>
+<ul>
+<li><p>脚本打包</p>
+<p>步骤：工程项目中有AutoArchive文件夹下的ipa_generator.sh脚本是用来打包的脚本工具，直接在终端运行该脚本即可。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   sh  /Users/schiller/Desktop/tuniu/tuniuapp-iphone/Iphone/AutoArchive/ipa_generator.sh</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   执行成功以后 最后输出Packaging finish at...貌似就是打包成功了，然后去项目文件的 output文件夹下找到 ipa文件。最好每次打包的时候删除原来的ipa文件，虽然该文件貌似会被覆盖。</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>  用脚本打包的速度貌似比Xcode打包快些，而且如果项目没有更改，再次打包的用时在1分钟左右。</p>
+<p>  注意：有时候用该脚本打出来的包版本不对，请先确定你需要打包的分支是dev还是其它版本。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   默认打出来的包是release包。</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>  脚本打包常见报错：</p>
+<ol>
+<li><p>证书报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;      ===BUILD TARGET TuNiuApp WatchKit App OF PROJECT....</div><div class="line">&gt;</div><div class="line">&gt;      Check dependencies</div><div class="line">&gt;      Code  Sign error: No matching provisionging profile found: Your build settings specify a provisioning profile with UUID &quot;xxxx&quot; however ,no such provisioning profile was found   </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>这种证书报错 ，因为其实脚本打包原理和xcode一样，要先build通过，此处证书导致明显是真机或者iOS Device build不过。
+</code></pre><ol>
+<li><p>第二个错误是archive failed</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      恭喜你，仔细查阅xcodebuild.log日志吧</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>xctool打包方式</p>
+<blockquote>
+<p>xctool是FaceBook开源的一个命令行工具，用来替代苹果的xcodebuild工具，<a href="https://github.com/facebook/xctool" target="_blank" rel="external">https://github.com/facebook/xctool</a> 这是fb介绍xctool的地址参数详解：</p>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;   &gt;    -workspace 需要打包的workspace后面接的文件一定要是 .xcworkspace,因此以后项目中集成cocoapods,需要更新打包脚本</div><div class="line">&gt;   &gt;    -scheme </div><div class="line">&gt;   &gt;    -configuration需要打包的配置文件</div><div class="line">&gt;   &gt;    archive 打包命令，会生成一个 .xcarchive的文件</div><div class="line">&gt;   &gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>xcodebuild是安装xcode Command line tools就有的一个命令，具体需要的命令：</p>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;   &gt;    -exportArchive告诉 xcodebuild 需要导出的archive文件，</div><div class="line">&gt;   &gt;    后面接ipa就是archive文件导出的格式为ipa文件</div><div class="line">&gt;   &gt;    archive 文件目录</div><div class="line">&gt;   &gt;    导出的ipa存放目录</div><div class="line">&gt;   &gt;    打包的目录</div><div class="line">&gt;   &gt;    我们的项目：</div><div class="line">&gt;   &gt;    xcodebuild -project projectname -scheme scheme -sdk iphoneos</div><div class="line">&gt;   &gt;    archive -archivePath  | tee xcodebuild.log</div><div class="line">&gt;   &gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>xcodebuild负责将工程源文件编译成xxx.app，xcrun负责给xxx.app签名并打包成 xxx.ipa</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;   &gt;    xcrun -sdk iphoneos PackageApplication -v $&#123;APP_PATH&#125; -o $&#123;SLIM_IPA_PATH&#125;</div><div class="line">&gt;   &gt;        if [ $? != 0 ]; then</div><div class="line">&gt;   &gt;            echo &quot;archive failed!!!!!!!!!!!!!!!!&quot;</div><div class="line">&gt;   &gt;            exit 110</div><div class="line">&gt;   &gt;        fi</div><div class="line">&gt;   &gt;        </div><div class="line">&gt;   &gt;    第一步清理:xcodebuild  clean</div><div class="line">&gt;   &gt;    第二步编译:xcodebuild</div><div class="line">&gt;   &gt;    第三步打包:xcrun -sdk iphoneos PackageApplication -v path/To/xxx.app -o xxx.ipa</div><div class="line">&gt;   &gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   &gt;    直接在终端输入xcodebuild -help 查看命令执行帮助</div><div class="line">&gt;   &gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p>打包脚本原理</p>
+<blockquote>
+<p>这是一个shell脚本，语法类似python\php等脚本语言，面对C系这么生晦的语言我等iOS开发程序员依旧能胜任，想必这种shell脚本也是游刃有余的。我们来解读这个脚本, 双反斜杠为小编的注释，其余为可执行代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div></pre></td><td class="code"><pre><div class="line">&gt;   &gt; #!/bin/bash  </div><div class="line">&gt;   &gt; //这一行是指定执行该脚本的shell类型，是bash,当然也可以是sh,至于shell与bash的区别自己</div><div class="line">&gt;   &gt; //找文档, shell脚本的注释用&quot;＃&quot;</div><div class="line">&gt;   &gt; set -e   </div><div class="line">&gt;   &gt; //set -e 该命令是告诉bash如果任何语句的执行结果不是true则应该退出</div><div class="line">&gt;   &gt; set -x</div><div class="line">&gt;   &gt; //set -x 表示每次执行语句前先输出该语句</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //定义三个变量、注意变量与等号间不要留空隙</div><div class="line">&gt;   &gt; PROJ_EXT=&quot;.xcodeproj&quot; //文件后缀名，此处是.xcodeproj,如果是pod，应该是.xcodespace</div><div class="line">&gt;   &gt; CURRENT_DATE=`date +%Y%m%d%H%M%S` //打印日期</div><div class="line">&gt;   &gt; CFG_FILE_NAME=&quot;config.cfg&quot;   //该文件存放了该脚本执行所需要的参数</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //函数定义，拉取最新代码</div><div class="line">&gt;   &gt; pull_repo_if_needed()</div><div class="line">&gt;   &gt; &#123;</div><div class="line">&gt;   &gt;     echo &quot;Pull from remote ...&quot;  //输出命令，QAQ，玩过脚本的都知道吧</div><div class="line">&gt;   &gt;     if [[ $1 == 1 ]]; then   //if 语句的定义方式 ，if ,then fi,</div><div class="line">&gt;   &gt;         git pull --rebase  //git 拉取更新，以rebase方式</div><div class="line">&gt;   &gt;     fi    //类似endif 结束语句</div><div class="line">&gt;   &gt;     git submodule update --remote  //git 更新子模块</div><div class="line">&gt;   &gt; &#125;</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //xctool_archive函数，有三个参数 ，此处用xctool方式打包，生成.app包</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; # param1: project name</div><div class="line">&gt;   &gt; # param2: scheme</div><div class="line">&gt;   &gt; # param3: archive path</div><div class="line">&gt;   &gt; xctool_archive()</div><div class="line">&gt;   &gt; &#123;</div><div class="line">&gt;   &gt;     xctool -project $1 \ </div><div class="line">&gt;   &gt;     -scheme $2 \</div><div class="line">&gt;   &gt;     -reporter json-compilation-database:compile_commands.json \</div><div class="line">&gt;   &gt;     -sdk iphoneos \</div><div class="line">&gt;   &gt;     archive \</div><div class="line">&gt;   &gt;     -archivePath $3</div><div class="line">&gt;   &gt; &#125;</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //xcodebuild_archive函数，此处用xcodebuild方式打包， 生成.app包 ，并打印日志log</div><div class="line">&gt;   &gt; # param1: project name</div><div class="line">&gt;   &gt; # param2: scheme</div><div class="line">&gt;   &gt; # param3: build path</div><div class="line">&gt;   &gt; xcodebuild_archive()</div><div class="line">&gt;   &gt; &#123;</div><div class="line">&gt;   &gt;     xcodebuild -project $1 \</div><div class="line">&gt;   &gt;     -scheme $2 \</div><div class="line">&gt;   &gt;     -sdk iphoneos \</div><div class="line">&gt;   &gt;     archive \</div><div class="line">&gt;   &gt;     -archivePath $3 \</div><div class="line">&gt;   &gt;     | tee xcodebuild.log</div><div class="line">&gt;   &gt; &#125;</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //给app打包</div><div class="line">&gt;   &gt; # param1 : archive path</div><div class="line">&gt;   &gt; # param2 : product name</div><div class="line">&gt;   &gt; # param3 : ipa target path</div><div class="line">&gt;   &gt; package_app()</div><div class="line">&gt;   &gt; &#123;</div><div class="line">&gt;   &gt;     //.app文件路径，此前build过并且archive过就会生成这个.app文件</div><div class="line">&gt;   &gt;     APP_PATH=$1/$2.xcarchive/Products/Applications/$2.app</div><div class="line">&gt;   &gt;     //生成dSMY文件</div><div class="line">&gt;   &gt;     DSYM_INPUT_PATH=$1/$2.xcarchive/dSYMs</div><div class="line">&gt;   &gt;     //支持watchkit </div><div class="line">&gt;   &gt;     WATCH_KIT_PATH=$1/$2.xcarchive/WatchKitSupport/WK</div><div class="line">&gt;   &gt;     </div><div class="line">&gt;   &gt;     //这个是打包生成的中间文件</div><div class="line">&gt;   &gt;     SLIM_IPA_PATH=$3/$2_slim.ipa</div><div class="line">&gt;   &gt;     //压缩dsym包的存放路径</div><div class="line">&gt;   &gt;     DSYM_ZIP_OUTPUT_PATH=$3/$2.dSYM.zip</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt;     //大boss,打包，用xcrun讲之前生成的.app打包成.ipa文件 ,具体命令baidu</div><div class="line">&gt;   &gt;     # package</div><div class="line">&gt;   &gt;     xcrun -sdk iphoneos PackageApplication -v $&#123;APP_PATH&#125; -o $&#123;SLIM_IPA_PATH&#125;</div><div class="line">&gt;   &gt;     //if条件语句， $? 表示上一个程序执行结果 或者是函数返回值，如果执行成功则为0， 否则   不为0， 所以此处表示如果执行不成功，则打印失败信息</div><div class="line">&gt;   &gt;     if [ $? != 0 ]; then</div><div class="line">&gt;   &gt;         echo &quot;archive failed!!!!!!!!!!!!!!!!&quot;</div><div class="line">&gt;   &gt;         exit 110</div><div class="line">&gt;   &gt;     fi</div><div class="line">&gt;   &gt;   </div><div class="line">&gt;   &gt;   //支持watchkit </div><div class="line">&gt;   &gt;     # Add watch kit support</div><div class="line">&gt;   &gt;     cd $3</div><div class="line">&gt;   &gt;     unzip $2_slim.ipa</div><div class="line">&gt;   &gt;     mkdir WatchKitSupport</div><div class="line">&gt;   &gt;     cp $&#123;WATCH_KIT_PATH&#125; WatchKitSupport/WK</div><div class="line">&gt;   &gt;     zip -qr $2.ipa Payload WatchKitSupport</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt;    // remove 所有不需要的文件</div><div class="line">&gt;   &gt;    # clear</div><div class="line">&gt;   &gt;     rm $2_slim.ipa</div><div class="line">&gt;   &gt;     rm -R WatchKitSupport</div><div class="line">&gt;   &gt;     rm -R Payload</div><div class="line">&gt;   &gt;   </div><div class="line">&gt;   &gt;    //zip压缩</div><div class="line">&gt;   &gt;     # zipping dSYM</div><div class="line">&gt;   &gt;     ( cd $&#123;DSYM_INPUT_PATH&#125; ; zip -r -X $&#123;DSYM_ZIP_OUTPUT_PATH&#125; $&#123;PRODUCT_NAME&#125;.app.dSYM )</div><div class="line">&gt;   &gt; &#125;</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; echo &quot;Package begin at $&#123;CURRENT_DATE&#125; ...&quot;</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //获取脚本脚本所在的目录， $&#123;0%/*&#125;,$0表示脚本所在目录，%/*去掉最后一个反斜杠的，即脚本所在目录。</div><div class="line">&gt;   &gt; # To project path</div><div class="line">&gt;   &gt; CURRENT_WORK_DIR=`echo $&#123;0%/*&#125;`</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //如果CURRENT_WORK_DIR为目录，则cd到该目录</div><div class="line">&gt;   &gt; if [ -d $&#123;CURRENT_WORK_DIR&#125; ];then</div><div class="line">&gt;   &gt;     cd $&#123;CURRENT_WORK_DIR&#125;</div><div class="line">&gt;   &gt; fi</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //获取当前目录</div><div class="line">&gt;   &gt; SCRIPT_PATH=`pwd`</div><div class="line">&gt;   &gt; //cd到上上一级目录，在本项目中即 Iphone目录</div><div class="line">&gt;   &gt; cd &quot;$&#123;SCRIPT_PATH&#125;/..&quot;</div><div class="line">&gt;   &gt; PROJ_PATH=`pwd`  //途牛项目所在目录， 即Iphone</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //用点语法导入 config参数脚本</div><div class="line">&gt;   &gt; # import config</div><div class="line">&gt;   &gt; . &quot;$&#123;SCRIPT_PATH&#125;/$&#123;CFG_FILE_NAME&#125;&quot;</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //archive位置，自动生成archive文件夹</div><div class="line">&gt;   &gt; # Archive path</div><div class="line">&gt;   &gt; ARCHIVE_PATH=&quot;$&#123;PROJ_PATH&#125;/archive&quot;</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //生成output文件夹，ipa文件放置的位置</div><div class="line">&gt;   &gt; # IPA path</div><div class="line">&gt;   &gt; IPA_DIR=&quot;$&#123;PROJ_PATH&#125;/output&quot;</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //使用函数，更新代码 ,UPDATE_FIRST参数来自config.cfg脚本</div><div class="line">&gt;   &gt; # Update source code</div><div class="line">&gt;   &gt; pull_repo_if_needed $&#123;UPDATE_FIRST&#125;</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //先要Build,生成.app文件，一般的位于Products文件夹。此处使用两种Build方式，一种是Xcode自带的xcodebuild,一种是xctool,此处作者推荐使用第二种方式</div><div class="line">&gt;   &gt; # Build</div><div class="line">&gt;   &gt; if [ &quot;$&#123;USE_XCTOOL&#125;&quot; == &quot;0&quot; ];then</div><div class="line">&gt;   &gt;     xcodebuild_archive &quot;$&#123;PROJECT_NAME&#125;&quot; &quot;$&#123;SCHEME&#125;&quot; &quot;$&#123;ARCHIVE_PATH&#125;/$&#123;PRODUCT_NAME&#125;&quot;</div><div class="line">&gt;   &gt; else</div><div class="line">&gt;   &gt;     xctool_archive &quot;$&#123;PROJECT_NAME&#125;&quot; &quot;$&#123;SCHEME&#125;&quot; &quot;$&#123;ARCHIVE_PATH&#125;/$&#123;PRODUCT_NAME&#125;&quot;</div><div class="line">&gt;   &gt; fi</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //将.app打包成.ipa</div><div class="line">&gt;   &gt; # package</div><div class="line">&gt;   &gt; mkdir -p &quot;$&#123;IPA_DIR&#125;&quot;</div><div class="line">&gt;   &gt; package_app &quot;$&#123;ARCHIVE_PATH&#125;&quot; &quot;$&#123;PRODUCT_NAME&#125;&quot; &quot;$&#123;IPA_DIR&#125;&quot;</div><div class="line">&gt;   &gt;</div><div class="line">&gt;   &gt; //打包成功，如果失败，可以查阅xcodebuild.log日志</div><div class="line">&gt;   &gt; BUILD_FINISH_DATE=`date +%Y%m%d%H%M%S`</div><div class="line">&gt;   &gt; echo &quot;Packaging finish at $&#123;BUILD_FINISH_DATE&#125;&quot;</div><div class="line">&gt;   &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>Xcode打包</p>
+<p>原理：不详</p>
+<p>步骤：第一次用Xcode打包的孩子可能会遇到各种各样恶心的问题，我将我遇到的问题一一汇总</p>
+<ol>
+<li><p>首先要选择真机，你的项目要在测试机上跑得起来。（跑不起来的话是证书的问题啦，这个自己先解决）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      选择目录 ： Xcode --&gt; Product --&gt;Archive ,点击就开始打包了(不要激动，后面还有很多坑)如果Archive选项是灰色的，说明你选择的运行的机器不对，你可能是在模拟器上跑的哦，要用真机，再一次提醒。</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>证书问题：比如 “ no provisioning  profile …”, 仔细检查 是 TuNiuApp 还是App pro 或者 App WatchKit的证书问题导致的，去Build Settings—&gt;Code signing identity中去配置吧。（此处不熬述）</p>
+</li>
+<li><p>遇到的第一个问题是<img src="/Users/schiller/Desktop/bug.png" alt="bug"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      Crashlytics: You must install Crashlytics to continue. https://api.crashlytics.com/api/...... </div><div class="line">&gt;      If this machine is a build server please remove Crahhlytics.app if present and use xcodebuild so that TuniuApp.app.dSYM is uploaded....</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>查看途牛项目发现有Crashlytics.framework，报错的原因是途牛项目中集成了这个崩溃统计框架，生成安装包需要导入Crashlytics才能继续，You must install Crashlytics to continue.这句话貌似就是解决方案咯。这是Crashlytics官网http://try.crashlytics.com/sdk/
+
+下载这个软件安装一下就好了。不需要登录哦。然后就可以继续打包了。
+</code></pre><ol>
+<li><p>Export导出ipa包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      选择右边  Export--&gt;Save For Enterprise Deployment</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>要加入途牛账号<img src="/Users/schiller/Desktop/packagetxt/add.png" alt="add"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      提示你可能需要 Join a program 或者 Add ，估计是没有加入途牛开发者账号，途牛Apple ID账号：tuniumob@gmail.com ，密码：XXXX</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>select a Development Team to use for provisioning <img src="/Users/schiller/Desktop/packagetxt/屏幕快照 2016-02-16 上午11.11.00.png" alt="屏幕快照 2016-02-16 上午11.11.00"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      选择 Nanjing Tuniu Technology Company Limited选项</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>Missing iOS Distribution siging identity for Nanjing Tuniu Technology Company Limited 解决方案 <img src="/Users/schiller/Desktop/packagetxt/屏幕快照 2016-02-16 上午10.58.16.png" alt="屏幕快照 2016-02-16 上午10.58.16"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      答案着这里：https://segmentfault.com/q/1010000004433963</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code> 具体的解决方案是下载一个 AppleWWSRCA.cer 文件并安装。然后在钥匙串里找到登录（login）选项,找到会一个过期的“WWDR Certificate”（Apple Worldwide Developer Relations Certification Authority），删除它。同样的，在System的那一栏也有这个过期的
+
+WWDR Certificate 一并删除。然后你就会发现证书有效了。
+</code></pre><ol>
+<li><p>喜大普奔，接下来的路貌似很顺畅，Xcode会在桌面生成一个文件夹，含有打包的ipa文件。</p>
+</li>
+<li><p>其它问题汇总</p>
+</li>
+</ol>
+<ul>
+<li><p>jenkins打包</p>
+<p>当前面两种方式行不通的时候，才建议你用这种方式打包，因为jenkins打包速度实在太慢了，QAQ。还有一个比较恶心的问题是打包过程中，其它版本的已经构建好的包就会被覆盖掉，这就是传说中的单线程么？jenkins打包工具一般是测试人员使用的，少用这种工具，不要挤占测试人员的线程。</p>
+<p>具体步骤：</p>
+<ol>
+<li><p>只有确保你需要打包的代码已经入库才能用jenkins打包，不然就悲剧了，白辛苦一番。</p>
+</li>
+<li><p>请先登录jenkins。然后找到这个东东</p>
+<p><a href="http://172.30.38.117:8080/job/tuniu_app_inhouse/" target="_blank" rel="external">http://172.30.38.117:8080/job/tuniu_app_inhouse/</a></p>
+</li>
+<li><p>选择左边栏的 “Build with Parameters”, 在右边栏 EMAIL_RECEVIER中输入你的email地址，如：XXXXXX@tuniu.com。 点击开始构建，在 左边栏的Build History 构建历史就可以看到你的＃xxx 项目正在构建中了，waiting吧。</p>
+</li>
+<li><p>构建完毕之后，选择该项目<img src="/Users/schiller/Desktop/packagetxt/屏幕快照 2016-02-16 下午3.21.43.png" alt="屏幕快照 2016-02-16 下午3.21.43"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      左边 栏工作空间：在jenkins--&gt;tuniu_inhouse--&gt;iphone--&gt;Release-iphoneos--&gt;Output--&gt;TuNiuApp.ipa 找到这个ipa文件下载即可</div><div class="line">&gt;      说实话，这寻找路径一点都不友好。</div><div class="line">&gt;</div></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+</blockquote>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/01/多线程异步刷新数据/" rel="prev">iOS获取异步数据并刷新界面dispatch_asyn的使用</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/08/01/打包 2.0/"
+                   data-title="iOS开发之打包" data-url="http://yoursite.com/2016/08/01/打包 2.0/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="高龙" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">高龙</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">浮萍漂泊本无根，天涯游子君莫问</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="https://github.com/schillerGao" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/schillerGao" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank">Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/b1704a5943fe/latest_articles" target="_blank">简书</a>
+              </span>
+            
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.codingdemo.com" target="_blank">Favori</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://mindhacks.cn/" target="_blank">刘未鹏</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.ruanyifeng.com/home.html" target="_blank">阮一峰</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://ibruce.info/" target="_blank">不如</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://gongchuangsu.com/" target="_blank">贱贱的梦想</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.qiuchengjia.cn/" target="_blank">戎码人生</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.jvaeyhcd.cc/" target="_blank">Jvaryhcd</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bianmaren.com/" target="_blank">编码人</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://liuyuanwai.cn/" target="_blank">劉員外</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bolt.coding.me" target="_blank">bolt</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#打包"><span class="nav-number">1.</span> <span class="nav-text">打包</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高龙</span>
+
+  <div class="powered-by"></div>
+  <div class="powered-by">
+    Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  </div>
+
+  <div class="theme-info">
+    浮萍漂泊本无根 天涯游子君莫问
+  </div>
+
+  <!-- busuanzi -->
+  
+    <div class="powered-by">
+    <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+    </div>
+  
+
+</div>
+
+<!--
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+<!--
+<div class="powered-by"></div>
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+-->
+
+<!-- busuanzi -->
+<!--
+
+  <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gaolongeric"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

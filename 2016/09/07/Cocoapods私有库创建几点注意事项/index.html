@@ -39,22 +39,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="132068111@qq.com 欢迎相互交流！
-Podspec文件配置以下是配置文档，“#”号为注释。
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778">
+<meta name="description" content="Cocoapods私有库创建几点注意事项.podsepc 配置文件 的位置 一定要在项目的顶部
+
+.podsepc  配置文件必须和 .workspace、Podfile等文件放在同一级目录下。如果不在同一级目录下，pod install 通常会报一下错误：
+1234&amp;gt;    Unable to satisfy the following requirements:&amp;gt;&amp;gt;    -">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Podspec文件配置详解">
-<meta property="og:url" content="http://yoursite.com/2016/10/09/Podspec文件配置详解/index.html">
+<meta property="og:title" content="Cocoapods私有库创建几点注意事项">
+<meta property="og:url" content="http://yoursite.com/2016/09/07/Cocoapods私有库创建几点注意事项/index.html">
 <meta property="og:site_name" content="Hi schillerGao(高龙)">
-<meta property="og:description" content="132068111@qq.com 欢迎相互交流！
-Podspec文件配置以下是配置文档，“#”号为注释。
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778">
-<meta property="og:updated_time" content="2016-10-09T15:14:11.000Z">
+<meta property="og:description" content="Cocoapods私有库创建几点注意事项.podsepc 配置文件 的位置 一定要在项目的顶部
+
+.podsepc  配置文件必须和 .workspace、Podfile等文件放在同一级目录下。如果不在同一级目录下，pod install 通常会报一下错误：
+1234&amp;gt;    Unable to satisfy the following requirements:&amp;gt;&amp;gt;    -">
+<meta property="og:updated_time" content="2016-10-09T15:17:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Podspec文件配置详解">
-<meta name="twitter:description" content="132068111@qq.com 欢迎相互交流！
-Podspec文件配置以下是配置文档，“#”号为注释。
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778">
+<meta name="twitter:title" content="Cocoapods私有库创建几点注意事项">
+<meta name="twitter:description" content="Cocoapods私有库创建几点注意事项.podsepc 配置文件 的位置 一定要在项目的顶部
+
+.podsepc  配置文件必须和 .workspace、Podfile等文件放在同一级目录下。如果不在同一级目录下，pod install 通常会报一下错误：
+1234&amp;gt;    Unable to satisfy the following requirements:&amp;gt;&amp;gt;    -">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +67,7 @@ Podspec文件配置以下是配置文档，“#”号为注释。
   };
 </script>
 
-  <title> Podspec文件配置详解 | Hi schillerGao(高龙) </title>
+  <title> Cocoapods私有库创建几点注意事项 | Hi schillerGao(高龙) </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -204,7 +207,7 @@ Podspec文件配置以下是配置文档，“#”号为注释。
           
           
             
-              Podspec文件配置详解
+              Cocoapods私有库创建几点注意事项
             
           
         </h1>
@@ -213,8 +216,8 @@ Podspec文件配置以下是配置文档，“#”号为注释。
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-10-09T23:09:13+08:00" content="2016-10-09">
-            2016-10-09
+          <time itemprop="dateCreated" datetime="2016-09-07T17:55:31+08:00" content="2016-09-07">
+            2016-09-07
           </time>
         </span>
 
@@ -225,11 +228,11 @@ Podspec文件配置以下是配置文档，“#”号为注释。
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/10/09/Podspec文件配置详解/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/09/Podspec文件配置详解/" itemprop="commentsCount"></span>
+              <a href="/2016/09/07/Cocoapods私有库创建几点注意事项/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/Cocoapods私有库创建几点注意事项/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/10/09/Podspec文件配置详解/#comments" itemprop="discussionUrl">
+              <a href="/2016/09/07/Cocoapods私有库创建几点注意事项/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -244,11 +247,43 @@ Podspec文件配置以下是配置文档，“#”号为注释。
       
 
       
-        <span itemprop="articleBody"><p><em>132068111@qq.com 欢迎相互交流！</em></p>
-<h4 id="Podspec文件配置"><a href="#Podspec文件配置" class="headerlink" title="Podspec文件配置"></a>Podspec文件配置</h4><p><em>以下是配置文档，“#”号为注释。</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div></pre></td><td class="code"><pre><div class="line">#创建一个spec文件，绝对值符号为缩写。</div><div class="line">Pod::Spec.new do |s|</div><div class="line">#spec文件名，对应该私有库名</div><div class="line">    s.name         = &quot;StarfishFramework&quot;</div><div class="line">    s.version      = &quot;1.0.0&quot;</div><div class="line">    s.summary      = &quot;IM_Framework&quot;</div><div class="line">    s.homepage     = &quot;https://coding.net/user&quot;</div><div class="line">    s.license      = &#123; :type =&gt; &quot;MIT&quot;, :file =&gt; &quot;LICENSE&quot; &#125;</div><div class="line">    s.author       = &#123; &quot;gaolong&quot; =&gt; &quot;1320681113@qq.com&quot; &#125;</div><div class="line">    s.platform     = :ios, &quot;7.0&quot;</div><div class="line">#源码文件地址</div><div class="line">    s.source       = &#123; :git =&gt; &quot;https://git.coding.net/schiller/SFSDK.git&quot;&#125;</div><div class="line">#依赖的系统framework，不需要跟.framework后缀</div><div class="line">    s.frameworks   = &apos;UIKit&apos;, &apos;Foundation&apos;, &apos;CoreFoundation&apos;, &apos;AVFoundation&apos;, &apos;CoreAudio&apos;, &apos;AudioToolbox&apos;, &apos;CoreGraphics&apos;</div><div class="line">#依赖的系统library，不需要跟 lib前缀</div><div class="line">    s.libraries    = &apos;c++&apos;, &apos;z&apos;, &apos;icucore&apos;</div><div class="line">#子文件夹</div><div class="line">    s.subspec &apos;StarfishFramework&apos; do |sfk|</div><div class="line">#某一个落单的文件可以用资源文件的形式导入</div><div class="line">        sfk.source_files = &apos;StarfishFramework/StarfishFramework.h&apos;</div><div class="line">        sfk.subspec &apos;SDK&apos; do |sdk|</div><div class="line">            sdk.source_files = &apos;StarfishFramework/SDK/StarfishSDK.h&apos;, &apos;StarfishFramework/SDK/StarfishSDK.m&apos;</div><div class="line">            sdk.subspec &apos;NewRestClient&apos; do |nrc|</div><div class="line">#NewRestClient文件夹下的所有 .h和.m文件</div><div class="line">                nrc.source_files = &apos;StarfishFramework/SDK/NewRestClient/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            sdk.subspec &apos;Database&apos; do |dbs|</div><div class="line">                dbs.source_files = &apos;StarfishFramework/SDK/Database/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line"></div><div class="line">            sdk.subspec &apos;Models&apos; do |m|</div><div class="line">                m.subspec &apos;Apps&apos; do |apps|</div><div class="line">                #Apps文件夹下的所有文件，后缀不限</div><div class="line">                    apps.source_files = &apos;StarfishFramework/SDK/Models/Apps/**/*&apos;</div><div class="line">                end</div><div class="line">                m.subspec &apos;Contact&apos; do |c|</div><div class="line">                    c.source_files = &apos;StarfishFramework/SDK/Models/Contact/**/*&apos;</div><div class="line">                end</div><div class="line">                m.subspec &apos;DeviceInfo&apos; do |di|</div><div class="line">                    di.source_files = &apos;StarfishFramework/SDK/Models/DeviceInfo/**/*.&#123;h,m&#125;&apos;</div><div class="line">                end</div><div class="line">                m.subspec &apos;EmojiConfig&apos; do |e|</div><div class="line">                    e.source_files = &apos;StarfishFramework/SDK/Models/EmojiConfig/**/*&apos;</div><div class="line">                end</div><div class="line">                m.subspec &apos;MemberInfo&apos; do |member|</div><div class="line">                    member.source_files = &apos;StarfishFramework/SDK/Models/MemberInfo/**/*&apos;</div><div class="line">                end</div><div class="line">                m.subspec &apos;SFManager&apos; do |sfm|</div><div class="line">                    sfm.source_files = &apos;StarfishFramework/SDK/Models/SFManager/**/*&apos;</div><div class="line">                end</div><div class="line">                m.subspec &apos;SFMessage&apos; do |sfmsg|</div><div class="line">                    sfmsg.source_files = &apos;StarfishFramework/SDK/Models/SFMessage/**/*&apos;</div><div class="line">                end</div><div class="line">                m.subspec &apos;SFModel&apos; do |sfmodel|</div><div class="line">                    sfmodel.source_files = &apos;StarfishFramework/SDK/Models/SFModel/**/*&apos;</div><div class="line">                end</div><div class="line">                m.subspec &apos;SFPool&apos; do |sfpool|</div><div class="line">                    sfpool.source_files = &apos;StarfishFramework/SDK/Models/SFPool/**/*.&#123;h,m&#125;&apos;</div><div class="line">                end</div><div class="line">            end</div><div class="line">            sdk.subspec &apos;Utilities&apos; do |u|</div><div class="line">                u.subspec &apos;SFThrottle&apos; do |st|</div><div class="line">                    st.source_files = &apos;StarfishFramework/SDK/Utilities/SFThrottle/**/*.&#123;h,m&#125;&apos;</div><div class="line">                end</div><div class="line">                u.subspec &apos;bfsClient&apos; do |bfs|</div><div class="line">                    bfs.source_files = &apos;StarfishFramework/SDK/Utilities/bfsClient/**/*&apos;</div><div class="line">                end</div><div class="line">                u.subspec &apos;Categories&apos; do |c|</div><div class="line">                    c.source_files = &apos;StarfishFramework/SDK/Utilities/Categories/**/*.&#123;h,m&#125;&apos;</div><div class="line">                end</div><div class="line">                u.subspec &apos;Marcos&apos; do |mar|</div><div class="line">                    mar.source_files = &apos;StarfishFramework/SDK/Utilities/Macros/**/*&apos;</div><div class="line">                end</div><div class="line">                u.subspec &apos;MaxwellClient&apos; do |max|</div><div class="line">                    max.source_files = &apos;StarfishFramework/SDK/Utilities/MaxwellClient/**/*&apos;</div><div class="line">                end</div><div class="line">                u.subspec &apos;SFOrgInitDataParser&apos; do |sfo|</div><div class="line">                    sfo.source_files = &apos;StarfishFramework/SDK/Utilities/SFOrgInitDataParser/**/*&apos;</div><div class="line">                end</div><div class="line">                u.subspec &apos;SoundUtil&apos; do |su|</div><div class="line">                    su.source_files = &apos;StarfishFramework/SDK/Utilities/SoundUtil/**/*.&#123;h,m&#125;&apos;</div><div class="line">                end</div><div class="line">                u.subspec &apos;RegexKitLite&apos; do |regex|</div><div class="line">                    regex.compiler_flags = &apos;-fno-objc-arc&apos;</div><div class="line">                    regex.source_files = &apos;StarfishFramework/SDK/Utilities/RegexKitLite/**/*.&#123;h,m&#125;&apos;</div><div class="line">                end</div><div class="line">                u.subspec &apos;Others&apos; do |o|</div><div class="line">                    o.source_files = &apos;StarfishFramework/SDK/Utilities/Others/**/*.&#123;h,m&#125;&apos;</div><div class="line">                end</div><div class="line">            end</div><div class="line">            #以下是引用的c++文件，也直接可以以源码的形式导入，和普通oc文件没有区别</div><div class="line">            sdk.subspec &apos;Vendor&apos; do |v|</div><div class="line">                v.subspec &apos;GoogleProtobuf&apos; do |gp|</div><div class="line">                    gp.source_files = &apos;StarfishFramework/SDK/Vendor/GoogleProtobuf/**/*&apos;</div><div class="line">                end</div><div class="line">                v.subspec &apos;msgpack-c&apos; do |msgpack|</div><div class="line">                    msgpack.source_files = &apos;StarfishFramework/SDK/Vendor/msgpack-c/include/**/*&apos;</div><div class="line">                end</div><div class="line">                v.subspec &apos;pjlib&apos; do |plb|</div><div class="line">                    plb.subspec &apos;include&apos; do |include|</div><div class="line">                        include.source_files = &apos;StarfishFramework/SDK/Vendor/pjlib/include/**/*&apos;</div><div class="line">                    end</div><div class="line">                    #某个文件夹下有.a文件</div><div class="line">                    plb.subspec &apos;lib&apos; do |lib|</div><div class="line">                         lib.vendored_libraries = &apos;StarfishFramework/SDK/Vendor/pjlib/lib/*.a&apos;</div><div class="line">                    end</div><div class="line">                end</div><div class="line">            end</div><div class="line"></div><div class="line">        end</div><div class="line"></div><div class="line">    end</div><div class="line">#依赖的第三方库</div><div class="line">    s.dependency &apos;AFNetworking&apos;</div><div class="line">    s.dependency &apos;FMDB&apos;,&apos;~&gt; 2.6&apos;</div><div class="line">    s.dependency &apos;CocoaLumberjack&apos;, &apos;~&gt; 2.2.0&apos;</div><div class="line">#此处是HEADER_SEARCH_PATHS的头文件地址，因为本人引用了c++文件，因此需要导入HEADER_SEARCH_PATHS头文件，需要自定义header_dir，否则会编译不过，因为Xcode找不到c++或者c文件而报&quot;file not found&quot;</div><div class="line">    s.header_dir = &quot;StarfishFramework&quot;</div><div class="line">    #CLANG_CXX_LANGUAGE_STANDARD编译选项为c++。等等。此处的具体配置可以查看包内容，对应配置即可。但是这一步往往很难。</div><div class="line">    s.xcconfig = &#123;&quot;HEADER_SEARCH_PATHS&quot; =&gt; &quot;$(PODS_ROOT)/StarfishFramework/StarfishFramework/SDK/Vendor/pjlib/include $(PODS_ROOT)/StarfishFramework/StarfishFramework/SDK/Vendor/msgpack-c/include $(PODS_ROOT)/StarfishFramework/StarfishFramework/SDK/Vendor/GoogleProtobuf $(SDKROOT)/usr/include/libc++&quot;, &quot;CLANG_CXX_LANGUAGE_STANDARD&quot; =&gt; &quot;c++0x&quot;, &quot;CLANG_CXX_LIBRARY&quot; =&gt; &quot;libc++&quot;, &quot;GCC_PREPROCESSOR_DEFINITIONS&quot; =&gt; &quot;MSGPACK_DISABLE_LEGACY_NIL=1&quot;&#125;</div><div class="line">end</div></pre></td></tr></table></figure>
-<h4 id="Podfile文件配置详解"><a href="#Podfile文件配置详解" class="headerlink" title="Podfile文件配置详解"></a>Podfile文件配置详解</h4><p><em>可以通过下面两种方式的其中一种导入私有库</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pod &apos;StarfishFramework&apos;, :git =&gt; &apos;https://git.coding.net/schiller/SFSDK.git&apos;, :branch =&gt; &apos;master&apos;</div><div class="line">pod &apos;StarfishFramework&apos;, :path =&gt; &apos;/Users/yxt/SFSDK&apos;</div></pre></td></tr></table></figure></span>
+        <span itemprop="articleBody"><h4 id="Cocoapods私有库创建几点注意事项"><a href="#Cocoapods私有库创建几点注意事项" class="headerlink" title="Cocoapods私有库创建几点注意事项"></a>Cocoapods私有库创建几点注意事项</h4><h5 id="podsepc-配置文件-的位置-一定要在项目的顶部"><a href="#podsepc-配置文件-的位置-一定要在项目的顶部" class="headerlink" title=".podsepc 配置文件 的位置 一定要在项目的顶部"></a>.podsepc 配置文件 的位置 一定要在项目的顶部</h5><blockquote>
+<ol>
+<li><p><code>.podsepc</code>  配置文件必须和 <code>.workspace</code>、<code>Podfile</code>等文件放在同一级目录下。如果不在同一级目录下，pod install 通常会报一下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;    Unable to satisfy the following requirements:</div><div class="line">&gt;</div><div class="line">&gt;    - `GLTestSpec (from `https://git.coding.net/schiller/GLTestSpecDemo.git`)` required by `Podfile`</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>配置文件中的 <code>s.tag</code>  参数会出现在 <code>pod install —verbose</code> 日志中，也会出现在<code>Podfile.lock</code>中。该参数配置没有多大作用。</p>
+</li>
+<li><p>外部导入私有库是 pod 后面跟的名称就是该私有库配置文件的名称：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    pod &apos;GLTestSpec&apos;, :git =&gt; &apos;https://git.coding.net/schiller/GLTestSpecDemo.git&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h5 id="缓存导致pod-install-或者pod-update-还是原来的私有库源码"><a href="#缓存导致pod-install-或者pod-update-还是原来的私有库源码" class="headerlink" title="缓存导致pod install 或者pod update 还是原来的私有库源码"></a>缓存导致pod install 或者pod update 还是原来的私有库源码</h5><blockquote>
+<ol>
+<li><p><code>pod cache list</code> 来查看缓存，如果更新私有库，要完全更新私有库时，可以考虑删除缓存。缓存的具体位置是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;    $ cd /Users/yxt/Library/Caches/CocoaPods/Pods/External/GLTestSpec</div><div class="line">&gt;    $ cd /Users/yxt/Library/Caches/CocoaPods/Pods/Specs/External/GLTestSpec </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>如果更新了私有库，还是报原来的错误:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;    Pre-downloading: `GLTestSpec` from `https://git.coding.net/schiller/GLTestSpecDemo.git`, branch `master`</div><div class="line">&gt;    [!] Unable to satisfy the following requirements:</div><div class="line">&gt;</div><div class="line">&gt;    - `GLTestSpec (from `https://git.coding.net/schiller/GLTestSpecDemo.git`, branch `master`)` required by `Podfile`</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;<br>&gt;<br>&gt;</p>
+<blockquote>
+<p>   //这时可以考虑删除缓存，可能起到奇效。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt; 3. `pod cache list`  失效，暂无好的方法解决。</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+</span>
       
     </div>
 
@@ -259,11 +294,13 @@ Podspec文件配置以下是配置文档，“#”号为注释。
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/09/11/hello-world/" rel="prev">Hello World — from schillerGao</a>
+            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/11/hello-world/" rel="next">Hello World — from schillerGao</a>
+              <a href="/2016/08/01/Cocoapods/" rel="next">Xcode project中引入Cocoapods管理</a>
             
           </div>
         </div>
@@ -288,8 +325,8 @@ Podspec文件配置以下是配置文档，“#”号为注释。
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/10/09/Podspec文件配置详解/"
-                   data-title="Podspec文件配置详解" data-url="http://yoursite.com/2016/10/09/Podspec文件配置详解/">
+              <div class="ds-thread" data-thread-key="2016/09/07/Cocoapods私有库创建几点注意事项/"
+                   data-title="Cocoapods私有库创建几点注意事项" data-url="http://yoursite.com/2016/09/07/Cocoapods私有库创建几点注意事项/">
               </div>
             
           </div>
@@ -435,7 +472,7 @@ Podspec文件配置以下是配置文档，“#”号为注释。
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Podspec文件配置"><span class="nav-number">1.</span> <span class="nav-text">Podspec文件配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Podfile文件配置详解"><span class="nav-number">2.</span> <span class="nav-text">Podfile文件配置详解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cocoapods私有库创建几点注意事项"><span class="nav-number">1.</span> <span class="nav-text">Cocoapods私有库创建几点注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#podsepc-配置文件-的位置-一定要在项目的顶部"><span class="nav-number">1.1.</span> <span class="nav-text">.podsepc 配置文件 的位置 一定要在项目的顶部</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缓存导致pod-install-或者pod-update-还是原来的私有库源码"><span class="nav-number">1.2.</span> <span class="nav-text">缓存导致pod install 或者pod update 还是原来的私有库源码</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
