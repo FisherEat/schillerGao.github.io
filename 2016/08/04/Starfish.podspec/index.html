@@ -1,0 +1,755 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="浮萍漂泊本无根，天涯游子君莫问" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="https://github.com/schillerGao" title="Hi schillerGao(高龙)" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="这里提供一个简单的配置私有库文件的案例
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949">
+<meta property="og:type" content="article">
+<meta property="og:title" content="starfish.podspec">
+<meta property="og:url" content="http://yoursite.com/2016/08/04/Starfish.podspec/index.html">
+<meta property="og:site_name" content="Hi schillerGao(高龙)">
+<meta property="og:description" content="这里提供一个简单的配置私有库文件的案例
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949">
+<meta property="og:updated_time" content="2016-12-06T14:24:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="starfish.podspec">
+<meta name="twitter:description" content="这里提供一个简单的配置私有库文件的案例
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> starfish.podspec | Hi schillerGao(高龙) </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">高龙的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+
+
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'm6MupqWb8-J_VwiMZsWk','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              starfish.podspec
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-08-04T17:21:08+08:00" content="2016-08-04">
+            2016-08-04
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2016/08/04/Starfish.podspec/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/04/Starfish.podspec/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2016/08/04/Starfish.podspec/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><em>这里提供一个简单的配置私有库文件的案例</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div></pre></td><td class="code"><pre><div class="line">Pod::Spec.new do |s|</div><div class="line">    s.name         = &quot;Starfish&quot;</div><div class="line">    s.version      = &quot;1.0.4&quot;</div><div class="line">    s.summary      = &quot;IM模块&quot;</div><div class="line">    s.homepage     = &quot;http://git.getstarfish.com/&quot;</div><div class="line">    s.license      = &#123; :type =&gt; &quot;MIT&quot;&#125;</div><div class="line">    s.author       = &#123; &quot;gaolong&quot; =&gt; &quot;gaol@yunxuetang.com&quot; &#125;</div><div class="line">    s.platform     = :ios, &quot;7.0&quot;</div><div class="line">    s.source       = &#123; :git =&gt; &quot;http://git.getstarfish.com/sf/starfish-ios-sdk.git&quot;&#125;</div><div class="line">  </div><div class="line">    s.frameworks = &apos;UIKit&apos;, &apos;Foundation&apos;, &apos;AVFoundation&apos;, &apos;CoreAudio&apos;, &apos;AudioToolbox&apos;</div><div class="line">    s.subspec &apos;Contacts&apos; do |contacts|</div><div class="line">        contacts.source_files = &apos;Starfish/Contacts/**/*.&#123;h,m&#125;&apos;</div><div class="line">    end</div><div class="line">    s.subspec &apos;Controllers&apos; do |controllers|</div><div class="line">        controllers.subspec &apos;Common&apos; do |common|</div><div class="line">            common.source_files = &apos;Starfish/Controllers/Common/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        controllers.subspec &apos;ContactSelect&apos; do |contactselect|</div><div class="line">            contactselect.source_files = &apos;Starfish/Controllers/ContactSelect/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        controllers.subspec &apos;Creation&apos; do |creation|</div><div class="line">            creation.source_files = &apos;Starfish/Controllers/Creation/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line"></div><div class="line">        #details</div><div class="line">        controllers.subspec &apos;Details&apos; do |details|</div><div class="line">            details.subspec &apos;ApplicationDetail&apos; do |applicationdetail|</div><div class="line">                applicationdetail.source_files = &apos;Starfish/Controllers/Details/ApplicationDetail/**/*&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;ChangeUser&apos; do |changeuser|</div><div class="line">                changeuser.source_files = &apos;Starfish/Controllers/Details/ChangeUser/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;ContactCircleDetatil&apos; do |contactcircledetail|</div><div class="line">                contactcircledetail.source_files = &apos;Starfish/Controllers/Details/ContactCircleDetatil/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;ContactDetail&apos; do |contactdetail|</div><div class="line">                contactdetail.source_files = &apos;Starfish/Controllers/Details/ContactDetail/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;DepartmentDetail&apos; do |departmentdetail|</div><div class="line">                departmentdetail.source_files = &apos;Starfish/Controllers/Details/DepartmentDetail/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;MemberDetail&apos; do |memberdetail|</div><div class="line">                memberdetail.source_files = &apos;Starfish/Controllers/Details/MemberDetail/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;OrgDetail&apos; do |orgdetail|</div><div class="line">                orgdetail.source_files = &apos;Starfish/Controllers/Details/OrgDetail/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;PhoneContactPicker&apos; do |phonecontactpicker|</div><div class="line">                phonecontactpicker.source_files = &apos;Starfish/Controllers/Details/PhoneContactPicker/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;SendDetail&apos; do |senddetail|</div><div class="line">                senddetail.source_files = &apos;Starfish/Controllers/Details/SendDetail/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;SFConversationDetail&apos; do |sfconversationdetail|</div><div class="line">                sfconversationdetail.source_files = &apos;Starfish/Controllers/Details/SFConversationDetail/**/*&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;SFMessage&apos; do |sfmessage|</div><div class="line">                sfmessage.source_files = &apos;Starfish/Controllers/Details/SFMessage/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;Transfer&apos; do |transfer|</div><div class="line">                transfer.source_files = &apos;Starfish/Controllers/Details/Transfer/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">            details.subspec &apos;WebPageReproduceDetail&apos; do |webpagereproducedetail|</div><div class="line">                webpagereproducedetail.source_files = &apos;Starfish/Controllers/Details/WebPageReproduceDetail/**/*.&#123;h,m&#125;&apos;</div><div class="line">            end</div><div class="line">        end</div><div class="line"></div><div class="line">        controllers.subspec &apos;ImagePicker&apos; do |imagepicker|</div><div class="line">            imagepicker.source_files = &apos;Starfish/Controllers/ImagePicker/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        controllers.subspec &apos;MainTabs&apos; do |maintabs|</div><div class="line">            maintabs.source_files = &apos;Starfish/Controllers/MainTabs/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        controllers.subspec &apos;SFGobalSearch&apos; do |sfglobalsearch|</div><div class="line">            sfglobalsearch.source_files = &apos;Starfish/Controllers/SFGlobalSearch/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        controllers.subspec &apos;UtilController&apos; do |utilcontroller|</div><div class="line">            utilcontroller.source_files = &apos;Starfish/Controllers/UtilController/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">    end</div><div class="line"></div><div class="line">    s.subspec &apos;Database&apos; do |database|</div><div class="line">        database.source_files = &apos;Starfish/Database/**/*.&#123;h,m&#125;&apos;</div><div class="line">    end</div><div class="line">    s.subspec &apos;Models&apos; do |models|</div><div class="line">        models.subspec &apos;Apps&apos; do |apps|</div><div class="line">            apps.source_files = &apos;Starfish/Models/Apps/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        models.subspec &apos;Contact&apos; do |contact|</div><div class="line">            contact.source_files = &apos;Starfish/Models/Contact/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        models.subspec &apos;DeviceInfo&apos; do |deviceinfo|</div><div class="line">            deviceinfo.source_files = &apos;Starfish/Models/DeviceInfo/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        models.subspec &apos;EmojiConfig&apos; do |emojiconfig|</div><div class="line">            emojiconfig.source_files = &apos;Starfish/Models/EmojiConfig/**/*&apos;</div><div class="line">        end</div><div class="line">        models.subspec &apos;MemberInfo&apos; do |memberinfo|</div><div class="line">            memberinfo.source_files = &apos;Starfish/Models/MemberInfo/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        models.subspec &apos;SFEmotion&apos; do |sfemotion|</div><div class="line">            sfemotion.source_files = &apos;Starfish/Models/SFEmotion/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        models.subspec &apos;SFManager&apos; do |sfmanager|</div><div class="line">            sfmanager.source_files = &apos;Starfish/Models/SFManager/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        models.subspec &apos;SFMessage&apos; do |sfmessage|</div><div class="line">            sfmessage.source_files = &apos;Starfish/Models/SFMessage/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        models.subspec &apos;Search&apos; do |search|</div><div class="line">            search.source_files = &apos;Starfish/Models/Search/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        models.subspec &apos;SFModel&apos; do |sfmodel|</div><div class="line">            sfmodel.source_files = &apos;Starfish/Models/SFModel/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        models.subspec &apos;SFPool&apos; do |sfpool|</div><div class="line">            sfpool.source_files = &apos;Starfish/Models/SFPool/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">    end</div><div class="line">    s.subspec &apos;NewRestClient&apos; do |newrestclient|</div><div class="line">        newrestclient.source_files = &apos;Starfish/NewRestClient/**/*.&#123;h,m&#125;&apos;</div><div class="line">    end</div><div class="line">    s.subspec &apos;StarfishSDK&apos; do |starfishsdk|</div><div class="line">        starfishsdk.source_files = &apos;Starfish/StarfishSDK/**/*.&#123;h,m&#125;&apos;</div><div class="line">    end</div><div class="line"></div><div class="line">    #Utilities</div><div class="line">    s.subspec &apos;Utilities&apos; do |utilities|</div><div class="line">        utilities.subspec &apos;bfsClient&apos; do |bfsclient|</div><div class="line">            bfsclient.source_files = &apos;Starfish/Utilities/bfsClient/**/*&apos;</div><div class="line">        end</div><div class="line">        utilities.subspec &apos;Categories&apos; do |categories|</div><div class="line">            categories.source_files = &apos;Starfish/Utilities/Categories/**/*&apos;</div><div class="line">        end</div><div class="line">        utilities.subspec &apos;LogEvent&apos; do |logevent|</div><div class="line">            logevent.source_files = &apos;Starfish/Utilities/LogEvent/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        utilities.subspec &apos;Macros&apos; do |macros|</div><div class="line">            macros.source_files = &apos;Starfish/Utilities/Macros/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        utilities.subspec &apos;MaxwellClient&apos; do |maxwellclient|</div><div class="line">            maxwellclient.source_files = &apos;Starfish/Utilities/MaxwellClient/**/*&apos;</div><div class="line">        end</div><div class="line">        utilities.subspec &apos;PhotoBrowser&apos; do |photobrowser|</div><div class="line">            photobrowser.source_files = &apos;Starfish/Utilities/PhotoBrowser/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        utilities.subspec &apos;SFVerifier&apos; do |sfverifier|</div><div class="line">            sfverifier.source_files = &apos;Starfish/Utilities/SFVerifier/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        utilities.subspec &apos;SoundUtil&apos; do |soundutil|</div><div class="line">            soundutil.source_files = &apos;Starfish/Utilities/SoundUtil/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        utilities.subspec &apos;UtilTools&apos; do |tool|</div><div class="line">            tool.source_files = &apos;Starfish/Utilities/UtilTools/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">    end</div><div class="line"></div><div class="line">    #Vendor</div><div class="line">    s.subspec &apos;Vendor&apos; do |vendor|</div><div class="line">        vendor.subspec &apos;CUIInfiniteScrolling&apos; do |cuis|</div><div class="line">            cuis.source_files = &apos;Starfish/Vendor/CUIInfiniteScrolling/**/*&apos;</div><div class="line">        end</div><div class="line">        vendor.subspec &apos;CUIPullRefreshing&apos; do |cuip|</div><div class="line">            cuip.source_files = &apos;Starfish/Vendor/CUIPullRefreshing/**/*&apos;</div><div class="line">        end</div><div class="line">        vendor.subspec &apos;Framework&apos; do |f|</div><div class="line">            f.vendored_frameworks = &apos;Starfish/Vendor/Framework/*.framework&apos;</div><div class="line">        end</div><div class="line">        vendor.subspec &apos;JSBadgeView&apos; do |jb|</div><div class="line">            jb.source_files = &apos;Starfish/Vendor/JSBadgeView/**/*&apos;</div><div class="line">        end</div><div class="line">        vendor.subspec &apos;MMDrawerController&apos; do |mm|</div><div class="line">            mm.source_files = &apos;Starfish/Vendor/MMDrawerController/**/*&apos;</div><div class="line">        end</div><div class="line">        vendor.subspec &apos;MessageDisplayKit&apos; do |msgkit|</div><div class="line">           msgkit.subspec &apos;Classes&apos; do |cl|</div><div class="line">                cl.source_files = &apos;Starfish/Vendor/MessageDisplayKit/Classes/**/*&apos;</div><div class="line">            end</div><div class="line">           msgkit.subspec &apos;Resources&apos; do |res|</div><div class="line">                res.source_files = &apos;Starfish/Vendor/MessageDisplayKit/Resources/**/*&apos;</div><div class="line">           end</div><div class="line">        end</div><div class="line">        vendor.subspec &apos;QBImageClasses&apos; do |qb|</div><div class="line">            qb.source_files = &apos;Starfish/Vendor/QBImageClasses/**/*&apos;</div><div class="line">        end</div><div class="line">        vendor.subspec &apos;RextKit&apos; do |rextkit|</div><div class="line">            rextkit.source_files = &apos;Starfish/Vendor/RextKit/**/*&apos;</div><div class="line">        end</div><div class="line">        vendor.subspec &apos;SwipeTableCell&apos; do |swipetablecell|</div><div class="line">            swipetablecell.source_files = &apos;Starfish/Vendor/SwipeTableCell/**/*&apos;</div><div class="line">        end</div><div class="line">        vendor.subspec &apos;SWTableViewCell&apos; do |swtableviewcell|</div><div class="line">            swtableviewcell.source_files = &apos;Starfish/Vendor/SWTableViewCell/**/*&apos;</div><div class="line">        end</div><div class="line">        vendor.subspec &apos;VIPhotoView&apos; do |viphotoview|</div><div class="line">        viphotoview.source_files = &apos;Starfish/Vendor/VIPhotoView/**/*&apos;</div><div class="line">        end</div><div class="line">    end</div><div class="line"></div><div class="line">    #Views</div><div class="line">    s.subspec &apos;Views&apos; do |v|</div><div class="line">        v.subspec &apos;AFPopupView&apos; do |popview|</div><div class="line">            popview.source_files = &apos;Starfish/Views/AFPopupView/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;ApplicationVC&apos; do |appvc|</div><div class="line">            appvc.source_files = &apos;Starfish/Views/ApplicationVC/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;AppTest&apos; do |apptest|</div><div class="line">            apptest.source_files = &apos;Starfish/Views/AppTest/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;ChangeDepartment&apos; do |cd|</div><div class="line">            cd.source_files = &apos;Starfish/Views/ChangeDepartment/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;ChangeMember&apos; do |cm|</div><div class="line">            cm.source_files = &apos;Starfish/Views/ChangeMember/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;CommonView&apos; do |cv|</div><div class="line">            cv.source_files = &apos;Starfish/Views/CommonView/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;ContactCircleDetailView&apos; do |ccdv|</div><div class="line">            ccdv.source_files = &apos;Starfish/Views/ContactCircleDetailView/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;ContactList&apos; do |cl|</div><div class="line">            cl.source_files = &apos;Starfish/Views/ContactList/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;ConversationList&apos; do |cvl|</div><div class="line">            cvl.source_files = &apos;Starfish/Views/ConversationList/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;ConversationSearch&apos; do |cvs|</div><div class="line">            cvs.source_files = &apos;Starfish/Views/ConversationSearch/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;CreateConversation&apos; do |ccv|</div><div class="line">            ccv.source_files = &apos;Starfish/Views/CreateConversation/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;ExUITextfield&apos; do |extf|</div><div class="line">            extf.source_files = &apos;Starfish/Views/ExUITextfield/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;GlobalMessageView&apos; do |gmv|</div><div class="line">            gmv.source_files = &apos;Starfish/Views/GlobalMessageView/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;Hairline&apos; do |hl|</div><div class="line">            hl.source_files = &apos;Starfish/Views/Hairline/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;LeftSlide&apos; do |ls|</div><div class="line">            ls.source_files = &apos;Starfish/Views/LeftSlide/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;LoadingFail&apos; do |lf|</div><div class="line">            lf.source_files = &apos;Starfish/Views/LoadingFail/**/*&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;MemberAvatar&apos; do |ma|</div><div class="line">            ma.source_files = &apos;Starfish/Views/MemberAvatar/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;MemberDetail&apos; do |md|</div><div class="line">            md.source_files = &apos;Starfish/Views/MemberDetail/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;MemberInfoHeadView&apos; do |mihv|</div><div class="line">            mihv.source_files = &apos;Starfish/Views/MemberInfoHeadView/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;PureLayout&apos; do |purelayout|</div><div class="line">            purelayout.source_files = &apos;Starfish/Views/PureLayout/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;VGParallaxheader&apos; do |vh|</div><div class="line">            vh.source_files = &apos;Starfish/Views/VGParallaxheader/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;MemberSelectDepartment&apos; do |msd|</div><div class="line">            msd.source_files = &apos;Starfish/Views/MemberSelectDepartment/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;NoExternallContact&apos; do |nec|</div><div class="line">            nec.source_files = &apos;Starfish/Views/NoExternallContact/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;OrgOperationView&apos; do |oov|</div><div class="line">            oov.source_files = &apos;Starfish/Views/OrgOperationView/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;PopupMenu&apos; do |ppm|</div><div class="line">            ppm.source_files = &apos;Starfish/Views/PopupMenu/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;OthersView&apos; do |ov|</div><div class="line">            ov.source_files = &apos;Starfish/Views/OthersView/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;ReadReportView&apos; do |rrv|</div><div class="line">            rrv.source_files = &apos;Starfish/Views/ReadReportView/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;Resource&apos; do |viewresource|</div><div class="line">            viewresource.resources = &apos;Starfish/Views/Resource/*&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;SelectMember&apos; do |sm|</div><div class="line">            sm.source_files = &apos;Starfish/Views/SelectMember/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;TableViewCell&apos; do |tvc|</div><div class="line">            tvc.source_files = &apos;Starfish/Views/TableViewCell/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;TransferViewCell&apos; do |tfvc|</div><div class="line">            tfvc.source_files = &apos;Starfish/Views/TransferViewCell/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;UICustomComponents&apos; do |uc|</div><div class="line">            uc.source_files = &apos;Starfish/Views/UICustomComponents/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;UploadFileView&apos; do |ufv|</div><div class="line">            ufv.source_files = &apos;Starfish/Views/UploadFileView/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">        v.subspec &apos;WebPageReproduce&apos; do |wpr|</div><div class="line">            wpr.source_files = &apos;Starfish/Views/WebPageReproduce/**/*.&#123;h,m&#125;&apos;</div><div class="line">        end</div><div class="line">    end</div><div class="line"></div><div class="line">    #resource</div><div class="line">    s.subspec &apos;Resource&apos; do |r|</div><div class="line">        r.subspec &apos;Assets&apos; do |assets|</div><div class="line">            assets.resources = &apos;Starfish/Assets/*&apos;</div><div class="line">        end</div><div class="line">        r.subspec &apos;Controllers&apos; do |controllers|</div><div class="line">            controllers.resources = &apos;Starfish/Controllers/Resource/*&apos;</div><div class="line">        end</div><div class="line">        r.subspec &apos;Resource&apos; do |resource|</div><div class="line">            resource.resources = &apos;Starfish/Resource/*&apos;</div><div class="line">        end</div><div class="line">    end</div><div class="line">end</div></pre></td></tr></table></figure>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/27/比较多种语言多线程的使用方式/" rel="prev">比较多种语言多线程的使用方式</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/03/多线程/" rel="next">多线程</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/08/04/Starfish.podspec/"
+                   data-title="starfish.podspec" data-url="http://yoursite.com/2016/08/04/Starfish.podspec/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="高龙" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">高龙</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">浮萍漂泊本无根，天涯游子君莫问</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="https://github.com/schillerGao" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/schillerGao" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank">Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/b1704a5943fe/latest_articles" target="_blank">简书</a>
+              </span>
+            
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.codingdemo.com" target="_blank">Favori</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://mindhacks.cn/" target="_blank">刘未鹏</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.ruanyifeng.com/home.html" target="_blank">阮一峰</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://ibruce.info/" target="_blank">不如</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://gongchuangsu.com/" target="_blank">贱贱的梦想</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.qiuchengjia.cn/" target="_blank">戎码人生</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.jvaeyhcd.cc/" target="_blank">Jvaryhcd</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bianmaren.com/" target="_blank">编码人</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://liuyuanwai.cn/" target="_blank">劉員外</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bolt.coding.me" target="_blank">bolt</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高龙</span>
+
+  <div class="powered-by"></div>
+  <div class="powered-by">
+    Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  </div>
+
+  <div class="theme-info">
+    浮萍漂泊本无根 天涯游子君莫问
+  </div>
+
+  <!-- busuanzi -->
+  
+    <div class="powered-by">
+    <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+    </div>
+  
+
+</div>
+
+<!--
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+<!--
+<div class="powered-by"></div>
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+-->
+
+<!-- busuanzi -->
+<!--
+
+  <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gaolongeric"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
