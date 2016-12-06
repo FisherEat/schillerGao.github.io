@@ -1,0 +1,942 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="浮萍漂泊本无根，天涯游子君莫问" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="https://github.com/schillerGao" title="Hi schillerGao(高龙)" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="iOS常用易错知识点记录iOS开发过程中的常用易错知识点。细节决定成败。
+isKindOfClass与isMemberOfClass区别
+isMemberOfClass一个对象是否是某个类的实例isKindOfClass一个对象是否是一个类的实例，或者是派生自该类的类的实例。
+结论：
+123&amp;gt; 1. [类的实例 isMemberOfClass] = YES  [类的实例 isMemberOf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hi schillerGao(高龙)">
+<meta property="og:url" content="http://yoursite.com/2016/11/25/iOS常用易错知识点/index.html">
+<meta property="og:site_name" content="Hi schillerGao(高龙)">
+<meta property="og:description" content="iOS常用易错知识点记录iOS开发过程中的常用易错知识点。细节决定成败。
+isKindOfClass与isMemberOfClass区别
+isMemberOfClass一个对象是否是某个类的实例isKindOfClass一个对象是否是一个类的实例，或者是派生自该类的类的实例。
+结论：
+123&amp;gt; 1. [类的实例 isMemberOfClass] = YES  [类的实例 isMemberOf">
+<meta property="og:image" content="http://oasv9w1m8.bkt.clouddn.com/nav_controllers_object.jpg">
+<meta property="og:updated_time" content="2016-12-06T14:00:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hi schillerGao(高龙)">
+<meta name="twitter:description" content="iOS常用易错知识点记录iOS开发过程中的常用易错知识点。细节决定成败。
+isKindOfClass与isMemberOfClass区别
+isMemberOfClass一个对象是否是某个类的实例isKindOfClass一个对象是否是一个类的实例，或者是派生自该类的类的实例。
+结论：
+123&amp;gt; 1. [类的实例 isMemberOfClass] = YES  [类的实例 isMemberOf">
+<meta name="twitter:image" content="http://oasv9w1m8.bkt.clouddn.com/nav_controllers_object.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title>  | Hi schillerGao(高龙) </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">高龙的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+
+
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'm6MupqWb8-J_VwiMZsWk','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-11-25T10:48:27+08:00" content="2016-11-25">
+            2016-11-25
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2016/11/25/iOS常用易错知识点/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/iOS常用易错知识点/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2016/11/25/iOS常用易错知识点/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h4 id="iOS常用易错知识点"><a href="#iOS常用易错知识点" class="headerlink" title="iOS常用易错知识点"></a>iOS常用易错知识点</h4><p><em>记录iOS开发过程中的常用易错知识点。细节决定成败。</em></p>
+<h5 id="isKindOfClass与isMemberOfClass区别"><a href="#isKindOfClass与isMemberOfClass区别" class="headerlink" title="isKindOfClass与isMemberOfClass区别"></a>isKindOfClass与isMemberOfClass区别</h5><blockquote>
+<p><code>isMemberOfClass</code>一个对象是否是某个类的实例<br><code>isKindOfClass</code>一个对象是否是一个类的实例，或者是派生自该类的类的实例。</p>
+<p>结论：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 1. [类的实例 isMemberOfClass] = YES  [类的实例 isMemberOfClass] = YES ;</div><div class="line">&gt; 2. [子类实例 isMemberOfClass 父类 ] = NO  [子类实例 isKindOfClass 父类 ] = YES</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="iOS-Notification-Center"><a href="#iOS-Notification-Center" class="headerlink" title="iOS Notification Center"></a>iOS Notification Center</h5><blockquote>
+<p>参考文献：<a href="http://www.jianshu.com/p/209ef870e131" target="_blank" rel="external">http://www.jianshu.com/p/209ef870e131</a></p>
+<p>注意知识点：</p>
+<ol>
+<li>通知、通知中心</li>
+<li>通知队列</li>
+<li>异步发送</li>
+<li>分发通知到指定线程、合并通知</li>
+</ol>
+</blockquote>
+<h5 id="iOS知识原理篇二"><a href="#iOS知识原理篇二" class="headerlink" title="iOS知识原理篇二"></a>iOS知识原理篇二</h5><blockquote>
+<p>参考文献：<a href="http://www.jianshu.com/p/cbd223c4c90f" target="_blank" rel="external">http://www.jianshu.com/p/cbd223c4c90f</a></p>
+</blockquote>
+<h5 id="类别和类扩展"><a href="#类别和类扩展" class="headerlink" title="类别和类扩展"></a>类别和类扩展</h5><blockquote>
+<p>参考文献：<a href="http://www.jianshu.com/p/57d7f1910ef4" target="_blank" rel="external">http://www.jianshu.com/p/57d7f1910ef4</a></p>
+<ul>
+<li><p>iOS类别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt;   #import</div><div class="line">&gt;   @interface 类名(分类名字)</div><div class="line">&gt;   /* 方法声明*/</div><div class="line">&gt;   @end</div><div class="line">&gt;   @implement 类名(分类名字)</div><div class="line">&gt;   /*方法实现*/</div><div class="line">&gt;   @end</div><div class="line">&gt;     </div><div class="line">&gt;   1、Category的方法不一定非要在@implement中实现,也可以在其他位置中实现,但是当调用Category的方法时,依据继承树没有找到该方法的实现,程序则会崩溃;并且,Category的方法优先级较高,可以覆盖原类的方法;</div><div class="line">&gt;   2、Category的方法中,不可以调用super方法</div><div class="line">&gt;   3、在实际开发中要注意的是,Category 方法可能会覆盖于同一个类class 的其它 category 中的方法。但也可能被覆盖，因为不法预知他们的加载优先顺序，出现这种情况通常会在编译时出错。如果在一个开发的SDK中使用了类别， 就最好保证类别名不同于使用者的类别名以及类别方法也不同于使用者的类别方法名， 通常通过加前缀来做到。</div><div class="line">&gt;   4、Category理论上不能添加成员变量,但是可以使用@dynamic(即运行时Runtime)来弥补这种不足.</div><div class="line">&gt;   5、使用场景</div><div class="line">&gt;     a. 对框架提供类的扩展(没有源码,不能修改);</div><div class="line">&gt;     b. 不想生成一个新的子类的情况下,例如对NSArry的扩展;</div><div class="line">&gt;     c. 方便做项目管理，可以将一份源码在多个地方共享或者做方法版本管理、多人协作开发、用本地版本替换公共版本实现</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>iOS类扩展</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt;   @interface MyObject : NSObject  </div><div class="line">&gt;   &#123;  NSNumber * number; &#125;  </div><div class="line">&gt;   - (NSNumber * )number;    </div><div class="line">&gt;   @end  </div><div class="line">&gt;</div><div class="line">&gt;   @interface MyObject()  </div><div class="line">&gt;   - (void)setNumber: (NSNumber *)newNumber;   </div><div class="line">&gt;   @end  </div><div class="line">&gt;    </div><div class="line">&gt;   @implementation MyObject  </div><div class="line">&gt;   - (NSNumber *)number  </div><div class="line">&gt;   &#123;  return number; &#125;  </div><div class="line">&gt;</div><div class="line">&gt;   - (void)setNumber:(NSNumber *)newNumber  </div><div class="line">&gt;   &#123;  number = newNumber; &#125;    </div><div class="line">&gt;   @end  </div><div class="line">&gt;</div><div class="line">&gt;     1、看懂了吗？</div><div class="line">&gt;     2、其实是在实现里加入一个setter方法。一般的.m文件里 @interface 是不能写方法的声明的。但是扩展可以。这就是扩展和其他实现方式的区别。暂时没有想到这种方法的使用场景。</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li>over</li>
+</ul>
+</blockquote>
+<h5 id="iOS导航栏"><a href="#iOS导航栏" class="headerlink" title="iOS导航栏"></a>iOS导航栏</h5><blockquote>
+<p><em>iOS导航栏算是一个iOS开发工程最基本的能力要求。一般的app都已经将导航栏集成，只需要调用上层接口即可，作为有进取心的工程师，要弄清楚其中原理。</em></p>
+<ol>
+<li><p>最基本的要求，写一个可以导航控制的Demo。</p>
+<p><img src="http://oasv9w1m8.bkt.clouddn.com/nav_controllers_object.jpg" alt="nav_controllers"></p>
+<ul>
+<li><p>初始化导航容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;      //Appdelegate</div><div class="line">&gt;      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</div><div class="line">&gt;          self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">&gt;          self.vc = [ViewController new];</div><div class="line">&gt;          self.nav = [[UINavigationController alloc] initWithRootViewController:self.vc];</div><div class="line">&gt;          self.window.rootViewController = self.nav;</div><div class="line">&gt;          return YES;</div><div class="line">&gt;      &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>给某个VC的导航栏添加item</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;      //ViewController</div><div class="line">&gt;      UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@&quot;右边&quot; style:UIBarButtonItemStylePlain target:self action:@selector(pushToRight)];</div><div class="line">&gt;       self.navigationItem.rightBarButtonItem = rightItem;</div><div class="line">&gt;       self.navigationItem.title = @&quot;首页&quot;;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>给导航栏bar设置全局样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;      self.navigationController.navigationBar.barTintColor = [UIColor greenColor];</div><div class="line">&gt;      //navigationBar是上图中的bar，一改全改。</div><div class="line">&gt;      NSArray *items = self.navigationController.navigationBar.items;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li>参考文献：<a href="http://www.jianshu.com/p/f797793d683f" target="_blank" rel="external">http://www.jianshu.com/p/f797793d683f</a></li>
+</ul>
+<ol>
+<li><p>注意点：区别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;    self.navigationItem.title = @&quot;忧伤&quot;; </div><div class="line">&gt;    self.navigationController.navigationItem.title = @&quot;忧伤&quot;;//无效，因为navigationController继承自UIViewcontroller，navigationItem是UIViewController类别中的属性。</div><div class="line">&gt;    self.navigationController.navigationBar.barTintColor = [UIColor greenColor];//一改全改，主要是栈内的viewcontroller的导航栏都会变色，因为navigationbar是navigationcontroller的属性。</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>总结思路</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    我们来总结一下，如果把导航控制器比作一个剧院，那导航栏就相当于舞台，舞台必然是属于剧院的，所以，导航栏是导航控制器的一个属性。视图控制器（UIViewController）就相当于一个个剧团，而导航项（navigation item）就相当于每个剧团的负责人，负责与剧院的人接洽沟通。显然，导航项应该是视图控制器的一个属性。虽然导航栏和导航项都在做与导航相关的事情，但是它们的从属是不同的。</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>o</li>
+</ol>
+</blockquote>
+<h5 id="UITabBarViewController"><a href="#UITabBarViewController" class="headerlink" title="UITabBarViewController"></a>UITabBarViewController</h5><blockquote>
+<p><em>参考文献：<a href="http://www.jianshu.com/p/bedf090f1416" target="_blank" rel="external">http://www.jianshu.com/p/bedf090f1416</a></em></p>
+<p><em>基本的使用步骤：</em></p>
+<ol>
+<li><p>新建一个<code>UITabBarController</code>,并且创建相应的子控制器<code>ViewController</code>，将子控制器加入到<code>UITabBarViewController</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&gt;    - (void)viewDidLoad &#123;</div><div class="line">&gt;        [super viewDidLoad];</div><div class="line">&gt;        NextViewController *v1 = [NextViewController new];</div><div class="line">&gt;        v1.tabBarItem.image = [UIImage imageNamed:@&quot;phone_icon_normal&quot;];</div><div class="line">&gt;        v1.tabBarItem.title = @&quot;首页&quot;;</div><div class="line">&gt;        v1.view.backgroundColor = [UIColor orangeColor];</div><div class="line">&gt;        </div><div class="line">&gt;        ThirdViewController *v2 = [ThirdViewController new];</div><div class="line">&gt;        v2.tabBarItem.image = [UIImage imageNamed:@&quot;session_icon_normal&quot;];</div><div class="line">&gt;        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@&quot;第二页&quot; image:[UIImage imageNamed:@&quot;session_icon_normal&quot;] selectedImage:[UIImage imageNamed:@&quot;phone_icon_normal&quot;]];</div><div class="line">&gt;        //v2.tabBarItem.title = @&quot;第二页&quot;;</div><div class="line">&gt;        v2.tabBarItem = item;</div><div class="line">&gt;        v2.view.backgroundColor = [UIColor grayColor];</div><div class="line">&gt;        </div><div class="line">&gt;        UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:v1];</div><div class="line">&gt;        nav1.hidesBottomBarWhenPushed = YES;</div><div class="line">&gt;        UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:v2];</div><div class="line">&gt;        nav2.hidesBottomBarWhenPushed = YES;</div><div class="line">&gt;        NSArray *array = @[nav1, nav2];</div><div class="line">&gt;        self.viewControllers = array;</div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>在Appdelegate里面把该UITbarBarcontroller控制器设置为根视图控制器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;     self.window.rootViewController = [[GLTabBarViewController alloc] init];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>其它属性</p>
+<ul>
+<li><p>UITabBar </p>
+</li>
+<li><p>UITabBarButton</p>
+</li>
+<li><p>UITabBarItem</p>
+</li>
+<li><p>Change SelectedViewcontroller（改变当前选中的控制器）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;      selectedIndex属性</div><div class="line">&gt;      selectedViewController属性</div><div class="line">&gt;      viewControllers属性</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>moreNavigationController</p>
+</li>
+<li><p>UITabBarController的Rotation</p>
+</li>
+<li><p>UITabBarControllerDelegate</p>
+</li>
+</ul>
+<ol>
+<li><p>在Viewcontroller push的时候隐藏底部栏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;     ThirdViewController *thirdVC = [ThirdViewController new];          thirdVC.hidesBottomBarWhenPushed = YES;</div><div class="line">&gt;     [self.navigationController pushViewController:thirdVC animated:YES];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>over</li>
+</ol>
+</blockquote>
+<h5 id="TNUIManger"><a href="#TNUIManger" class="headerlink" title="TNUIManger"></a>TNUIManger</h5><blockquote>
+<p><em>在此介绍对导航控制的一个经典封装。</em></p>
+</blockquote>
+<h5 id="typedef-NS-ENUM"><a href="#typedef-NS-ENUM" class="headerlink" title="typedef NS_ENUM"></a>typedef NS_ENUM</h5><blockquote>
+<p><em>经常在用这个枚举类型定义，却没有仔细的思考过它的实现。</em></p>
+<ol>
+<li><p>基本用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;    typedef NS_ENUM(NSUInteger, NSKeyValueSetMutationKind) &#123;</div><div class="line">&gt;        NSKeyValueUnionSetMutation = 1,</div><div class="line">&gt;        NSKeyValueMinusSetMutation = 2,</div><div class="line">&gt;        NSKeyValueIntersectSetMutation = 3,</div><div class="line">&gt;        NSKeyValueSetSetMutation = 4</div><div class="line">&gt;    &#125;;</div><div class="line">&gt;    @property (nonatomic, assign) NSKeyValueSetMutationKind kind;</div><div class="line">&gt;    //这里其实是一个typedef 定义的NS_ENUM(NSUInteger, NSKeyValueSetMutationKind)类型。</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>看一下c语言是怎么实现的。看完之后就清楚了。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&gt;    <span class="comment">//非typedef定义和使用</span></div><div class="line">&gt;    <span class="keyword">enum</span> DAY</div><div class="line">&gt;    &#123;</div><div class="line">&gt;          MON=<span class="number">1</span>, TUE, WED, THU, FRI, SAT, SUN</div><div class="line">&gt;    &#125;;</div><div class="line">&gt;    <span class="keyword">enum</span> DAY tomorrow; <span class="comment">//变量tomorrow的类型为枚举型enum DAY</span></div><div class="line">&gt;    <span class="comment">//typedef定义和使用</span></div><div class="line">&gt;    <span class="keyword">typedef</span> <span class="keyword">enum</span></div><div class="line">&gt;    &#123;</div><div class="line">&gt;        saturday,</div><div class="line">&gt;        sunday = <span class="number">0</span>,</div><div class="line">&gt;        monday,</div><div class="line">&gt;        tuesday,</div><div class="line">&gt;        wednesday,</div><div class="line">&gt;        thursday,</div><div class="line">&gt;        friday</div><div class="line">&gt;    &#125; workday; <span class="comment">//此处的workday为枚举型enum workday的别名</span></div><div class="line">&gt;</div><div class="line">&gt;    workday today, tomorrow; <span class="comment">//变量today和tomorrow的类型为枚举型workday，也即enum workday</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>over</li>
+</ol>
+</blockquote>
+<p>##### </p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/26/一专多通计划/" rel="prev">一专多通计划</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/22/OC程序的编译链接流程/" rel="next"></a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/11/25/iOS常用易错知识点/"
+                   data-title="" data-url="http://yoursite.com/2016/11/25/iOS常用易错知识点/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="高龙" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">高龙</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">浮萍漂泊本无根，天涯游子君莫问</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="https://github.com/schillerGao" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/schillerGao" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank">Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/b1704a5943fe/latest_articles" target="_blank">简书</a>
+              </span>
+            
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.codingdemo.com" target="_blank">Favori</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://mindhacks.cn/" target="_blank">刘未鹏</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.ruanyifeng.com/home.html" target="_blank">阮一峰</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://ibruce.info/" target="_blank">不如</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://gongchuangsu.com/" target="_blank">贱贱的梦想</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.qiuchengjia.cn/" target="_blank">戎码人生</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.jvaeyhcd.cc/" target="_blank">Jvaryhcd</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bianmaren.com/" target="_blank">编码人</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://liuyuanwai.cn/" target="_blank">劉員外</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bolt.coding.me" target="_blank">bolt</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#iOS常用易错知识点"><span class="nav-number">1.</span> <span class="nav-text">iOS常用易错知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#isKindOfClass与isMemberOfClass区别"><span class="nav-number">1.1.</span> <span class="nav-text">isKindOfClass与isMemberOfClass区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS-Notification-Center"><span class="nav-number">1.2.</span> <span class="nav-text">iOS Notification Center</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS知识原理篇二"><span class="nav-number">1.3.</span> <span class="nav-text">iOS知识原理篇二</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#类别和类扩展"><span class="nav-number">1.4.</span> <span class="nav-text">类别和类扩展</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS导航栏"><span class="nav-number">1.5.</span> <span class="nav-text">iOS导航栏</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UITabBarViewController"><span class="nav-number">1.6.</span> <span class="nav-text">UITabBarViewController</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TNUIManger"><span class="nav-number">1.7.</span> <span class="nav-text">TNUIManger</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#typedef-NS-ENUM"><span class="nav-number">1.8.</span> <span class="nav-text">typedef NS_ENUM</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高龙</span>
+
+  <div class="powered-by"></div>
+  <div class="powered-by">
+    Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  </div>
+
+  <div class="theme-info">
+    浮萍漂泊本无根 天涯游子君莫问
+  </div>
+
+  <!-- busuanzi -->
+  
+    <div class="powered-by">
+    <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+    </div>
+  
+
+</div>
+
+<!--
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+<!--
+<div class="powered-by"></div>
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+-->
+
+<!-- busuanzi -->
+<!--
+
+  <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gaolongeric"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
