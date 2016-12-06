@@ -39,25 +39,31 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Cocoapods私有库创建几点注意事项.podsepc 配置文件 的位置 一定要在项目的顶部
+<meta name="description" content="Cocoapod研究（家中）
+加入.gitignore、版本控制
 
-.podsepc  配置文件必须和 .workspace、Podfile等文件放在同一级目录下。如果不在同一级目录下，pod install 通常会报一下错误：
-1234&amp;gt;    Unable to satisfy the following requirements:&amp;gt;&amp;gt;    -">
+
+Pods文件夹加入版本控制，原因是如果加入gitignore ，不加入版本控制，如果某人更换了Pod第三方库，则全体成员需要 pod install 更新Pod依赖库，而更新Pod需要安装Cocoapods等软件，有些电脑上 pod install 速度非常慢，鉴于这个考虑将Pods 加入版本控制。
+鉴于第二个考虑，Pods第三">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cocoapods私有库创建几点注意事项">
-<meta property="og:url" content="http://yoursite.com/2016/09/07/Cocoapods私有库创建几点注意事项/index.html">
+<meta property="og:title" content="Hi schillerGao(高龙)">
+<meta property="og:url" content="http://yoursite.com/2016/08/01/cocoapods/Cocoapod研究（家中）/index.html">
 <meta property="og:site_name" content="Hi schillerGao(高龙)">
-<meta property="og:description" content="Cocoapods私有库创建几点注意事项.podsepc 配置文件 的位置 一定要在项目的顶部
+<meta property="og:description" content="Cocoapod研究（家中）
+加入.gitignore、版本控制
 
-.podsepc  配置文件必须和 .workspace、Podfile等文件放在同一级目录下。如果不在同一级目录下，pod install 通常会报一下错误：
-1234&amp;gt;    Unable to satisfy the following requirements:&amp;gt;&amp;gt;    -">
-<meta property="og:updated_time" content="2016-10-09T15:17:48.000Z">
+
+Pods文件夹加入版本控制，原因是如果加入gitignore ，不加入版本控制，如果某人更换了Pod第三方库，则全体成员需要 pod install 更新Pod依赖库，而更新Pod需要安装Cocoapods等软件，有些电脑上 pod install 速度非常慢，鉴于这个考虑将Pods 加入版本控制。
+鉴于第二个考虑，Pods第三">
+<meta property="og:updated_time" content="2016-08-01T02:15:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cocoapods私有库创建几点注意事项">
-<meta name="twitter:description" content="Cocoapods私有库创建几点注意事项.podsepc 配置文件 的位置 一定要在项目的顶部
+<meta name="twitter:title" content="Hi schillerGao(高龙)">
+<meta name="twitter:description" content="Cocoapod研究（家中）
+加入.gitignore、版本控制
 
-.podsepc  配置文件必须和 .workspace、Podfile等文件放在同一级目录下。如果不在同一级目录下，pod install 通常会报一下错误：
-1234&amp;gt;    Unable to satisfy the following requirements:&amp;gt;&amp;gt;    -">
+
+Pods文件夹加入版本控制，原因是如果加入gitignore ，不加入版本控制，如果某人更换了Pod第三方库，则全体成员需要 pod install 更新Pod依赖库，而更新Pod需要安装Cocoapods等软件，有些电脑上 pod install 速度非常慢，鉴于这个考虑将Pods 加入版本控制。
+鉴于第二个考虑，Pods第三">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -67,7 +73,7 @@
   };
 </script>
 
-  <title> Cocoapods私有库创建几点注意事项 | Hi schillerGao(高龙) </title>
+  <title>  | Hi schillerGao(高龙) </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -207,7 +213,7 @@
           
           
             
-              Cocoapods私有库创建几点注意事项
+              
             
           
         </h1>
@@ -216,8 +222,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-09-07T17:55:31+08:00" content="2016-09-07">
-            2016-09-07
+          <time itemprop="dateCreated" datetime="2016-08-01T10:15:37+08:00" content="2016-08-01">
+            2016-08-01
           </time>
         </span>
 
@@ -228,11 +234,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/09/07/Cocoapods私有库创建几点注意事项/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/Cocoapods私有库创建几点注意事项/" itemprop="commentsCount"></span>
+              <a href="/2016/08/01/cocoapods/Cocoapod研究（家中）/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/cocoapods/Cocoapod研究（家中）/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/09/07/Cocoapods私有库创建几点注意事项/#comments" itemprop="discussionUrl">
+              <a href="/2016/08/01/cocoapods/Cocoapod研究（家中）/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -247,42 +253,42 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="Cocoapods私有库创建几点注意事项"><a href="#Cocoapods私有库创建几点注意事项" class="headerlink" title="Cocoapods私有库创建几点注意事项"></a>Cocoapods私有库创建几点注意事项</h4><h5 id="podsepc-配置文件-的位置-一定要在项目的顶部"><a href="#podsepc-配置文件-的位置-一定要在项目的顶部" class="headerlink" title=".podsepc 配置文件 的位置 一定要在项目的顶部"></a>.podsepc 配置文件 的位置 一定要在项目的顶部</h5><blockquote>
-<ol>
-<li><p><code>.podsepc</code>  配置文件必须和 <code>.workspace</code>、<code>Podfile</code>等文件放在同一级目录下。如果不在同一级目录下，pod install 通常会报一下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;    Unable to satisfy the following requirements:</div><div class="line">&gt;</div><div class="line">&gt;    - `GLTestSpec (from `https://git.coding.net/schiller/GLTestSpecDemo.git`)` required by `Podfile`</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p>&gt;</p>
+        <span itemprop="articleBody"><h4 id="Cocoapod研究（家中）"><a href="#Cocoapod研究（家中）" class="headerlink" title="Cocoapod研究（家中）"></a>Cocoapod研究（家中）</h4><ul>
+<li><p>加入.gitignore、版本控制</p>
 <blockquote>
 <ol>
-<li><p>配置文件中的 <code>s.tag</code>  参数会出现在 <code>pod install —verbose</code> 日志中，也会出现在<code>Podfile.lock</code>中。该参数配置没有多大作用。</p>
-</li>
-<li><p>外部导入私有库是 pod 后面跟的名称就是该私有库配置文件的名称：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    pod &apos;GLTestSpec&apos;, :git =&gt; &apos;https://git.coding.net/schiller/GLTestSpecDemo.git&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
+<li>Pods文件夹加入版本控制，原因是如果加入gitignore ，不加入版本控制，如果某人更换了Pod第三方库，则全体成员需要 pod install 更新Pod依赖库，而更新Pod需要安装Cocoapods等软件，有些电脑上 pod install 速度非常慢，鉴于这个考虑将Pods 加入版本控制。</li>
+<li>鉴于第二个考虑，Pods第三方库的更新由一个人控制，由架构组控制，进而通知全体开发人员。</li>
+<li>此外，.xcworkspace 为工作目录树，更加应该加入版本控制。</li>
+<li>podfile、Podfile.lock这种Cocoapods强烈要求加入版本控制，防止其它人更换第三方库导致第三方库版本不一致，而导致开发悲剧。</li>
 </ol>
 </blockquote>
-<h5 id="缓存导致pod-install-或者pod-update-还是原来的私有库源码"><a href="#缓存导致pod-install-或者pod-update-还是原来的私有库源码" class="headerlink" title="缓存导致pod install 或者pod update 还是原来的私有库源码"></a>缓存导致pod install 或者pod update 还是原来的私有库源码</h5><blockquote>
-<ol>
-<li><p><code>pod cache list</code> 来查看缓存，如果更新私有库，要完全更新私有库时，可以考虑删除缓存。缓存的具体位置是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;    $ cd /Users/yxt/Library/Caches/CocoaPods/Pods/External/GLTestSpec</div><div class="line">&gt;    $ cd /Users/yxt/Library/Caches/CocoaPods/Pods/Specs/External/GLTestSpec </div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
-</ol>
+<li><p>podfile高度定制</p>
+<blockquote>
+<p>podfile私有库</p>
 </blockquote>
-<p>&gt;</p>
+</li>
+<li><p>Cocoapods迁移</p>
 <blockquote>
 <ol>
-<li><p>如果更新了私有库，还是报原来的错误:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;    Pre-downloading: `GLTestSpec` from `https://git.coding.net/schiller/GLTestSpecDemo.git`, branch `master`</div><div class="line">&gt;    [!] Unable to satisfy the following requirements:</div><div class="line">&gt;</div><div class="line">&gt;    - `GLTestSpec (from `https://git.coding.net/schiller/GLTestSpecDemo.git`, branch `master`)` required by `Podfile`</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<li>将原来的手动添加的第三方库迁移到现在的Cocoapods管理第三方库，需要将原来第三方库的配置相关的文件删除干净。Cocoapods会将第三方库的所有需要配置的静态库或者文件集成在libPods.a中，在Build Phases中可以找到这个.a文件。鉴于这个考虑，我们需要删除原来手动添加的第三方库的配置文件。</li>
+<li>纪录所有的原来的第三方库的配置文件，一并删除<ul>
+<li>AFNetworking</li>
+<li>FLEX</li>
+<li>FMDB</li>
+</ul>
 </li>
+<li>迁移工作计划</li>
 </ol>
 </blockquote>
-<p>&gt;<br>&gt;<br>&gt;</p>
+</li>
+<li><p>私有Pod</p>
 <blockquote>
-<p>   //这时可以考虑删除缓存，可能起到奇效。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt; 3. `pod cache list`  失效，暂无好的方法解决。</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>私有Pod</p>
 </blockquote>
+</li>
+</ul>
 </span>
       
     </div>
@@ -294,13 +300,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/11/hello-world/" rel="prev">Hello World — from schillerGao</a>
+              <a href="/2016/08/01/pod管理第三方库/" rel="prev"></a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/27/比较多种语言多线程的使用方式/" rel="next">比较多种语言多线程的使用方式</a>
+              <a href="/2016/08/01/KVO／KVC模式研究/" rel="next">KVO／KVC模式研究</a>
             
           </div>
         </div>
@@ -325,8 +331,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/09/07/Cocoapods私有库创建几点注意事项/"
-                   data-title="Cocoapods私有库创建几点注意事项" data-url="http://yoursite.com/2016/09/07/Cocoapods私有库创建几点注意事项/">
+              <div class="ds-thread" data-thread-key="2016/08/01/cocoapods/Cocoapod研究（家中）/"
+                   data-title="" data-url="http://yoursite.com/2016/08/01/cocoapods/Cocoapod研究（家中）/">
               </div>
             
           </div>
@@ -472,7 +478,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cocoapods私有库创建几点注意事项"><span class="nav-number">1.</span> <span class="nav-text">Cocoapods私有库创建几点注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#podsepc-配置文件-的位置-一定要在项目的顶部"><span class="nav-number">1.1.</span> <span class="nav-text">.podsepc 配置文件 的位置 一定要在项目的顶部</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缓存导致pod-install-或者pod-update-还是原来的私有库源码"><span class="nav-number">1.2.</span> <span class="nav-text">缓存导致pod install 或者pod update 还是原来的私有库源码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cocoapod研究（家中）"><span class="nav-number">1.</span> <span class="nav-text">Cocoapod研究（家中）</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
