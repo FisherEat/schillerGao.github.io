@@ -1,0 +1,821 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="浮萍漂泊本无根，天涯游子君莫问" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="https://github.com/schillerGao" title="Hi schillerGao(高龙)" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="运行时研究，深入理解Objective-C内部实现方式并实践之。
+##### 
+参考文献
+glow技术栈：http://tech.glowing.com/cn/
+github：https://github.com/huang303513/iOSRunTimeExplore
+CollectionView搜索历史标签：https://github.com/zhiwupei/SearchHistory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="运行时研究">
+<meta property="og:url" content="http://yoursite.com/2016/11/10/运行时研究/index.html">
+<meta property="og:site_name" content="Hi schillerGao(高龙)">
+<meta property="og:description" content="运行时研究，深入理解Objective-C内部实现方式并实践之。
+##### 
+参考文献
+glow技术栈：http://tech.glowing.com/cn/
+github：https://github.com/huang303513/iOSRunTimeExplore
+CollectionView搜索历史标签：https://github.com/zhiwupei/SearchHistory">
+<meta property="og:updated_time" content="2016-12-06T14:05:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="运行时研究">
+<meta name="twitter:description" content="运行时研究，深入理解Objective-C内部实现方式并实践之。
+##### 
+参考文献
+glow技术栈：http://tech.glowing.com/cn/
+github：https://github.com/huang303513/iOSRunTimeExplore
+CollectionView搜索历史标签：https://github.com/zhiwupei/SearchHistory">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 运行时研究 | Hi schillerGao(高龙) </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">高龙的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+
+
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'm6MupqWb8-J_VwiMZsWk','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              运行时研究
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-11-10T12:57:49+08:00" content="2016-11-10">
+            2016-11-10
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2016/11/10/运行时研究/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/10/运行时研究/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2016/11/10/运行时研究/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><em>运行时研究，深入理解Objective-C内部实现方式并实践之。</em></p>
+<p>##### </p>
+<h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h5><ol>
+<li>glow技术栈：<a href="http://tech.glowing.com/cn/" target="_blank" rel="external">http://tech.glowing.com/cn/</a></li>
+<li>github：<a href="https://github.com/huang303513/iOSRunTimeExplore" target="_blank" rel="external">https://github.com/huang303513/iOSRunTimeExplore</a></li>
+<li>CollectionView搜索历史标签：<a href="https://github.com/zhiwupei/SearchHistory" target="_blank" rel="external">https://github.com/zhiwupei/SearchHistory</a></li>
+</ol>
+<h5 id="NULL、nil、NSNull、null的区别"><a href="#NULL、nil、NSNull、null的区别" class="headerlink" title="NULL、nil、NSNull、null的区别"></a>NULL、nil、NSNull、null的区别</h5><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&gt; 1. nil</div><div class="line">&gt; nil 是Objc对象的字面空值</div><div class="line">&gt; NSString *someString = nil;</div><div class="line">&gt; 2. Nil</div><div class="line">&gt; Nil是Objc类类型的书面空值，对应Class类型对象。</div><div class="line">&gt; Class someClass = Nil;</div><div class="line">&gt; Class anotherClass = [NSString class];</div><div class="line">&gt; 声明定义和nil差不多，值相同。</div><div class="line">&gt; 3.NULL</div><div class="line">&gt;   NULL是任意的C指针空值，空地址。</div><div class="line">&gt; 4.NSNull</div><div class="line">&gt;   NSNull 是一个代表空值的类，是一个 ObjC 对象。实际上它只有一个单例方法：+[NSNull null]，一般用于表示集合中值为空的对象。</div><div class="line">&gt; // 因为 nil 被用来用为集合结束的标志，所以 nil 不能存储在 Foundation 集合里。</div><div class="line">&gt; NSArray *array = [NSArray arrayWithObjects:@&quot;one&quot;, @&quot;two&quot;, nil];</div><div class="line">&gt; // 错误的使用</div><div class="line">&gt; NSMutableDictionary *dict = [NSMutableDictionary dictionary];</div><div class="line">&gt; [dict setObject:nil forKey:@&quot;someKey&quot;];</div><div class="line">&gt; // 正确的使用</div><div class="line">&gt; NSMutableDictionary *dict = [NSMutableDictionary dictionary];</div><div class="line">&gt; [dict setObject:[NSNull null] forKey:@&quot;someKey&quot;];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="NSDictionary-NilSafe搭建"><a href="#NSDictionary-NilSafe搭建" class="headerlink" title="NSDictionary+NilSafe搭建"></a>NSDictionary+NilSafe搭建</h5><blockquote>
+<p>该类别的主要目的是实现对字典中存在nil值时的情况的保护。字典中当value==nil时会崩溃，因为字典、数组这种集合类型是以nil结尾的，如果出现nil，字典会崩溃。字典或者数组中存放的空值类型是null，是NSNull类型。这是苹果为了解决nil不能作为value而定义的一种类型。这种类型也有一个问题，就是不能响应任何消息，否则会崩溃。在这个基础上，我们使用运行时的方法交换的函数，在load的时候交换dictionary的几个基本方法，在交换方法中，对值为nil这种特殊情况进行保护。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; 具体的案例在我的Demo工程中的NSDictionary+NilSafe.h类别中</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="runtime"><a href="#runtime" class="headerlink" title="runtime"></a>runtime</h5><blockquote>
+<p>runtime简单介绍：<a href="http://tech.glowing.com/cn/objective-c-runtime/" target="_blank" rel="external">http://tech.glowing.com/cn/objective-c-runtime/</a></p>
+<ol>
+<li><p><code>objc_object</code>, <code>objc_class</code>, 以及 <code>objc_method</code></p>
+</li>
+<li><p>动态方法解析和转发</p>
+<p>method resolution、fast forwarding、normal forwarding</p>
+</li>
+<li><p>一个方法在崩溃前的执行过程</p>
+</li>
+<li><p>Objective-C 中给一个对象发送消息会经过以下几个步骤：</p>
+<ol>
+<li>在对象类的 <em>dispatch table</em> 中尝试找到该消息。如果找到了，跳到相应的函数IMP去执行实现代码；</li>
+<li>如果没有找到，Runtime 会发送 <code>+resolveInstanceMethod:</code> 或者 <code>+resolveClassMethod:</code> 尝试去 resolve 这个消息；</li>
+<li>如果 resolve 方法返回 NO，Runtime 就发送 <code>-forwardingTargetForSelector:</code>允许你把这个消息转发给另一个对象；</li>
+<li>如果没有新的目标对象返回， Runtime 就会发送 <code>-methodSignatureForSelector:</code>和 <code>-forwardInvocation:</code> 消息。你可以发送 <code>-invokeWithTarget:</code> 消息来手动转发消息或者发送 <code>-doesNotRecognizeSelector:</code> 抛出异常。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&gt;     [self performSelector:@selector(fooMethod:)]</div><div class="line">&gt;</div><div class="line">&gt;    + (BOOL)resolveInstanceMethod:(SEL)sel</div><div class="line">&gt;    &#123;</div><div class="line">&gt;        if (sel == @selector(foo:)) &#123;</div><div class="line">&gt;            class_addMethod([self class], sel, (IMP)fooMethod, &quot;v@:&quot;);</div><div class="line">&gt;        &#125;</div><div class="line">&gt;        return NO;</div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div><div class="line">&gt;    void fooMethod(id obj, SEL _cmd)</div><div class="line">&gt;    &#123;</div><div class="line">&gt;        NSLog(@&quot;Doing foo&quot;);</div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div><div class="line">&gt;    - (id)forwardingTargetForSelector:(SEL)aSelector</div><div class="line">&gt;    &#123;</div><div class="line">&gt;        if (aSelector == @selector(fooMethod:)) &#123;</div><div class="line">&gt;            return [GLNetWorkDemo new];//在GLNetWorkDemo类中定义fooMethod方法</div><div class="line">&gt;        &#125;</div><div class="line">&gt;        return [super forwardingTargetForSelector:aSelector];</div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h5 id="KVO模式"><a href="#KVO模式" class="headerlink" title="KVO模式"></a>KVO模式</h5><blockquote>
+<p>KVO是OC对观察者模式的实现，依赖于OC强大的Runtime。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; 当你观察一个对象时，一个新的类会动态被创建。这个类继承自该对象的原本的类，并重写了被观察属性的 setter 方法。自然，重写的 setter 方法会负责在调用原 setter 方法之前和之后，通知所有观察对象值的更改。最后把这个对象的 isa 指针 ( isa 指针告诉 Runtime 系统这个对象的类是什么 ) 指向这个新创建的子类，对象就神奇的变成了新创建的子类的实例。</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="Method-Swizzling和AOP实践"><a href="#Method-Swizzling和AOP实践" class="headerlink" title="Method Swizzling和AOP实践"></a>Method Swizzling和AOP实践</h5><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">&gt; //代码文档：http://tech.glowing.com/cn/method-swizzling-aop/</div><div class="line">&gt; //参考文档：http://www.jianshu.com/p/425a39d43d16</div><div class="line">&gt; + (void)load</div><div class="line">&gt; &#123;</div><div class="line">&gt;     static dispatch_once_t onceToken;</div><div class="line">&gt;     dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">&gt;         [self tn_swizzleInstanceSelector:@selector(viewWillAppear:) withSelector:@selector(tna_viewWillAppear:)];</div><div class="line">&gt;         [self tn_swizzleInstanceSelector:@selector(viewDidAppear:) withSelector:@selector(tna_viewDidAppear:)];</div><div class="line">&gt;     &#125;);</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; - (void)tna_viewWillAppear:(BOOL)animated</div><div class="line">&gt; &#123;</div><div class="line">&gt;     [self tna_viewWillAppear:animated];</div><div class="line">&gt;     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</div><div class="line">&gt;         [self.view makeToast:[NSString stringWithFormat:@&quot;%@ -&gt; %@&quot;,@&quot;当前页面&quot; ,@&quot;下一页面&quot;] duration:4.0f position:@&quot;top&quot;];</div><div class="line">&gt;     &#125;);</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; - (void)tna_viewDidAppear:(BOOL)animated</div><div class="line">&gt; &#123;</div><div class="line">&gt;     [self tna_viewDidAppear:animated]; </div><div class="line">&gt; &#125;</div><div class="line">&gt; //分析：</div><div class="line">&gt; 上面看起来像是递归，其实不是递归，因为在 runtime 的时候，函数实现已经被交换了。</div><div class="line">&gt;   如A--&gt;AImplement, B--&gt;BImplement, 交换后，A--&gt;BImplement, B--&gt;AImplement,:</div><div class="line">&gt;     调用 viewDidAppear: 会调用你实现的 swizzled_viewDidAppear:，而在 swizzled_viewDidAppear: 里调用 swizzled_viewDidAppear: 实际上调用的是原来的 viewDidAppear: 。</div><div class="line">&gt;      这样既调用了原来的viewDidAppear里的实现，又调用了swizzle_viewDidAppear的实现，即是既实现了实现了继承，有不影响原来函数的功能。</div><div class="line">&gt;   </div><div class="line">&gt;  //再看swizzle方法</div><div class="line">&gt;   + (void)tn_swizzleInstanceSelector:(SEL)originalSelector withSelector:(SEL)swizzledSelector</div><div class="line">&gt; &#123;</div><div class="line">&gt;     Class cls = [self class];</div><div class="line">&gt;     //the method might not exist in the class but in its superclass</div><div class="line">&gt;     Method originalMethod = class_getInstanceMethod(cls, originalSelector);</div><div class="line">&gt;     Method swizzledMethod = class_getInstanceMethod(cls, swizzledSelector);</div><div class="line">&gt;     </div><div class="line">&gt;     //return NO if original method already exist </div><div class="line">&gt;     BOOL didAddMethod = class_addMethod(cls, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));</div><div class="line">&gt;     if (didAddMethod)</div><div class="line">&gt;     &#123;</div><div class="line">&gt;         class_replaceMethod(cls, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));</div><div class="line">&gt;     &#125;</div><div class="line">&gt;     else</div><div class="line">&gt;     &#123;</div><div class="line">&gt;         method_exchangeImplementations(originalMethod, swizzledMethod);</div><div class="line">&gt;     &#125;</div><div class="line">&gt; &#125;</div><div class="line">&gt; //分析</div><div class="line">&gt; 这里唯一可能需要解释的是 class_addMethod 。要先尝试添加原 selector 是为了做一层保护，因为如果这个类没有实现 originalSelector ，但其父类实现了，那 class_getInstanceMethod 会返回父类的方法。这样 method_exchangeImplementations 替换的是父类的那个方法，这当然不是你想要的。所以我们先尝试添加 orginalSelector ，如果已经存在，再用 method_exchangeImplementations 把原方法的实现跟新的方法实现给交换掉。</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="Aspects库"><a href="#Aspects库" class="headerlink" title="Aspects库"></a>Aspects库</h5><blockquote>
+<p>AOP：利用 Runtime 特性给指定的方法添加自定义代码</p>
+<p>该库是不错的AOP库，封装了 Runtime ， Method Swizzling 这些黑色技巧，只提供两个简单的API：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt; + (id&lt;AspectToken&gt;)aspect_hookSelector:(SEL)selector</div><div class="line">&gt;                       withOptions:(AspectOptions)options</div><div class="line">&gt;                        usingBlock:(id)block</div><div class="line">&gt;                             error:(NSError **)error;</div><div class="line">&gt;</div><div class="line">&gt; /// Adds a block of code before/instead/after the current `selector` for a specific instance.</div><div class="line">&gt; - (id&lt;AspectToken&gt;)aspect_hookSelector:(SEL)selector</div><div class="line">&gt;                       withOptions:(AspectOptions)options</div><div class="line">&gt;                        usingBlock:(id)block</div><div class="line">&gt;                             error:(NSError **)error;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="IMP实现打点"><a href="#IMP实现打点" class="headerlink" title="IMP实现打点"></a>IMP实现打点</h5><blockquote>
+<p>使用IMP指针同样可以解决死循环的问题，IMP就是implement的缩写，他是指向一个方法实现的指针，每个方法都有一个对应的IMP。</p>
+<p>调用一个IMP的方式和调用普通C函数相同：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; id returnObjc = someIMP(objc,SEL,params...);</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>具体实现代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&gt; typedef void (*_VIMP) (id, SEL, ...);</div><div class="line">&gt; typedef id (*_IMP) (id, SEL, ...);</div><div class="line">&gt;</div><div class="line">&gt; @implementation UIViewController (Analysis)</div><div class="line">&gt;</div><div class="line">&gt; + (void)load</div><div class="line">&gt; &#123;</div><div class="line">&gt;     static dispatch_once_t onceToken;</div><div class="line">&gt;     dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">&gt;         Method viewDidLoad = class_getInstanceMethod(self, @selector(viewDidLoad));</div><div class="line">&gt;       //此处不能直接调用IMP</div><div class="line">&gt;         _VIMP viewDidLoad_IMP = (_VIMP)method_getImplementation(viewDidLoad);</div><div class="line">&gt;         method_setImplementation(viewDidLoad, imp_implementationWithBlock(^(id target, SEL action) &#123;</div><div class="line">&gt;             viewDidLoad_IMP(target, @selector(viewDidLoad));</div><div class="line">&gt;             NSLog(@&quot;%@ did load&quot;, target);</div><div class="line">&gt;         &#125;)); </div><div class="line">&gt;     &#125;);</div><div class="line">&gt; //如果这样直接调用IMP的话就会发生经典的EXC_BAD_ACCESS错误，我们定义的IMP指针是一个有返回值的类型，而其实我们获取的viewDidLoad这个方法是没有返回值的，所以我们需要新定义一个和IMP相同类型的函数指针比如VIMP，把他的返回值定位Void，这样如果你修改的方法有返回值就用IMP，没有返回值就用VIMP。</div><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure></blockquote>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/21/iOS国际化详解/" rel="prev">iOS国际化详解</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/09/Podspec文件配置详解/" rel="next">Podspec文件配置详解</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/11/10/运行时研究/"
+                   data-title="运行时研究" data-url="http://yoursite.com/2016/11/10/运行时研究/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="高龙" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">高龙</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">浮萍漂泊本无根，天涯游子君莫问</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="https://github.com/schillerGao" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/schillerGao" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank">Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/b1704a5943fe/latest_articles" target="_blank">简书</a>
+              </span>
+            
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.codingdemo.com" target="_blank">Favori</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://mindhacks.cn/" target="_blank">刘未鹏</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.ruanyifeng.com/home.html" target="_blank">阮一峰</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://ibruce.info/" target="_blank">不如</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://gongchuangsu.com/" target="_blank">贱贱的梦想</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.qiuchengjia.cn/" target="_blank">戎码人生</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.jvaeyhcd.cc/" target="_blank">Jvaryhcd</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bianmaren.com/" target="_blank">编码人</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://liuyuanwai.cn/" target="_blank">劉員外</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bolt.coding.me" target="_blank">bolt</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考文献"><span class="nav-number">1.</span> <span class="nav-text">参考文献</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NULL、nil、NSNull、null的区别"><span class="nav-number">2.</span> <span class="nav-text">NULL、nil、NSNull、null的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NSDictionary-NilSafe搭建"><span class="nav-number">3.</span> <span class="nav-text">NSDictionary+NilSafe搭建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#runtime"><span class="nav-number">4.</span> <span class="nav-text">runtime</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#KVO模式"><span class="nav-number">5.</span> <span class="nav-text">KVO模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Method-Swizzling和AOP实践"><span class="nav-number">6.</span> <span class="nav-text">Method Swizzling和AOP实践</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Aspects库"><span class="nav-number">7.</span> <span class="nav-text">Aspects库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IMP实现打点"><span class="nav-number">8.</span> <span class="nav-text">IMP实现打点</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高龙</span>
+
+  <div class="powered-by"></div>
+  <div class="powered-by">
+    Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  </div>
+
+  <div class="theme-info">
+    浮萍漂泊本无根 天涯游子君莫问
+  </div>
+
+  <!-- busuanzi -->
+  
+    <div class="powered-by">
+    <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+    </div>
+  
+
+</div>
+
+<!--
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+<!--
+<div class="powered-by"></div>
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+-->
+
+<!-- busuanzi -->
+<!--
+
+  <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gaolongeric"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
