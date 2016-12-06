@@ -42,14 +42,14 @@
 <meta name="description" content="Rumtime：因为Objective-C是一门动态语言，所以它需要一个运行时系统，就是Runtime系统。Runtime在实际开发中其实就是一组C语言函数。直接从代码入手吧、
 从objc_msgSend说起Objective-C 中的方法调用，不是简单的方法调用，而是发送消息，也就是说，其实 [receiver message] 会被编译器转化为: objc_msgSend(receiver,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hi schillerGao(高龙)">
+<meta property="og:title" content="RunTime入门">
 <meta property="og:url" content="http://yoursite.com/2016/08/01/RunTime入门/index.html">
 <meta property="og:site_name" content="Hi schillerGao(高龙)">
 <meta property="og:description" content="Rumtime：因为Objective-C是一门动态语言，所以它需要一个运行时系统，就是Runtime系统。Runtime在实际开发中其实就是一组C语言函数。直接从代码入手吧、
 从objc_msgSend说起Objective-C 中的方法调用，不是简单的方法调用，而是发送消息，也就是说，其实 [receiver message] 会被编译器转化为: objc_msgSend(receiver,">
-<meta property="og:updated_time" content="2016-12-06T14:09:09.000Z">
+<meta property="og:updated_time" content="2016-12-06T14:12:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hi schillerGao(高龙)">
+<meta name="twitter:title" content="RunTime入门">
 <meta name="twitter:description" content="Rumtime：因为Objective-C是一门动态语言，所以它需要一个运行时系统，就是Runtime系统。Runtime在实际开发中其实就是一组C语言函数。直接从代码入手吧、
 从objc_msgSend说起Objective-C 中的方法调用，不是简单的方法调用，而是发送消息，也就是说，其实 [receiver message] 会被编译器转化为: objc_msgSend(receiver,">
 
@@ -61,7 +61,7 @@
   };
 </script>
 
-  <title>  | Hi schillerGao(高龙) </title>
+  <title> RunTime入门 | Hi schillerGao(高龙) </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -201,7 +201,7 @@
           
           
             
-              
+              RunTime入门
             
           
         </h1>
@@ -314,7 +314,7 @@
 <li><p>key是关联的键，objc_getAssociatedObject 方法通过不同的 key 即可取出对应的被关联对象</p>
 </li>
 <li><p>policy 是一个枚举值，表示关联对象的行为，从命名就能看出各个枚举值的含义：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">   <span class="function"><span class="keyword">typedef</span> <span class="title">OBJC_ENUM</span><span class="params">(<span class="keyword">uintptr_t</span>, objc_AssociationPolicy)</span> </span>&#123;</div><div class="line">       OBJC_ASSOCIATION_ASSIGN = <span class="number">0</span>,           <span class="comment">/**&lt; Specifies a weak reference to the associated object. */</span></div><div class="line">       OBJC_ASSOCIATION_RETAIN_NONATOMIC = <span class="number">1</span>, <span class="comment">/**&lt; Specifies a strong reference to the associated object.</span></div><div class="line">*   The association is not made atomically. */</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">      <span class="function"><span class="keyword">typedef</span> <span class="title">OBJC_ENUM</span><span class="params">(<span class="keyword">uintptr_t</span>, objc_AssociationPolicy)</span> </span>&#123;</div><div class="line">          OBJC_ASSOCIATION_ASSIGN = <span class="number">0</span>,           <span class="comment">/**&lt; Specifies a weak reference to the associated object. */</span></div><div class="line">          OBJC_ASSOCIATION_RETAIN_NONATOMIC = <span class="number">1</span>, <span class="comment">/**&lt; Specifies a strong reference to the associated object.</span></div><div class="line">*   The association is not made atomically. */</div></pre></td></tr></table></figure>
 <p> OBJC_ASSOCIATION_COPY_NONATOMIC = 3,   /**&lt; Specifies that the associated object is copied.</p>
 <pre><code>*   The association is not made atomically. */
 </code></pre><p> OBJC_ASSOCIATION_RETAIN = 01401,       /**&lt; Specifies a strong reference to the associated object.</p>
@@ -419,7 +419,7 @@
           <div class="comments" id="comments">
             
               <div class="ds-thread" data-thread-key="2016/08/01/RunTime入门/"
-                   data-title="" data-url="http://yoursite.com/2016/08/01/RunTime入门/">
+                   data-title="RunTime入门" data-url="http://yoursite.com/2016/08/01/RunTime入门/">
               </div>
             
           </div>
