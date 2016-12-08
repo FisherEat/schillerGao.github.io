@@ -39,34 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="本篇文档首先要弄清楚iOS多线程机制，然后逐步探讨node.js的异步、同步处理机制。最后在此基础上扩展到java等语言的实现方式。
-Objective-C多线程多线程实现的几种方式
-
-NSThread
-
-GCD
-1234567891011&amp;gt;    1. 任务和队列&amp;gt;    任务：在GCD中就是一个Block&amp;gt;    任务可以同步执行、异步执行&amp;gt;    同步和异步的主要区别">
+<meta name="description" content="gitignore配置: Objective-C123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960# Xcode## gitignore contributors: remember to update Global/Xcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="比较多种语言多线程的使用方式">
-<meta property="og:url" content="http://yoursite.com/2016/08/27/比较多种语言多线程的使用方式/index.html">
+<meta property="og:title" content=".gitignore配置">
+<meta property="og:url" content="http://yoursite.com/2016/08/02/OCgitignore配置/index.html">
 <meta property="og:site_name" content="Hi schillerGao(高龙)">
-<meta property="og:description" content="本篇文档首先要弄清楚iOS多线程机制，然后逐步探讨node.js的异步、同步处理机制。最后在此基础上扩展到java等语言的实现方式。
-Objective-C多线程多线程实现的几种方式
-
-NSThread
-
-GCD
-1234567891011&amp;gt;    1. 任务和队列&amp;gt;    任务：在GCD中就是一个Block&amp;gt;    任务可以同步执行、异步执行&amp;gt;    同步和异步的主要区别">
-<meta property="og:updated_time" content="2016-12-06T14:10:58.000Z">
+<meta property="og:description" content="gitignore配置: Objective-C123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960# Xcode## gitignore contributors: remember to update Global/Xcode">
+<meta property="og:updated_time" content="2016-12-08T11:55:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="比较多种语言多线程的使用方式">
-<meta name="twitter:description" content="本篇文档首先要弄清楚iOS多线程机制，然后逐步探讨node.js的异步、同步处理机制。最后在此基础上扩展到java等语言的实现方式。
-Objective-C多线程多线程实现的几种方式
-
-NSThread
-
-GCD
-1234567891011&amp;gt;    1. 任务和队列&amp;gt;    任务：在GCD中就是一个Block&amp;gt;    任务可以同步执行、异步执行&amp;gt;    同步和异步的主要区别">
+<meta name="twitter:title" content=".gitignore配置">
+<meta name="twitter:description" content="gitignore配置: Objective-C123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960# Xcode## gitignore contributors: remember to update Global/Xcode">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -76,7 +58,7 @@ GCD
   };
 </script>
 
-  <title> 比较多种语言多线程的使用方式 | Hi schillerGao(高龙) </title>
+  <title> .gitignore配置 | Hi schillerGao(高龙) </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -216,7 +198,7 @@ GCD
           
           
             
-              比较多种语言多线程的使用方式
+              .gitignore配置
             
           
         </h1>
@@ -225,8 +207,8 @@ GCD
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-08-27T11:27:22+08:00" content="2016-08-27">
-            2016-08-27
+          <time itemprop="dateCreated" datetime="2016-08-02T11:38:11+08:00" content="2016-08-02">
+            2016-08-02
           </time>
         </span>
 
@@ -237,11 +219,11 @@ GCD
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/08/27/比较多种语言多线程的使用方式/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/比较多种语言多线程的使用方式/" itemprop="commentsCount"></span>
+              <a href="/2016/08/02/OCgitignore配置/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/02/OCgitignore配置/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/08/27/比较多种语言多线程的使用方式/#comments" itemprop="discussionUrl">
+              <a href="/2016/08/02/OCgitignore配置/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -256,49 +238,10 @@ GCD
       
 
       
-        <span itemprop="articleBody"><p><em>本篇文档首先要弄清楚iOS多线程机制，然后逐步探讨node.js的异步、同步处理机制。最后在此基础上扩展到java等语言的实现方式。</em></p>
-<h5 id="Objective-C多线程"><a href="#Objective-C多线程" class="headerlink" title="Objective-C多线程"></a>Objective-C多线程</h5><h6 id="多线程实现的几种方式"><a href="#多线程实现的几种方式" class="headerlink" title="多线程实现的几种方式"></a>多线程实现的几种方式</h6><blockquote>
-<ol>
-<li><p>NSThread</p>
-</li>
-<li><p>GCD</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;    1. 任务和队列</div><div class="line">&gt;    任务：在GCD中就是一个Block</div><div class="line">&gt;    任务可以同步执行、异步执行</div><div class="line">&gt;    同步和异步的主要区别在于会不会阻塞当前线程，直到block的任务执行完毕。</div><div class="line">&gt;    如果是 同步（sync） 操作，它会阻塞当前线程并等待 Block 中的任务执行完毕，然后当前线程才会继续往下运行。</div><div class="line">&gt;    如果是 异步（async）操作，当前线程会直接往下执行，它不会阻塞当前线程。</div><div class="line">&gt;    队列：串行队列、并行队列</div><div class="line">&gt;    放到串行队列的任务，GCD 会 FIFO（先进先出） 地取出来一个，执行一个，然后取下一个，这样一个一个的执行。</div><div class="line">&gt;    放到并行队列的任务，GCD 也会 FIFO的取出来，但不同的是，它取出来一个就会放到别的线程，然后再取出来一个又放到另一个的线程。这样由于取的动作很快，忽略不计，看起来，所有的任务都是一起执行的。不过需要注意，GCD 会根据系统资源控制并行的数量，所以如果任务很多，它并不会让所有任务同时执行。</div><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>同步执行</th>
-<th>异步执行</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>串行队列</td>
-<td>当前线程、一个一个的执行</td>
-<td>其他线程、一个一个的执行</td>
-</tr>
-<tr>
-<td>并行队列</td>
-<td>当前线程、一个一个的执行</td>
-<td>多个线程、一起执行</td>
-</tr>
-</tbody>
-</table>
-<p>   创建队列：</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;    主队列：</div><div class="line">&gt;    自己创建的队列：</div><div class="line">&gt;    全局并行队列：</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<ol>
-<li>over</li>
-</ol>
-</blockquote>
-<h4 id="多线程的本质"><a href="#多线程的本质" class="headerlink" title="多线程的本质"></a>多线程的本质</h4></span>
+        <span itemprop="articleBody"><h5 id="gitignore配置-Objective-C"><a href="#gitignore配置-Objective-C" class="headerlink" title="gitignore配置: Objective-C"></a>gitignore配置: Objective-C</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"># Xcode</div><div class="line">#</div><div class="line"># gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore &amp; Swift.gitignore</div><div class="line"></div><div class="line">## Build generated</div><div class="line">build/</div><div class="line">DerivedData/</div><div class="line"></div><div class="line">## Various settings</div><div class="line">*.pbxuser</div><div class="line">!default.pbxuser</div><div class="line">*.mode1v3 </div><div class="line">!default.mode1v3</div><div class="line">*.mode2v3</div><div class="line">!default.mode2v3</div><div class="line">*.perspectivev3</div><div class="line">!default.perspectivev3</div><div class="line">xcuserdata/</div><div class="line"></div><div class="line">## Other</div><div class="line">*.moved-aside</div><div class="line">*.xcuserstate</div><div class="line"></div><div class="line">## Obj-C/Swift specific</div><div class="line">*.hmap</div><div class="line">*.ipa</div><div class="line">*.dSYM.zip</div><div class="line">*.dSYM</div><div class="line"></div><div class="line"># CocoaPods</div><div class="line">#</div><div class="line"># We recommend against adding the Pods directory to your .gitignore. However</div><div class="line"># you should judge for yourself, the pros and cons are mentioned at:</div><div class="line"># https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control</div><div class="line">#</div><div class="line"># Pods/</div><div class="line"></div><div class="line"># Carthage</div><div class="line">#</div><div class="line"># Add this line if you want to avoid checking in source code from Carthage dependencies.</div><div class="line"># Carthage/Checkouts</div><div class="line"></div><div class="line">Carthage/Build</div><div class="line"></div><div class="line"># fastlane</div><div class="line">#</div><div class="line"># It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the </div><div class="line"># screenshots whenever they are needed.</div><div class="line"># For more information about the recommended setup visit:</div><div class="line"># https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md</div><div class="line"></div><div class="line">fastlane/report.xml</div><div class="line">fastlane/screenshots</div><div class="line"></div><div class="line"># Code Injection</div><div class="line">#</div><div class="line"># After new code Injection tools there&apos;s a generated folder /iOSInjectionProject</div><div class="line"># https://github.com/johnno1962/injectionforxcode</div><div class="line"></div><div class="line">iOSInjectionProject/</div></pre></td></tr></table></figure>
+<h5 id="云学堂项目gitignore-：不要留空格！！！"><a href="#云学堂项目gitignore-：不要留空格！！！" class="headerlink" title="云学堂项目gitignore ：不要留空格！！！"></a>云学堂项目gitignore ：不要留空格！！！</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"># Xcode</div><div class="line"># gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore &amp; Swift.gitignore</div><div class="line"></div><div class="line">## Build generated</div><div class="line">build/</div><div class="line">DerivedData/</div><div class="line"></div><div class="line">## Various settings</div><div class="line">*.pbxuser</div><div class="line">!default.pbxuser</div><div class="line">*.mode1v3 </div><div class="line">!default.mode1v3</div><div class="line">*.mode2v3</div><div class="line">!default.mode2v3</div><div class="line">*.perspectivev3</div><div class="line">!default.perspectivev3</div><div class="line">xcuserdata/</div><div class="line"></div><div class="line">##xcworkspacedata</div><div class="line">contents.xcworkspacedata</div><div class="line"></div><div class="line">## Other</div><div class="line">*.moved-aside</div><div class="line">*.xcuserstate</div><div class="line"></div><div class="line">## Obj-C/Swift specific</div><div class="line">*.hmap</div><div class="line">*.ipa</div><div class="line">*.dSYM.zip</div><div class="line">*.dSYM</div><div class="line"></div><div class="line"># CocoaPods</div><div class="line">#</div><div class="line"># We recommend against adding the Pods directory to your .gitignore. </div><div class="line">Pods/</div><div class="line">*/Pods</div><div class="line"></div><div class="line"># fastlane</div><div class="line">#</div><div class="line"># It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the </div><div class="line"># screenshots whenever they are needed.</div><div class="line"># For more information about the recommended setup visit:</div><div class="line"># https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md</div><div class="line"></div><div class="line">fastlane/report.xml</div><div class="line">fastlane/screenshots</div></pre></td></tr></table></figure>
+<h5 id="几个重要的坑"><a href="#几个重要的坑" class="headerlink" title="几个重要的坑"></a>几个重要的坑</h5><h5 id="gitignore不起作用"><a href="#gitignore不起作用" class="headerlink" title="gitignore不起作用"></a>gitignore不起作用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">检查一下是否一下出了问题</div><div class="line">1.不能有空格！不能有空格！！！</div><div class="line">2.格式对不对！！！</div><div class="line">3.不要相信 删除缓存！对已经在git track的文件再次忽略时，需要删除缓存！妈的，都是网上的坑！</div></pre></td></tr></table></figure>
+</span>
       
     </div>
 
@@ -309,13 +252,13 @@ GCD
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/29/制作和集成Framework详解（持续更新/" rel="prev">制作和集成Framework详解（持续更新）</a>
+              <a href="/2016/08/03/多线程/" rel="prev">多线程</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/04/Starfish.podspec/" rel="next">starfish.podspec</a>
+              <a href="/2016/08/01/打包 2.0/" rel="next">iOS开发之打包</a>
             
           </div>
         </div>
@@ -340,8 +283,8 @@ GCD
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/08/27/比较多种语言多线程的使用方式/"
-                   data-title="比较多种语言多线程的使用方式" data-url="http://yoursite.com/2016/08/27/比较多种语言多线程的使用方式/">
+              <div class="ds-thread" data-thread-key="2016/08/02/OCgitignore配置/"
+                   data-title=".gitignore配置" data-url="http://yoursite.com/2016/08/02/OCgitignore配置/">
               </div>
             
           </div>
@@ -487,7 +430,7 @@ GCD
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Objective-C多线程"><span class="nav-number">1.</span> <span class="nav-text">Objective-C多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#多线程实现的几种方式"><span class="nav-number">1.1.</span> <span class="nav-text">多线程实现的几种方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多线程的本质"><span class="nav-number"></span> <span class="nav-text">多线程的本质</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#gitignore配置-Objective-C"><span class="nav-number">1.</span> <span class="nav-text">gitignore配置: Objective-C</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#云学堂项目gitignore-：不要留空格！！！"><span class="nav-number">2.</span> <span class="nav-text">云学堂项目gitignore ：不要留空格！！！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#几个重要的坑"><span class="nav-number">3.</span> <span class="nav-text">几个重要的坑</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gitignore不起作用"><span class="nav-number">4.</span> <span class="nav-text">gitignore不起作用</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
