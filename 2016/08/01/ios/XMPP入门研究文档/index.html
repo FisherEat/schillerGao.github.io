@@ -1,0 +1,877 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="浮萍漂泊本无根，天涯游子君莫问" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="https://github.com/schillerGao" title="Hi schillerGao(高龙)" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="1.常用IM即时通讯协议有哪些？我知道的只有XMPP协议，是一种基于标准通讯协议语言XML的通讯协议。Extensible Messaging and Presence Protocol。该协议一个重要的特征是客户端-服务端协议，典型的C-S通讯协议。所有通讯内容通过S端转发。一个缺点是服务端压力相当大。另外一种通讯协议是C端可以互联，减轻端压力。
+2.XMPPFramework是一个OS X/i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XMPP研究文档">
+<meta property="og:url" content="http://yoursite.com/2016/08/01/ios/XMPP入门研究文档/index.html">
+<meta property="og:site_name" content="Hi schillerGao(高龙)">
+<meta property="og:description" content="1.常用IM即时通讯协议有哪些？我知道的只有XMPP协议，是一种基于标准通讯协议语言XML的通讯协议。Extensible Messaging and Presence Protocol。该协议一个重要的特征是客户端-服务端协议，典型的C-S通讯协议。所有通讯内容通过S端转发。一个缺点是服务端压力相当大。另外一种通讯协议是C端可以互联，减轻端压力。
+2.XMPPFramework是一个OS X/i">
+<meta property="og:updated_time" content="2016-12-08T12:15:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XMPP研究文档">
+<meta name="twitter:description" content="1.常用IM即时通讯协议有哪些？我知道的只有XMPP协议，是一种基于标准通讯协议语言XML的通讯协议。Extensible Messaging and Presence Protocol。该协议一个重要的特征是客户端-服务端协议，典型的C-S通讯协议。所有通讯内容通过S端转发。一个缺点是服务端压力相当大。另外一种通讯协议是C端可以互联，减轻端压力。
+2.XMPPFramework是一个OS X/i">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> XMPP研究文档 | Hi schillerGao(高龙) </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">高龙的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+
+
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'm6MupqWb8-J_VwiMZsWk','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              XMPP研究文档
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-08-01T10:15:37+08:00" content="2016-08-01">
+            2016-08-01
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2016/08/01/ios/XMPP入门研究文档/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/ios/XMPP入门研究文档/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2016/08/01/ios/XMPP入门研究文档/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><em>1.常用IM即时通讯协议有哪些？我知道的只有XMPP协议，是一种基于标准通讯协议语言XML的通讯协议。Extensible Messaging and Presence Protocol。该协议一个重要的特征是客户端-服务端协议，典型的C-S通讯协议。所有通讯内容通过S端转发。一个缺点是服务端压力相当大。另外一种通讯协议是C端可以互联，减轻端压力。</em></p>
+<p><em>2.<a href="https://github.com/robbiehanson/XMPPFramework" target="_blank" rel="external">XMPPFramework</a>是一个OS X/iOS平台的开源项目，使用Objective-C实现了XMPP协议（RFC-3920），同时还提供了用于读写XML的工具，大大简化了基于XMPP的通信应用的开发。</em></p>
+<h5 id="登录和好友上下线"><a href="#登录和好友上下线" class="headerlink" title="登录和好友上下线"></a>登录和好友上下线</h5><blockquote>
+<ol>
+<li><p>XMPP中常用的对象（途牛项目一些对象是基于这些对象的封装）</p>
+<ul>
+<li>XMPPStream：xmpp基础服务类</li>
+<li>XMPPRoster：好友列表类</li>
+<li>XMPPRosterCoreDataStorage：好友列表（用户账号）在core data中的操作类</li>
+<li>XMPPvCardCoreDataStorage：好友名片（昵称，签名，性别，年龄等信息）在core data中的操作类</li>
+<li>XMPPvCardTemp：好友名片实体类，从数据库里取出来的都是它</li>
+<li>xmppvCardAvatarModule：好友头像</li>
+<li>XMPPReconnect：如果失去连接,自动重连</li>
+<li>XMPPRoom：提供多用户聊天支持</li>
+<li>XMPPPubSub：发布订阅</li>
+</ul>
+</li>
+<li><p>登录操作，也就是连接XMPP服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&gt;      - (void)connect &#123;</div><div class="line">&gt;          if (self.xmppStream == nil) &#123;</div><div class="line">&gt;              self.xmppStream = [[XMPPStream alloc] init];</div><div class="line">&gt;              [self.xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];</div><div class="line">&gt;          &#125;</div><div class="line">&gt;          if (![self.xmppStream isConnected]) &#123;</div><div class="line">&gt;              NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@&quot;username&quot;];</div><div class="line">&gt;              XMPPJID *jid = [XMPPJID jidWithUser:username domain:@&quot;lizhen&quot; resource:@&quot;Ework&quot;];</div><div class="line">&gt;              [self.xmppStream setMyJID:jid];</div><div class="line">&gt;              [self.xmppStream setHostName:@&quot;10.4.125.113&quot;];</div><div class="line">&gt;              NSError *error = nil;</div><div class="line">&gt;              if (![self.xmppStream connect:&amp;error]) &#123;</div><div class="line">&gt;                  NSLog(@&quot;Connect Error: %@&quot;, [[error userInfo] description]);</div><div class="line">&gt;              &#125;</div><div class="line">&gt;          &#125;</div><div class="line">&gt;      &#125;</div><div class="line">&gt;</div><div class="line">&gt;      connect成功之后会依次调用XMPPStreamDelegate的方法，首先调用</div><div class="line">&gt;        - (void)xmppStream:(XMPPStream *)sender socketDidConnect:(GCDAsyncSocket *)socket</div><div class="line">&gt;       </div><div class="line">&gt;      ...</div><div class="line">&gt;      然后</div><div class="line">&gt;        - (void)xmppStreamDidConnect:(XMPPStream *)sender</div><div class="line">&gt;        在该方法下面需要使用xmppStream 的authenticateWithPassword方法进行密码验证，成功的话会响应delegate的方法，就是下面这个</div><div class="line">&gt;        - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>上线</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;      实现 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender 委托方法</div><div class="line">&gt;      - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender &#123;</div><div class="line">&gt;        XMPPPresence *presence = [XMPPPresence presenceWithType:@&quot;available&quot;];</div><div class="line">&gt;        [self.xmppStream sendElement:presence];</div><div class="line">&gt;      &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt; 4. 退出并断开连接</div><div class="line">&gt;</div><div class="line">&gt;    ```objective-c</div><div class="line">&gt;    - (void)disconnect &#123;</div><div class="line">&gt;        XMPPPresence *presence = [XMPPPresence presenceWithType:@&quot;unavailable&quot;];</div><div class="line">&gt;        [self.xmppStream sendElement:presence];</div><div class="line">&gt;          </div><div class="line">&gt;        [self.xmppStream disconnect];</div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>˙好友状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      获取好友状态，通过实现 </div><div class="line">&gt;      - (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>   …<br>   方法，当接收到 presence 标签的内容时，XMPPFramework 框架回调该方法 </p>
+<p>   一个 presence 标签的格式一般如下：</p>
+<p>   presence 的状态：</p>
+<p>   available 上线<br>   away 离开<br>   do not disturb 忙碌<br>   unavailable 下线<br>​     </p>
+<ul>
+<li>(void)xmppStream:(XMPPStream <em>)sender didReceivePresence:(XMPPPresence </em>)presence {<br>  NSString <em>presenceType = [presence type];<br>  NSString </em>presenceFromUser = [[presence from] user];<br>  if (![presenceFromUser isEqualToString:[[sender myJID] user]]) {<pre><code>if ([presenceType isEqualToString:@&quot;available&quot;]) {
+    //
+} else if ([presenceType isEqualToString:@&quot;unavailable&quot;]) {
+    //
+}
+</code></pre>  }<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt; 6. over</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h5 id="接收消息和发送消息"><a href="#接收消息和发送消息" class="headerlink" title="接收消息和发送消息"></a>接收消息和发送消息</h5><blockquote>
+<ol>
+<li><p>接收消息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;      通过实现 </div><div class="line">&gt;      - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message;</div><div class="line">&gt;      当接收到 message 标签的内容时，XMPPFramework 框架回调该方法</div><div class="line">&gt;</div><div class="line">&gt;      根据 XMPP 协议，消息体的内容存储在标签 body 内</div><div class="line">&gt;        - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message &#123;</div><div class="line">&gt;          NSString *messageBody = [[message elementForName:@&quot;body&quot;] stringValue];</div><div class="line">&gt;      &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>发送消息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt;      发送消息，我们需要根据 XMPP 协议，将数据放到标签内，例如：</div><div class="line">&gt;</div><div class="line">&gt;      &lt;message type=&quot;chat&quot; to=&quot;xiaoming@example.com&quot;&gt;</div><div class="line">&gt;      	&lt;body&gt;Hello world&lt;/body&gt;</div><div class="line">&gt;      &lt;message/&gt;</div><div class="line">&gt;      - (void)sendMessage:(NSString *) message toUser:(NSString *) user &#123;</div><div class="line">&gt;        NSXMLElement *body = [NSXMLElement elementWithName:@&quot;body&quot;];</div><div class="line">&gt;        [body setStringValue:message];</div><div class="line">&gt;        NSXMLElement *message = [NSXMLElement elementWithName:@&quot;message&quot;];</div><div class="line">&gt;        [message addAttributeWithName:@&quot;type&quot; stringValue:@&quot;chat&quot;];</div><div class="line">&gt;        NSString *to = [NSString stringWithFormat:@&quot;%@@example.com&quot;, user];</div><div class="line">&gt;        [message addAttributeWithName:@&quot;to&quot; stringValue:to];</div><div class="line">&gt;        [message addChild:body];</div><div class="line">&gt;        [self.xmppStream sendElement:message];</div><div class="line">&gt;      &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="获取好友信息和删除好友"><a href="#获取好友信息和删除好友" class="headerlink" title="获取好友信息和删除好友"></a>获取好友信息和删除好友</h5><blockquote>
+<ol>
+<li><p>好友列表和好友名片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&gt;       [_xmppRoster fetchRoster];//获取好友列表</div><div class="line">&gt;       //获取到一个好友节点</div><div class="line">&gt;       - (void)xmppRoster:(XMPPRoster *)sender didRecieveRosterItem:(NSXMLElement *)item</div><div class="line">&gt;       //获取完好友列表</div><div class="line">&gt;       - (void)xmppRosterDidEndPopulating:(XMPPRoster *)sender</div><div class="line">&gt;       //到服务器上请求联系人名片信息</div><div class="line">&gt;       - (void)fetchvCardTempForJID:(XMPPJID *)jid;</div><div class="line">&gt;       //请求联系人的名片，如果数据库有就不请求，没有就发送名片请求</div><div class="line">&gt;       - (void)fetchvCardTempForJID:(XMPPJID *)jid ignoreStorage:(BOOL)ignoreStorage;</div><div class="line">&gt;       //获取联系人的名片，如果数据库有就返回，没有返回空，并到服务器上抓取</div><div class="line">&gt;       - (XMPPvCardTemp *)vCardTempForJID:(XMPPJID *)jid shouldFetch:(BOOL)shouldFetch;</div><div class="line">&gt;       //更新自己的名片信息</div><div class="line">&gt;       - (void)updateMyvCardTemp:(XMPPvCardTemp *)vCardTemp;</div><div class="line">&gt;       //获取到一盒联系人的名片信息的回调</div><div class="line">&gt;       - (void)xmppvCardTempModule:(XMPPvCardTempModule *)vCardTempModule </div><div class="line">&gt;               didReceivevCardTemp:(XMPPvCardTemp *)vCardTemp </div><div class="line">&gt;                            forJID:(XMPPJID *)jid</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>添加好友</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;       //name为用户账号</div><div class="line">&gt;       - (void)XMPPAddFriendSubscribe:(NSString *)name</div><div class="line">&gt;       &#123;</div><div class="line">&gt;           //XMPPHOST 就是服务器名，  主机名</div><div class="line">&gt;           XMPPJID *jid = [XMPPJID jidWithString:[NSString stringWithFormat:@&quot;%@@%@&quot;,name,XMPPHOST]];</div><div class="line">&gt;           //[presence addAttributeWithName:@&quot;subscription&quot; stringValue:@&quot;好友&quot;];</div><div class="line">&gt;           [xmppRoster subscribePresenceToUser:jid];</div><div class="line">&gt;       &#125;</div><div class="line">&gt;       //tuniu</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>(void)addBuddy:(TNYapXMPPBuddy *)newBuddy<br>   {<pre><code>XMPPJID *newJID = [XMPPJID jidWithString:newBuddy.username];
+[self.xmppRoster addUser:newJID withNickname:newBuddy.displayName];
+</code></pre>   } <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt; 3. 收到添加好友的请求</div><div class="line">&gt;</div><div class="line">&gt; 4. 删除好友</div><div class="line">&gt;</div><div class="line">&gt;    ```objective-c</div><div class="line">&gt;    - (void)removeBuddies:(NSArray *)buddies</div><div class="line">&gt;    &#123;</div><div class="line">&gt;        for (TNYapXMPPBuddy *buddy in buddies)&#123;</div><div class="line">&gt;            XMPPJID * jid = [XMPPJID jidWithString:buddy.username];</div><div class="line">&gt;            [self.xmppRoster removeUser:jid];</div><div class="line">&gt;        &#125;</div><div class="line">&gt;        </div><div class="line">&gt;        [[TNChatYapDatabaseManager sharedInstance].readWriteDatabaseConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) &#123;</div><div class="line">&gt;            [transaction removeObjectsForKeys:[buddies valueForKey:NSStringFromSelector(@selector(uniqueId))] inCollection:[TNYapXMPPBuddy collection]];</div><div class="line">&gt;        &#125;];   </div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>聊天室(群聊)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&gt;    初始化聊天室 </div><div class="line">&gt;    XMPPJID *roomJID = [XMPPJID jidWithString:ROOM_JID];</div><div class="line">&gt;          </div><div class="line">&gt;        xmppRoom = [[XMPPRoom alloc] initWithRoomStorage:self jid:roomJID];</div><div class="line">&gt;          </div><div class="line">&gt;        [xmppRoom activate:xmppStream];</div><div class="line">&gt;        [xmppRoom addDelegate:self delegateQueue:dispatch_get_main_queue()];</div><div class="line">&gt;        //途牛</div><div class="line">&gt;    - (void)blockBuddies:(NSArray *)buddies</div><div class="line">&gt;    &#123;</div><div class="line">&gt;        for (TNYapXMPPBuddy *buddy in buddies)&#123;</div><div class="line">&gt;            XMPPJID * jid = [XMPPJID jidWithString:buddy.username];</div><div class="line">&gt;            [self.xmppRoster revokePresencePermissionFromUser:jid];</div><div class="line">&gt;        &#125;</div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div><div class="line">&gt;    创建聊天室成功</div><div class="line">&gt;       - (void)xmppRoomDidCreate:(XMPPRoom *)sender</div><div class="line">&gt;        &#123;</div><div class="line">&gt;            DDLogInfo(@&quot;%@: %@&quot;, THIS_FILE, THIS_METHOD);</div><div class="line">&gt;        &#125;</div><div class="line">&gt;    加入聊天室</div><div class="line">&gt;      [xmppRoom joinRoomUsingNickname:@&quot;quack&quot; history:nil];</div><div class="line">&gt;    获取聊天室信息</div><div class="line">&gt;      - (void)xmppRoomDidJoin:(XMPPRoom *)sender</div><div class="line">&gt;        &#123;</div><div class="line">&gt;            [xmppRoom fetchConfigurationForm];</div><div class="line">&gt;            [xmppRoom fetchBanList];</div><div class="line">&gt;            [xmppRoom fetchMembersList];</div><div class="line">&gt;            [xmppRoom fetchModeratorsList];</div><div class="line">&gt;        &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>​</li>
+</ol>
+</blockquote>
+<h5 id="消息回执"><a href="#消息回执" class="headerlink" title="消息回执"></a>消息回执</h5><blockquote>
+<p>*这个是XEP－0184协议的内容</p>
+<p>协议内容：</p>
+<p>发送消息时附加回执请求*</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; NSString *siID = [XMPPStream generateUUID];</div><div class="line">&gt;     //发送消息</div><div class="line">&gt;     XMPPMessage *message = [XMPPMessage messageWithType:@&quot;chat&quot; to:jid elementID:siID];</div><div class="line">&gt;     NSXMLElement *receipt = [NSXMLElement elementWithName:@&quot;request&quot; xmlns:@&quot;urn:xmpp:receipts&quot;];</div><div class="line">&gt;     [message addChild:receipt];</div><div class="line">&gt;     [message addBody:@&quot;测试&quot;];</div><div class="line">&gt;     [self.xmppStream sendElement:message];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>ooo</li>
+</ol>
+</blockquote>
+<h5 id="添加AutoPing"><a href="#添加AutoPing" class="headerlink" title="添加AutoPing"></a>添加AutoPing</h5><blockquote>
+<p><em>为了监听服务器是否有效，增加心跳监听。用XEP-0199协议，在XMPPFrameWork框架下，封装了 XMPPAutoPing 和 XMPPPing两个类都可以使用，因为XMPPAutoPing已经组合进了XMPPPing类，所以XMPPAutoPing使用起来更方便。</em></p>
+</blockquote>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/01/ios/Mantle框架研究/" rel="prev">Mantle框架研究</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/01/ios/脚本打包/" rel="next">脚本打包</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/08/01/ios/XMPP入门研究文档/"
+                   data-title="XMPP研究文档" data-url="http://yoursite.com/2016/08/01/ios/XMPP入门研究文档/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="高龙" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">高龙</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">浮萍漂泊本无根，天涯游子君莫问</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="https://github.com/schillerGao" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/schillerGao" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank">Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/b1704a5943fe/latest_articles" target="_blank">简书</a>
+              </span>
+            
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.codingdemo.com" target="_blank">Favori</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://mindhacks.cn/" target="_blank">刘未鹏</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.ruanyifeng.com/home.html" target="_blank">阮一峰</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://ibruce.info/" target="_blank">不如</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://gongchuangsu.com/" target="_blank">贱贱的梦想</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.qiuchengjia.cn/" target="_blank">戎码人生</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.jvaeyhcd.cc/" target="_blank">Jvaryhcd</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bianmaren.com/" target="_blank">编码人</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://liuyuanwai.cn/" target="_blank">劉員外</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bolt.coding.me" target="_blank">bolt</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#登录和好友上下线"><span class="nav-number">1.</span> <span class="nav-text">登录和好友上下线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接收消息和发送消息"><span class="nav-number">2.</span> <span class="nav-text">接收消息和发送消息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取好友信息和删除好友"><span class="nav-number">3.</span> <span class="nav-text">获取好友信息和删除好友</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#消息回执"><span class="nav-number">4.</span> <span class="nav-text">消息回执</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#添加AutoPing"><span class="nav-number">5.</span> <span class="nav-text">添加AutoPing</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高龙</span>
+
+  <div class="powered-by"></div>
+  <div class="powered-by">
+    Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  </div>
+
+  <div class="theme-info">
+    浮萍漂泊本无根 天涯游子君莫问
+  </div>
+
+  <!-- busuanzi -->
+  
+    <div class="powered-by">
+    <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+    </div>
+  
+
+</div>
+
+<!--
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+<!--
+<div class="powered-by"></div>
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+-->
+
+<!-- busuanzi -->
+<!--
+
+  <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gaolongeric"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

@@ -39,16 +39,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="gitignore配置: Objective-C123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960# Xcode## gitignore contributors: remember to update Global/Xcode">
+<meta name="description" content="将字典或者json转化为model，在OC语言中最基础的解决方案是使用NSDictionary的setValueForKey。简单的，因为字典或者json本身就是key-value类型，所以转成model 的实现方式：_model = [dictionary[@”model”] copy]，转化也相当简单。
+Mantle解决的问题
+
+避免了写重复的init方法，通过服务端返回的数据自动生成mode">
 <meta property="og:type" content="article">
-<meta property="og:title" content=".gitignore配置">
-<meta property="og:url" content="http://yoursite.com/2016/08/02/ios/OCgitignore配置/index.html">
+<meta property="og:title" content="Mantle框架研究">
+<meta property="og:url" content="http://yoursite.com/2016/08/01/ios/Mantle框架研究/index.html">
 <meta property="og:site_name" content="Hi schillerGao(高龙)">
-<meta property="og:description" content="gitignore配置: Objective-C123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960# Xcode## gitignore contributors: remember to update Global/Xcode">
-<meta property="og:updated_time" content="2016-12-08T11:55:05.000Z">
+<meta property="og:description" content="将字典或者json转化为model，在OC语言中最基础的解决方案是使用NSDictionary的setValueForKey。简单的，因为字典或者json本身就是key-value类型，所以转成model 的实现方式：_model = [dictionary[@”model”] copy]，转化也相当简单。
+Mantle解决的问题
+
+避免了写重复的init方法，通过服务端返回的数据自动生成mode">
+<meta property="og:updated_time" content="2016-12-08T12:14:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=".gitignore配置">
-<meta name="twitter:description" content="gitignore配置: Objective-C123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960# Xcode## gitignore contributors: remember to update Global/Xcode">
+<meta name="twitter:title" content="Mantle框架研究">
+<meta name="twitter:description" content="将字典或者json转化为model，在OC语言中最基础的解决方案是使用NSDictionary的setValueForKey。简单的，因为字典或者json本身就是key-value类型，所以转成model 的实现方式：_model = [dictionary[@”model”] copy]，转化也相当简单。
+Mantle解决的问题
+
+避免了写重复的init方法，通过服务端返回的数据自动生成mode">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -58,7 +67,7 @@
   };
 </script>
 
-  <title> .gitignore配置 | Hi schillerGao(高龙) </title>
+  <title> Mantle框架研究 | Hi schillerGao(高龙) </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -198,7 +207,7 @@
           
           
             
-              .gitignore配置
+              Mantle框架研究
             
           
         </h1>
@@ -207,8 +216,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-08-02T11:38:11+08:00" content="2016-08-02">
-            2016-08-02
+          <time itemprop="dateCreated" datetime="2016-08-01T10:15:37+08:00" content="2016-08-01">
+            2016-08-01
           </time>
         </span>
 
@@ -219,11 +228,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/08/02/ios/OCgitignore配置/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/02/ios/OCgitignore配置/" itemprop="commentsCount"></span>
+              <a href="/2016/08/01/ios/Mantle框架研究/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/ios/Mantle框架研究/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/08/02/ios/OCgitignore配置/#comments" itemprop="discussionUrl">
+              <a href="/2016/08/01/ios/Mantle框架研究/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -238,10 +247,50 @@
       
 
       
-        <span itemprop="articleBody"><h5 id="gitignore配置-Objective-C"><a href="#gitignore配置-Objective-C" class="headerlink" title="gitignore配置: Objective-C"></a>gitignore配置: Objective-C</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"># Xcode</div><div class="line">#</div><div class="line"># gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore &amp; Swift.gitignore</div><div class="line"></div><div class="line">## Build generated</div><div class="line">build/</div><div class="line">DerivedData/</div><div class="line"></div><div class="line">## Various settings</div><div class="line">*.pbxuser</div><div class="line">!default.pbxuser</div><div class="line">*.mode1v3 </div><div class="line">!default.mode1v3</div><div class="line">*.mode2v3</div><div class="line">!default.mode2v3</div><div class="line">*.perspectivev3</div><div class="line">!default.perspectivev3</div><div class="line">xcuserdata/</div><div class="line"></div><div class="line">## Other</div><div class="line">*.moved-aside</div><div class="line">*.xcuserstate</div><div class="line"></div><div class="line">## Obj-C/Swift specific</div><div class="line">*.hmap</div><div class="line">*.ipa</div><div class="line">*.dSYM.zip</div><div class="line">*.dSYM</div><div class="line"></div><div class="line"># CocoaPods</div><div class="line">#</div><div class="line"># We recommend against adding the Pods directory to your .gitignore. However</div><div class="line"># you should judge for yourself, the pros and cons are mentioned at:</div><div class="line"># https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control</div><div class="line">#</div><div class="line"># Pods/</div><div class="line"></div><div class="line"># Carthage</div><div class="line">#</div><div class="line"># Add this line if you want to avoid checking in source code from Carthage dependencies.</div><div class="line"># Carthage/Checkouts</div><div class="line"></div><div class="line">Carthage/Build</div><div class="line"></div><div class="line"># fastlane</div><div class="line">#</div><div class="line"># It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the </div><div class="line"># screenshots whenever they are needed.</div><div class="line"># For more information about the recommended setup visit:</div><div class="line"># https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md</div><div class="line"></div><div class="line">fastlane/report.xml</div><div class="line">fastlane/screenshots</div><div class="line"></div><div class="line"># Code Injection</div><div class="line">#</div><div class="line"># After new code Injection tools there&apos;s a generated folder /iOSInjectionProject</div><div class="line"># https://github.com/johnno1962/injectionforxcode</div><div class="line"></div><div class="line">iOSInjectionProject/</div></pre></td></tr></table></figure>
-<h5 id="云学堂项目gitignore-：不要留空格！！！"><a href="#云学堂项目gitignore-：不要留空格！！！" class="headerlink" title="云学堂项目gitignore ：不要留空格！！！"></a>云学堂项目gitignore ：不要留空格！！！</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"># Xcode</div><div class="line"># gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore &amp; Swift.gitignore</div><div class="line"></div><div class="line">## Build generated</div><div class="line">build/</div><div class="line">DerivedData/</div><div class="line"></div><div class="line">## Various settings</div><div class="line">*.pbxuser</div><div class="line">!default.pbxuser</div><div class="line">*.mode1v3 </div><div class="line">!default.mode1v3</div><div class="line">*.mode2v3</div><div class="line">!default.mode2v3</div><div class="line">*.perspectivev3</div><div class="line">!default.perspectivev3</div><div class="line">xcuserdata/</div><div class="line"></div><div class="line">##xcworkspacedata</div><div class="line">contents.xcworkspacedata</div><div class="line"></div><div class="line">## Other</div><div class="line">*.moved-aside</div><div class="line">*.xcuserstate</div><div class="line"></div><div class="line">## Obj-C/Swift specific</div><div class="line">*.hmap</div><div class="line">*.ipa</div><div class="line">*.dSYM.zip</div><div class="line">*.dSYM</div><div class="line"></div><div class="line"># CocoaPods</div><div class="line">#</div><div class="line"># We recommend against adding the Pods directory to your .gitignore. </div><div class="line">Pods/</div><div class="line">*/Pods</div><div class="line"></div><div class="line"># fastlane</div><div class="line">#</div><div class="line"># It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the </div><div class="line"># screenshots whenever they are needed.</div><div class="line"># For more information about the recommended setup visit:</div><div class="line"># https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md</div><div class="line"></div><div class="line">fastlane/report.xml</div><div class="line">fastlane/screenshots</div></pre></td></tr></table></figure>
-<h5 id="几个重要的坑"><a href="#几个重要的坑" class="headerlink" title="几个重要的坑"></a>几个重要的坑</h5><h5 id="gitignore不起作用"><a href="#gitignore不起作用" class="headerlink" title="gitignore不起作用"></a>gitignore不起作用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">检查一下是否一下出了问题</div><div class="line">1.不能有空格！不能有空格！！！</div><div class="line">2.格式对不对！！！</div><div class="line">3.不要相信 删除缓存！对已经在git track的文件再次忽略时，需要删除缓存！妈的，都是网上的坑！</div></pre></td></tr></table></figure>
-</span>
+        <span itemprop="articleBody"><p><em>将字典或者json转化为model，在OC语言中最基础的解决方案是使用NSDictionary的setValueForKey。简单的，因为字典或者json本身就是key-value类型，所以转成model 的实现方式：_model = [dictionary[@”model”] copy]，转化也相当简单。</em></p>
+<h5 id="Mantle解决的问题"><a href="#Mantle解决的问题" class="headerlink" title="Mantle解决的问题"></a>Mantle解决的问题</h5><blockquote>
+<ul>
+<li>避免了写重复的init方法，通过服务端返回的数据自动生成model，也可以利用model来序列化生成json。</li>
+<li>当model里的某个属性名称和服务端的某个字段名不一样的时候，可以利用<code>+(NSDictionary *)JSONKeyPathsByPropertyKey</code>  这个方法来进行字段匹配。</li>
+<li>可以通过<code>+&lt;key&gt;JSONTransforme</code>r这个命名方法来声明一个转换方法。</li>
+<li>自动的decode和encoding。方便Model的归档。</li>
+</ul>
+</blockquote>
+<h5 id="Mantle如何实现这些功能"><a href="#Mantle如何实现这些功能" class="headerlink" title="Mantle如何实现这些功能"></a>Mantle如何实现这些功能</h5><blockquote>
+<p>OC我们用的方法是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; -(void)setValuesForKeysWithDictionary:(NSDictionary&lt;NSString *, id&gt;keyedValues);该方法利用KVC直接让model调用下面这个方法：</div><div class="line">&gt; -(void)setValue:(nullable id)value forKeyPath:(NSString *)keyPath;方法通过遍历传入的字典key，对model进行赋值。</div><div class="line">&gt; - (id)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error</div><div class="line">&gt; &#123;</div><div class="line">&gt;     if (self = [super init]) &#123;</div><div class="line">&gt;         [self setValuesForKeysWithDictionary:dictionaryValue];</div><div class="line">&gt;     &#125;</div><div class="line">&gt;     return self;</div><div class="line">&gt; &#125;</div><div class="line">&gt; //</div><div class="line">&gt; 这样有两个问题</div><div class="line">&gt; 1. 如果字典里的某一个key的名字和model的property的名字不匹配，就会造成NSUnknownKeyException,然后直接崩溃。</div><div class="line">&gt; 2. 没法进行类型判断，如果你的字典的某个key对应的值和你的model里的相同的key对应的值的类型不一致，就没有办法自动转换。</div><div class="line">&gt;  </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>over</p>
+</blockquote>
+<h5 id="Mantle如何实现的"><a href="#Mantle如何实现的" class="headerlink" title="Mantle如何实现的"></a>Mantle如何实现的</h5><blockquote>
+<ol>
+<li><p>创建的model需要继承自<code>MTLModel</code>，model中含有model，里部的也需要继承<code>MTLModel</code></p>
+</li>
+<li><p>必须实现MTLJSONSerialzing协议，即必须实现这个方法：<code>+ (NSDictionary *)JSONKeyPathsByPropertyKey，</code></p>
+</li>
+<li><p>如果是类簇，必须实现<code>+ (NSValueTransformer *)activityListJSONTransformer</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;    + (NSDictionary *)JSONKeyPathsByPropertyKey</div><div class="line">&gt;    &#123;</div><div class="line">&gt;        NSDictionary *mutDic = [NSDictionary mtl_identityPropertyMapWithModel:[[self class] mutableCopy]];</div><div class="line">&gt;        return mutDic;</div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div><div class="line">&gt;    + (NSValueTransformer *)activityListJSONTransformer</div><div class="line">&gt;    &#123;</div><div class="line">&gt;        return [MTLJSONAdapter arrayTransformerWithModelClass:[GLCommunityTripActivityItem class]];</div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h5 id="Mantle模块"><a href="#Mantle模块" class="headerlink" title="Mantle模块"></a>Mantle模块</h5><blockquote>
+<ul>
+<li><code>Modules</code>主要负责最基础的功能，包括通过runtime获取Class的property，encode和decode</li>
+<li>Adapters只要负责JSON &lt;—&gt;Model转换的核心逻辑</li>
+<li>ValueTransform主要负责摸个Property需要进行自定义转换的需求。例如服务端返回的时间戳，Model中声明的NSDate类型的这种转换。</li>
+<li>libextobjc将property_attribute这种Typedef Encoding过的东西转换成对应的Model</li>
+</ul>
+</blockquote>
+<h5 id="补充基础知识"><a href="#补充基础知识" class="headerlink" title="补充基础知识"></a>补充基础知识</h5><blockquote>
+<ul>
+<li>如何利用Runtime获取一个类的所有Property的信息</li>
+<li>什么是property_attribute</li>
+<li>Mantle中EXTRuntimeExtensions这个类所完成的功能</li>
+</ul>
+</blockquote>
+<h5 id="核心MTLJSONAdapter的解析"><a href="#核心MTLJSONAdapter的解析" class="headerlink" title="核心MTLJSONAdapter的解析"></a>核心MTLJSONAdapter的解析</h5></span>
       
     </div>
 
@@ -252,13 +301,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/03/ios/多线程/" rel="prev">多线程</a>
+              <a href="/2016/08/01/ios/RunTime入门/" rel="prev">RunTime入门</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/01/ios/多线程异步刷新数据/" rel="next">iOS获取异步数据并刷新界面dispatch_asyn的使用</a>
+              <a href="/2016/08/01/ios/XMPP入门研究文档/" rel="next">XMPP研究文档</a>
             
           </div>
         </div>
@@ -283,8 +332,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/08/02/ios/OCgitignore配置/"
-                   data-title=".gitignore配置" data-url="http://yoursite.com/2016/08/02/ios/OCgitignore配置/">
+              <div class="ds-thread" data-thread-key="2016/08/01/ios/Mantle框架研究/"
+                   data-title="Mantle框架研究" data-url="http://yoursite.com/2016/08/01/ios/Mantle框架研究/">
               </div>
             
           </div>
@@ -430,7 +479,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#gitignore配置-Objective-C"><span class="nav-number">1.</span> <span class="nav-text">gitignore配置: Objective-C</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#云学堂项目gitignore-：不要留空格！！！"><span class="nav-number">2.</span> <span class="nav-text">云学堂项目gitignore ：不要留空格！！！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#几个重要的坑"><span class="nav-number">3.</span> <span class="nav-text">几个重要的坑</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gitignore不起作用"><span class="nav-number">4.</span> <span class="nav-text">gitignore不起作用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Mantle解决的问题"><span class="nav-number">1.</span> <span class="nav-text">Mantle解决的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mantle如何实现这些功能"><span class="nav-number">2.</span> <span class="nav-text">Mantle如何实现这些功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mantle如何实现的"><span class="nav-number">3.</span> <span class="nav-text">Mantle如何实现的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mantle模块"><span class="nav-number">4.</span> <span class="nav-text">Mantle模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#补充基础知识"><span class="nav-number">5.</span> <span class="nav-text">补充基础知识</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#核心MTLJSONAdapter的解析"><span class="nav-number">6.</span> <span class="nav-text">核心MTLJSONAdapter的解析</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
