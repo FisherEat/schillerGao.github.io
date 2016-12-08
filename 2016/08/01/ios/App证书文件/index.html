@@ -39,19 +39,58 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="iOS获取异步数据并刷新界面dispatch_asyn的使用参考文献：http://blog.csdn.net/qinlicang/article/details/42221585
-初识GCD编程1234567891011121314151617dispatch_async(dispatch_get_global_queue(0, 0), ^&amp;#123; // 处理耗时操作的代码块... //通知">
+<meta name="description" content="什么是证书
+证书分为两种，一种是开发证书Development，也就是开发过程中需要用到的证书，用于开发过程中的真机调试；Development;
+第二种是产品证书Production，产品证书分为很多种：
+
+
+
+Production Profile Name
+signing
+作用
+
+
+
+
+App Store and Ad Hoc
+Sign your iOS app for submission">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS获取异步数据并刷新界面dispatch_asyn的使用">
-<meta property="og:url" content="http://yoursite.com/2016/08/01/ios/多线程异步刷新数据/index.html">
+<meta property="og:title" content="App证书文件">
+<meta property="og:url" content="http://yoursite.com/2016/08/01/ios/App证书文件/index.html">
 <meta property="og:site_name" content="Hi schillerGao(高龙)">
-<meta property="og:description" content="iOS获取异步数据并刷新界面dispatch_asyn的使用参考文献：http://blog.csdn.net/qinlicang/article/details/42221585
-初识GCD编程1234567891011121314151617dispatch_async(dispatch_get_global_queue(0, 0), ^&amp;#123; // 处理耗时操作的代码块... //通知">
-<meta property="og:updated_time" content="2016-10-09T15:19:01.000Z">
+<meta property="og:description" content="什么是证书
+证书分为两种，一种是开发证书Development，也就是开发过程中需要用到的证书，用于开发过程中的真机调试；Development;
+第二种是产品证书Production，产品证书分为很多种：
+
+
+
+Production Profile Name
+signing
+作用
+
+
+
+
+App Store and Ad Hoc
+Sign your iOS app for submission">
+<meta property="og:updated_time" content="2016-12-08T12:21:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS获取异步数据并刷新界面dispatch_asyn的使用">
-<meta name="twitter:description" content="iOS获取异步数据并刷新界面dispatch_asyn的使用参考文献：http://blog.csdn.net/qinlicang/article/details/42221585
-初识GCD编程1234567891011121314151617dispatch_async(dispatch_get_global_queue(0, 0), ^&amp;#123; // 处理耗时操作的代码块... //通知">
+<meta name="twitter:title" content="App证书文件">
+<meta name="twitter:description" content="什么是证书
+证书分为两种，一种是开发证书Development，也就是开发过程中需要用到的证书，用于开发过程中的真机调试；Development;
+第二种是产品证书Production，产品证书分为很多种：
+
+
+
+Production Profile Name
+signing
+作用
+
+
+
+
+App Store and Ad Hoc
+Sign your iOS app for submission">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +100,7 @@
   };
 </script>
 
-  <title> iOS获取异步数据并刷新界面dispatch_asyn的使用 | Hi schillerGao(高龙) </title>
+  <title> App证书文件 | Hi schillerGao(高龙) </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -201,7 +240,7 @@
           
           
             
-              iOS获取异步数据并刷新界面dispatch_asyn的使用
+              App证书文件
             
           
         </h1>
@@ -222,11 +261,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/08/01/ios/多线程异步刷新数据/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/ios/多线程异步刷新数据/" itemprop="commentsCount"></span>
+              <a href="/2016/08/01/ios/App证书文件/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/ios/App证书文件/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/08/01/ios/多线程异步刷新数据/#comments" itemprop="discussionUrl">
+              <a href="/2016/08/01/ios/App证书文件/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -241,11 +280,86 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="iOS获取异步数据并刷新界面dispatch-asyn的使用"><a href="#iOS获取异步数据并刷新界面dispatch-asyn的使用" class="headerlink" title="iOS获取异步数据并刷新界面dispatch_asyn的使用"></a>iOS获取异步数据并刷新界面dispatch_asyn的使用</h4><p>参考文献：<a href="http://blog.csdn.net/qinlicang/article/details/42221585" target="_blank" rel="external">http://blog.csdn.net/qinlicang/article/details/42221585</a></p>
-<h5 id="初识GCD编程"><a href="#初识GCD编程" class="headerlink" title="初识GCD编程"></a>初识GCD编程</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">dispatch_async(dispatch_get_global_queue(0, 0), ^&#123; </div><div class="line">// 处理耗时操作的代码块... </div><div class="line"></div><div class="line">//通知主线程刷新 </div><div class="line">dispatch_async(dispatch_get_main_queue(), ^&#123; </div><div class="line">//回调或者说是通知主线程刷新， </div><div class="line">&#125;); </div><div class="line"></div><div class="line">&#125;);</div><div class="line">//解释</div><div class="line">dispatch_async 开启一个异步操作。第一个参数指定一个GCD队列，第二个参数分配一个处理事件的程序块到该队列。</div><div class="line">dispatch_get_global_queue(0,0),指用了全局队列。</div><div class="line">一般来说系统本身会有3个队列：global_queue，current_queue,以及main_queue. </div><div class="line"> 获取一个全局队列是接受两个参数，第一个是我分配的事物处理程序块队列优先级。分高低和默认，0为默认2为高，-2为低 ：</div><div class="line">#define DISPATCH_QUEUE_PRIORITY_HIGH     2  </div><div class="line">#define DISPATCH_QUEUE_PRIORITY_DEFAULT  0  </div><div class="line">#define DISPATCH_QUEUE_PRIORITY_LOW     (-2)</div></pre></td></tr></table></figure>
-<h5 id="GCD之并发"><a href="#GCD之并发" class="headerlink" title="GCD之并发"></a>GCD之并发</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">//对于GCD多线程编程。重要概念：同步、异步、并发、锁</div><div class="line">//同步实现</div><div class="line"> for (int i = 0 ; i &lt; 10; i++) &#123;  </div><div class="line">     </div><div class="line">      UIImage *img = [self getImgeWith:[urlArr objectForIndex:i]];  </div><div class="line">       [myImgV[i] setImage:img];  </div><div class="line">       </div><div class="line">&#125;</div><div class="line">假设我要加载10个图片，我现在拥有这些图片的资源地址，保存在一个数组中。 </div><div class="line">我们先以获取第一张图片来举例： 同步执行的概念就是，我获取完第一张图片的， 执行了for循环第一句返回了img后，我才能执行第二句，UI界面的刷新。 </div><div class="line">如果第一句返回的时间需要10秒，那我程序的响应就仿佛一直卡在这里一样，我无法进行其他操作。必须等它返回！！ </div><div class="line">因此，同步的一个很好理解的感念就是，一步走到黑。 </div><div class="line">  </div><div class="line">//异步</div><div class="line">  for (int i = 0 ; i &lt; 10; i++) &#123;  </div><div class="line">       dispatch_async(dispatch_get_global_queue(0, 0), ^&#123;  </div><div class="line">          // 处理耗时操作的代码块...  </div><div class="line">         UIImage *img = [weakSelf getImgeWith:[urlArr objectForIndex:i]];  </div><div class="line">          //通知主线程刷新  </div><div class="line">         dispatch_async(dispatch_get_main_queue(), ^&#123;  </div><div class="line">              //回调或者说是通知主线程刷新，  </div><div class="line">                [myImgV[i] setImage:img];  </div><div class="line">          &#125;);     </div><div class="line">      &#125;);</div><div class="line">此刻，虽然我们看着图片的加载还是需要10秒才会出来，但是，在这10秒期间，我们的UI主线程是可以操作的，比如界面上有个按钮，你是可以按的 </div><div class="line">而不是如上面的同步，在10面期间，我是只能干等着，什么都做不了。 </div><div class="line">异步的核心概念就是一个新线程，一个消息回调通知。</div></pre></td></tr></table></figure>
-<h5 id="并行"><a href="#并行" class="headerlink" title="并行"></a>并行</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">上面使用异步加载数据，然后异步回到主线程刷新UI。对于某一种情况，比如：</div><div class="line">现在整个流程应该是点击图片-&gt;加载-&gt;双击查看。</div><div class="line">那如果成了点击-&gt;加载中(以返回了图片的作者和信息)-》双击图片(通过前面请求返回的大图链接显示大图)-》 完全加载返回（返回了大图链接）：</div><div class="line"> 对于新的这种情况，我们看不到大图了，因为使用了异步线程。</div><div class="line">  所以：</div><div class="line"> //我们下一个动作的操作必须需要用到前面一个操作的数据时，我们会给他做认为的同步编程，比如加个按钮锁。 </div><div class="line">  //异步可能是为了反正耗时操作造成的主线程堵塞， </div><div class="line">同步是为了解决一些不必要错误和麻烦。也许到这里，我们脑中会联想到的所谓的线程安全性。 </div><div class="line">其实同步以及同步锁，却是应该是考虑到这样的不必要和不安全因素。</div></pre></td></tr></table></figure>
-<h5 id="常用的方法dispatch-async"><a href="#常用的方法dispatch-async" class="headerlink" title="常用的方法dispatch_async"></a>常用的方法dispatch_async</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> 为了避免界面在处理耗时的操作时卡死，比如读取网络数据，IO,数据库读写等，我们会在另外一个线程中处理这些操作，然后通知主线程更新界面。</div><div class="line"></div><div class="line">用GCD实现这个流程的操作比前面介绍的NSThread  NSOperation的方法都要简单。代码框架结构如下：</div><div class="line">    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;  </div><div class="line">    // 耗时的操作  </div><div class="line">    dispatch_async(dispatch_get_main_queue(), ^&#123;  </div><div class="line">        // 更新界面  </div><div class="line">    &#125;);  </div><div class="line">&#125;);</div></pre></td></tr></table></figure></span>
+        <span itemprop="articleBody"><h5 id="什么是证书"><a href="#什么是证书" class="headerlink" title="什么是证书"></a>什么是证书</h5><blockquote>
+<p>证书分为两种，一种是开发证书Development，也就是开发过程中需要用到的证书，用于开发过程中的真机调试；Development;</p>
+<p>第二种是产品证书Production，产品证书分为很多种：</p>
+<table>
+<thead>
+<tr>
+<th>Production Profile Name</th>
+<th>signing</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App Store and Ad Hoc</td>
+<td>Sign your iOS app for submission to App store for ad hoc distribution</td>
+<td>这个是发布证书，用来发布到AppStore或者打ADHoc包的时候用到的证书</td>
+</tr>
+<tr>
+<td>Apple Push Notification service SSL</td>
+<td>Establish connectivity between your notification server and Apple Push Notification service production environment.A separate for each app you distribute</td>
+<td>Apple Push Notification service SSL (Production)是推送证书，每一个应用需要一个独立的推送证书和苹果的推送服务器建立连接</td>
+</tr>
+<tr>
+<td>Pass Type ID Certificate</td>
+<td>Sign and send updates to passed in Passbook</td>
+<td>Pass Type ID Certificate是做Passbook时需要申请的证书</td>
+</tr>
+<tr>
+<td>Website Push ID Certificate</td>
+<td>sign and send updates for websites</td>
+<td>Website Push ID Certificate我也没用过，等以后用到在回来补充</td>
+</tr>
+<tr>
+<td>VolP services certificate</td>
+<td>Establish connectivity between your server and the VolP service. A separate certificate is required for each VolP app you distribute.</td>
+<td>暂无</td>
+</tr>
+<tr>
+<td>Apple Pay Certificate</td>
+<td>Decrypt app transaction data sent by Apple to merchant/developer</td>
+<td>配置Apple pay 的证书</td>
+</tr>
+</tbody>
+</table>
+<p>over.</p>
+</blockquote>
+<h5 id="Identifiers标志符"><a href="#Identifiers标志符" class="headerlink" title="Identifiers标志符"></a>Identifiers标志符</h5><blockquote>
+<p>在Identifier我们主要看的是App ID ,App ID 是一个用来标示我们应用程序App的，也就是我们的身份证一样，每一个应用程序都有一个唯一的App ID ,也就是我们工程中看到的Bundle ID 。App ID主要有一下两种：</p>
+<table>
+<thead>
+<tr>
+<th>App Id</th>
+<th>signing</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Explicit App Id</td>
+<td>if you plan to incorporate app services such as Game center, In-app purchase, Data protection, and iCloud, or want a provisioning profile unique to a single app ,you must register an explicit App ID for your app. To create an explicit App ID ,enter a unique string in the Bundle ID field. This string should match the Bundle ID of your app .</td>
+<td>明确的App ID，这种标示符用于标示一个唯一的应用程序,他跟我们的Bundle ID一致，例如我们程序的Bundle ID为com.zhangmangyuan.ABC，那么我们的App ID也就是com.zhangmangyuan.ABC。</td>
+</tr>
+<tr>
+<td>Wildcard App Id</td>
+<td>This allows you to use a single App ID to match multiple apps. To create a wildcard App Id, enter an asterisk(*) as the last digit in the Bundle ID field.</td>
+<td>第一种用<em>创建的App ID，他可以标示所有的应用程序；第二种是com.zhangmangyuan.</em>创建的App ID，他可以标示以com.zhangmangyuan开头的所有应用程序.</td>
+</tr>
+</tbody>
+</table>
+<p>over.</p>
+</blockquote>
+<h5 id="Device-设备"><a href="#Device-设备" class="headerlink" title="Device 设备"></a>Device 设备</h5><blockquote>
+<p>这个最好理解，就是我们需要开发和调试的设备。</p>
+</blockquote>
+<h5 id="描述文件Provisioning-Profiles"><a href="#描述文件Provisioning-Profiles" class="headerlink" title="描述文件Provisioning Profiles"></a>描述文件Provisioning Profiles</h5><blockquote>
+<p>描述文件里包含了上述的三种信息：证书、App ID、设备Devices。描述文件也分为两种</p>
+<p>4.1 Development的描述文件，也就是说在我们真机测试的时候选择了development描述文件，那么需要调试的工程必须要有响应的证书、App ID和将要运行到设备的标识</p>
+<p>4.2 Distribution的描述文件，是发布证书的描述文件，原理和开发的描述文件类似。</p>
+</blockquote>
+</span>
       
     </div>
 
@@ -256,13 +370,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/01/ios/打包 2.0/" rel="prev">iOS开发之打包</a>
+              <a href="/2016/08/01/ios/脚本打包/" rel="prev">脚本打包</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/01/ios/RunTime入门/" rel="next">RunTime入门</a>
+              <a href="/2016/08/01/ios/Cocoapods/" rel="next">Xcode project中引入Cocoapods管理</a>
             
           </div>
         </div>
@@ -287,8 +401,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/08/01/ios/多线程异步刷新数据/"
-                   data-title="iOS获取异步数据并刷新界面dispatch_asyn的使用" data-url="http://yoursite.com/2016/08/01/ios/多线程异步刷新数据/">
+              <div class="ds-thread" data-thread-key="2016/08/01/ios/App证书文件/"
+                   data-title="App证书文件" data-url="http://yoursite.com/2016/08/01/ios/App证书文件/">
               </div>
             
           </div>
@@ -434,7 +548,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#iOS获取异步数据并刷新界面dispatch-asyn的使用"><span class="nav-number">1.</span> <span class="nav-text">iOS获取异步数据并刷新界面dispatch_asyn的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#初识GCD编程"><span class="nav-number">1.1.</span> <span class="nav-text">初识GCD编程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GCD之并发"><span class="nav-number">1.2.</span> <span class="nav-text">GCD之并发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#并行"><span class="nav-number">1.3.</span> <span class="nav-text">并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常用的方法dispatch-async"><span class="nav-number">1.4.</span> <span class="nav-text">常用的方法dispatch_async</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是证书"><span class="nav-number">1.</span> <span class="nav-text">什么是证书</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Identifiers标志符"><span class="nav-number">2.</span> <span class="nav-text">Identifiers标志符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Device-设备"><span class="nav-number">3.</span> <span class="nav-text">Device 设备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#描述文件Provisioning-Profiles"><span class="nav-number">4.</span> <span class="nav-text">描述文件Provisioning Profiles</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
