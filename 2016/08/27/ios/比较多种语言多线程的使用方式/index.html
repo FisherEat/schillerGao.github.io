@@ -39,15 +39,34 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="浮萍漂泊本无根，天涯游子君莫问">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hi schillerGao(高龙)">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta name="description" content="本篇文档首先要弄清楚iOS多线程机制，然后逐步探讨node.js的异步、同步处理机制。最后在此基础上扩展到java等语言的实现方式。
+Objective-C多线程多线程实现的几种方式
+
+NSThread
+
+GCD
+1234567891011&amp;gt;    1. 任务和队列&amp;gt;    任务：在GCD中就是一个Block&amp;gt;    任务可以同步执行、异步执行&amp;gt;    同步和异步的主要区别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="比较多种语言多线程的使用方式">
+<meta property="og:url" content="http://yoursite.com/2016/08/27/ios/比较多种语言多线程的使用方式/index.html">
 <meta property="og:site_name" content="Hi schillerGao(高龙)">
-<meta property="og:description" content="浮萍漂泊本无根，天涯游子君莫问">
+<meta property="og:description" content="本篇文档首先要弄清楚iOS多线程机制，然后逐步探讨node.js的异步、同步处理机制。最后在此基础上扩展到java等语言的实现方式。
+Objective-C多线程多线程实现的几种方式
+
+NSThread
+
+GCD
+1234567891011&amp;gt;    1. 任务和队列&amp;gt;    任务：在GCD中就是一个Block&amp;gt;    任务可以同步执行、异步执行&amp;gt;    同步和异步的主要区别">
+<meta property="og:updated_time" content="2016-12-06T14:10:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hi schillerGao(高龙)">
-<meta name="twitter:description" content="浮萍漂泊本无根，天涯游子君莫问">
+<meta name="twitter:title" content="比较多种语言多线程的使用方式">
+<meta name="twitter:description" content="本篇文档首先要弄清楚iOS多线程机制，然后逐步探讨node.js的异步、同步处理机制。最后在此基础上扩展到java等语言的实现方式。
+Objective-C多线程多线程实现的几种方式
+
+NSThread
+
+GCD
+1234567891011&amp;gt;    1. 任务和队列&amp;gt;    任务：在GCD中就是一个Block&amp;gt;    任务可以同步执行、异步执行&amp;gt;    同步和异步的主要区别">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +76,7 @@
   };
 </script>
 
-  <title> Hi schillerGao(高龙) </title>
+  <title> 比较多种语言多线程的使用方式 | Hi schillerGao(高龙) </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -75,9 +94,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -182,37 +199,13 @@
     </header>
 
     
-      <div id="idhyt-surprise-ball">
-  <div id="idhyt-surprise-ball-animation">
-
-    <!--xxxxxxx xxx xxxxx -->
-    <!--why you are here? -->
-    <span id="layer0Go" class="drag">w</span>
-    <span id="layer1Go" class="drag">h</span>
-    <span id="layer2Go" class="drag">y</span>
-    <span id="layer3Go" class="drag">?</span>
-    <span id="layer4Go" class="drag">y</span>
-    <span id="layer5Go" class="drag">o</span>
-    <span id="layer6Go" class="drag">u</span>
-    <span id="layer7Go" class="drag">a</span>
-    <span id="layer8Go" class="drag">r</span>
-    <span id="layer9Go" class="drag">e</span>
-    <span id="layer10Go" class="drag">h</span>
-    <span id="layer11Go" class="drag">e</span>
-    <span id="layer12Go" class="drag">r</span>
-    <span id="layer13Go" class="drag">e</span>
-    <span id="layer14Go" class="drag">?</span>
-    <span id="layer15Go" class="drag ball"></span>
-  </div>
-</div>
-    
 
     <main id="main" class="main">
       <div class="main-inner">
         <div id="content" class="content"> 
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -223,9 +216,7 @@
           
           
             
-              <a class="post-title-link" href="/2016/08/01/ios/KVO／KVC模式研究/" itemprop="url">
-                KVO／KVC模式研究
-              </a>
+              比较多种语言多线程的使用方式
             
           
         </h1>
@@ -234,8 +225,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-08-01T10:15:37+08:00" content="2016-08-01">
-            2016-08-01
+          <time itemprop="dateCreated" datetime="2016-08-27T11:27:22+08:00" content="2016-08-27">
+            2016-08-27
           </time>
         </span>
 
@@ -246,11 +237,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/08/01/ios/KVO／KVC模式研究/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/ios/KVO／KVC模式研究/" itemprop="commentsCount"></span>
+              <a href="/2016/08/27/ios/比较多种语言多线程的使用方式/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/ios/比较多种语言多线程的使用方式/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/08/01/ios/KVO／KVC模式研究/#comments" itemprop="discussionUrl">
+              <a href="/2016/08/27/ios/比较多种语言多线程的使用方式/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -265,25 +256,49 @@
       
 
       
-        
-          <span itemprop="articleBody">
-            
-            使用过这种模式的一些著名开源库
-MJExtension
-TNStepper
-PullToRefresh
-参考文献：http://www.jianshu.com/p/e59bb8f59302
-
-基本原理
-KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性被修改后，则
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/01/ios/KVO／KVC模式研究/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+        <span itemprop="articleBody"><p><em>本篇文档首先要弄清楚iOS多线程机制，然后逐步探讨node.js的异步、同步处理机制。最后在此基础上扩展到java等语言的实现方式。</em></p>
+<h5 id="Objective-C多线程"><a href="#Objective-C多线程" class="headerlink" title="Objective-C多线程"></a>Objective-C多线程</h5><h6 id="多线程实现的几种方式"><a href="#多线程实现的几种方式" class="headerlink" title="多线程实现的几种方式"></a>多线程实现的几种方式</h6><blockquote>
+<ol>
+<li><p>NSThread</p>
+</li>
+<li><p>GCD</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;    1. 任务和队列</div><div class="line">&gt;    任务：在GCD中就是一个Block</div><div class="line">&gt;    任务可以同步执行、异步执行</div><div class="line">&gt;    同步和异步的主要区别在于会不会阻塞当前线程，直到block的任务执行完毕。</div><div class="line">&gt;    如果是 同步（sync） 操作，它会阻塞当前线程并等待 Block 中的任务执行完毕，然后当前线程才会继续往下运行。</div><div class="line">&gt;    如果是 异步（async）操作，当前线程会直接往下执行，它不会阻塞当前线程。</div><div class="line">&gt;    队列：串行队列、并行队列</div><div class="line">&gt;    放到串行队列的任务，GCD 会 FIFO（先进先出） 地取出来一个，执行一个，然后取下一个，这样一个一个的执行。</div><div class="line">&gt;    放到并行队列的任务，GCD 也会 FIFO的取出来，但不同的是，它取出来一个就会放到别的线程，然后再取出来一个又放到另一个的线程。这样由于取的动作很快，忽略不计，看起来，所有的任务都是一起执行的。不过需要注意，GCD 会根据系统资源控制并行的数量，所以如果任务很多，它并不会让所有任务同时执行。</div><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>同步执行</th>
+<th>异步执行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>串行队列</td>
+<td>当前线程、一个一个的执行</td>
+<td>其他线程、一个一个的执行</td>
+</tr>
+<tr>
+<td>并行队列</td>
+<td>当前线程、一个一个的执行</td>
+<td>多个线程、一起执行</td>
+</tr>
+</tbody>
+</table>
+<p>   创建队列：</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;    主队列：</div><div class="line">&gt;    自己创建的队列：</div><div class="line">&gt;    全局并行队列：</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>over</li>
+</ol>
+</blockquote>
+<h4 id="多线程的本质"><a href="#多线程的本质" class="headerlink" title="多线程的本质"></a>多线程的本质</h4></span>
       
     </div>
 
@@ -291,193 +306,45 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/29/ios/制作和集成Framework详解（持续更新/" rel="prev">制作和集成Framework详解（持续更新）</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/04/ios/Starfish.podspec/" rel="next">starfish.podspec</a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/08/01/ios/RunTime入门/" itemprop="url">
-                RunTime入门
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-08-01T10:15:37+08:00" content="2016-08-01">
-            2016-08-01
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <!--
-              <a href="/2016/08/01/ios/RunTime入门/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/ios/RunTime入门/" itemprop="commentsCount"></span>
-              </a>
-              -->
-              <a href="/2016/08/01/ios/RunTime入门/#comments" itemprop="discussionUrl">
-                <span>评论</span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            Rumtime：因为Objective-C是一门动态语言，所以它需要一个运行时系统，就是Runtime系统。Runtime在实际开发中其实就是一组C语言函数。直接从代码入手吧、
-从objc_msgSend说起Objective-C 中的方法调用，不是简单的方法调用，而是发送消息，也就是说，其实 [r
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/01/ios/RunTime入门/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/08/01/ios/Cocoapods/" itemprop="url">
-                Xcode project中引入Cocoapods管理
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-08-01T10:15:37+08:00" content="2016-08-01">
-            2016-08-01
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <!--
-              <a href="/2016/08/01/ios/Cocoapods/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/ios/Cocoapods/" itemprop="commentsCount"></span>
-              </a>
-              -->
-              <a href="/2016/08/01/ios/Cocoapods/#comments" itemprop="discussionUrl">
-                <span>评论</span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            项目组件化、平台化是技术公司的共同目标，越来越多的技术公司推崇使用pod管理第三方库以及私有组件，一方面使项目架构更加清晰，一方面现有的工具Cocoapods提供了近乎完美的解决方案。这里我们来讨论一下如何在Xcode 工程中集成Cocoapods，这里提供入门级别的集成和进阶集成方式。
-本文目录参
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/01/ios/Cocoapods/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+  </div>
 
  </div>
 
         
 
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/08/27/ios/比较多种语言多线程的使用方式/"
+                   data-title="比较多种语言多线程的使用方式" data-url="http://yoursite.com/2016/08/27/ios/比较多种语言多线程的使用方式/">
+              </div>
+            
+          </div>
         
       </div>
 
@@ -494,6 +361,15 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -605,6 +481,17 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
 
       </section>
 
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Objective-C多线程"><span class="nav-number">1.</span> <span class="nav-text">Objective-C多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#多线程实现的几种方式"><span class="nav-number">1.1.</span> <span class="nav-text">多线程实现的几种方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多线程的本质"><span class="nav-number"></span> <span class="nav-text">多线程的本质</span></a></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
       
 
     </div>
@@ -733,6 +620,165 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
 
   <script type="text/javascript">
     $(document).ready(function () {

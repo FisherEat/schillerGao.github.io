@@ -39,15 +39,58 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="浮萍漂泊本无根，天涯游子君莫问">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hi schillerGao(高龙)">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="快速添加pch头文件
+参考文献：http://www.jianshu.com/p/67ce72c4ad6c
+pch文件的作用
+
+存放一些全局的宏
+用来包含一些全局的头文件
+能自动打开和关闭日志输出功能。
+
+
+创建pch文件步骤
+基本步骤：
+
+新建StarfishDemo.pch文件
+
+在工程的TARGETS里边Building Setting中搜索Prefix Header，然后把Precompi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="添加pch头文件">
+<meta property="og:url" content="http://yoursite.com/2016/12/05/ios/添加pch头文件/index.html">
 <meta property="og:site_name" content="Hi schillerGao(高龙)">
-<meta property="og:description" content="浮萍漂泊本无根，天涯游子君莫问">
+<meta property="og:description" content="快速添加pch头文件
+参考文献：http://www.jianshu.com/p/67ce72c4ad6c
+pch文件的作用
+
+存放一些全局的宏
+用来包含一些全局的头文件
+能自动打开和关闭日志输出功能。
+
+
+创建pch文件步骤
+基本步骤：
+
+新建StarfishDemo.pch文件
+
+在工程的TARGETS里边Building Setting中搜索Prefix Header，然后把Precompi">
+<meta property="og:updated_time" content="2016-12-08T11:47:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hi schillerGao(高龙)">
-<meta name="twitter:description" content="浮萍漂泊本无根，天涯游子君莫问">
+<meta name="twitter:title" content="添加pch头文件">
+<meta name="twitter:description" content="快速添加pch头文件
+参考文献：http://www.jianshu.com/p/67ce72c4ad6c
+pch文件的作用
+
+存放一些全局的宏
+用来包含一些全局的头文件
+能自动打开和关闭日志输出功能。
+
+
+创建pch文件步骤
+基本步骤：
+
+新建StarfishDemo.pch文件
+
+在工程的TARGETS里边Building Setting中搜索Prefix Header，然后把Precompi">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +100,7 @@
   };
 </script>
 
-  <title> 归档 | Hi schillerGao(高龙) </title>
+  <title> 添加pch头文件 | Hi schillerGao(高龙) </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -75,7 +118,7 @@
 
 
 
-  <div class="container one-column  page-archive ">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -185,347 +228,134 @@
       <div class="main-inner">
         <div id="content" class="content"> 
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 23 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
       
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              添加pch头文件
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-12-05T13:51:26+08:00" content="2016-12-05">
+            2016-12-05
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2016/12/05/ios/添加pch头文件/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/05/ios/添加pch头文件/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2016/12/05/ios/添加pch头文件/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
       
       
 
       
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+        <span itemprop="articleBody"><p><em>快速添加pch头文件</em></p>
+<p><em>参考文献：<a href="http://www.jianshu.com/p/67ce72c4ad6c" target="_blank" rel="external">http://www.jianshu.com/p/67ce72c4ad6c</a></em></p>
+<h5 id="pch文件的作用"><a href="#pch文件的作用" class="headerlink" title="pch文件的作用"></a>pch文件的作用</h5><blockquote>
+<ol>
+<li>存放一些全局的宏</li>
+<li>用来包含一些全局的头文件</li>
+<li>能自动打开和关闭日志输出功能。</li>
+</ol>
+</blockquote>
+<h5 id="创建pch文件步骤"><a href="#创建pch文件步骤" class="headerlink" title="创建pch文件步骤"></a>创建pch文件步骤</h5><blockquote>
+<p><em>基本步骤：</em></p>
+<ol>
+<li><p>新建StarfishDemo.pch文件</p>
+</li>
+<li><p>在工程的TARGETS里边Building Setting中搜索Prefix Header，然后把Precompile Prefix Header右边的NO改为Yes：</p>
+</li>
+<li><p>然后在Precompile Prefix Header下边的Prefix Header右边双击，添加刚刚创建的pch文件的工程路径，添加格式：“$(SRCROOT)/项目名称/pch文件名” ，$(SRCROOT)的意思就是工程根目录的意思</p>
+</li>
+<li><p>将Precompile Prefix Header为YES，预编译后的pch文件会被缓存起来，可以提高编译速度</p>
+</li>
+<li><p>内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt;    #ifndef ToCDemo_pch</div><div class="line">&gt;    #define ToCDemo_pch</div><div class="line">&gt;</div><div class="line">&gt;    // Include any system framework and library headers here that should be included in all compilation units.</div><div class="line">&gt;    // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.</div><div class="line">&gt;</div><div class="line">&gt;    #import &lt;StarfishFramework/StarfishFramework.h&gt;</div><div class="line">&gt;    #import &lt;CocoaLumberjack/CocoaLumberjack.h&gt;</div><div class="line">&gt;    #import &quot;UIHelper.h&quot;</div><div class="line">&gt;</div><div class="line">&gt;    #endif /* ToCDemo_pch */</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>over</li>
+</ol>
+</blockquote>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/26/ios/一专多通计划/" rel="next">一专多通计划</a>
+            
+          </div>
         </div>
       
-      
 
       
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/05/ios/添加pch头文件/" itemprop="url">
-              <span itemprop="name">添加pch头文件</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2016-12-05T05:51:26.000Z" itemprop="dateCreated" content="2016-12-05"> 12-05 </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/26/ios/一专多通计划/" itemprop="url">
-              <span itemprop="name">一专多通计划</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2016-11-26T15:32:55.000Z" itemprop="dateCreated" content="2016-11-26"> 11-26 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/25/ios/iOS常用易错知识点/" itemprop="url">
-              <span itemprop="name">iOS常用易错知识点</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2016-11-25T02:48:27.000Z" itemprop="dateCreated" content="2016-11-25"> 11-25 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/22/ios/OC程序的编译链接流程/" itemprop="url">
-              <span itemprop="name">OC程序的编译链接流程</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2016-11-22T13:35:47.000Z" itemprop="dateCreated" content="2016-11-22"> 11-22 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/21/ios/iOS国际化详解/" itemprop="url">
-              <span itemprop="name">iOS国际化详解</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2016-11-21T06:29:53.000Z" itemprop="dateCreated" content="2016-11-21"> 11-21 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/21/ios/apns推送原理/" itemprop="url">
-              <span itemprop="name">APNs推送</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2016-11-21T06:06:39.000Z" itemprop="dateCreated" content="2016-11-21"> 11-21 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/10/ios/运行时研究/" itemprop="url">
-              <span itemprop="name">运行时研究</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2016-11-10T04:57:49.000Z" itemprop="dateCreated" content="2016-11-10"> 11-10 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/09/ios/Podspec文件配置详解/" itemprop="url">
-              <span itemprop="name">Podspec文件配置详解</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2016-10-09T15:09:13.000Z" itemprop="dateCreated" content="2016-10-09"> 10-09 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/30/ios/自定义layout/" itemprop="url">
-              <span itemprop="name">自定义layout</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2016-09-30T11:26:49.000Z" itemprop="dateCreated" content="2016-09-30"> 09-30 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/29/ios/UINavigationController等类的API研究/" itemprop="url">
-              <span itemprop="name">UINavigationController等类的API研究</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2016-09-29T14:16:36.000Z" itemprop="dateCreated" content="2016-09-29"> 09-29 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">&raquo;</a>
-  </nav>
-
+    </div>
+  </div>
 
  </div>
 
         
 
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/12/05/ios/添加pch头文件/"
+                   data-title="添加pch头文件" data-url="http://yoursite.com/2016/12/05/ios/添加pch头文件/">
+              </div>
+            
+          </div>
         
       </div>
 
@@ -542,6 +372,15 @@
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -654,6 +493,17 @@
       </section>
 
       
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#pch文件的作用"><span class="nav-number">1.</span> <span class="nav-text">pch文件的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建pch文件步骤"><span class="nav-number">2.</span> <span class="nav-text">创建pch文件步骤</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
 
     </div>
   </aside>
@@ -736,12 +586,6 @@
   
   
   
-    <script type="text/javascript">
-      postMotionOptions = {stagger: 100, drag: true};
-    </script>
-  
-
-  
     
 
   
@@ -788,10 +632,163 @@
 
   
   
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
 
 
   <script type="text/javascript">

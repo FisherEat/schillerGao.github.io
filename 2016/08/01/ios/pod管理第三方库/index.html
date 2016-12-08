@@ -1,0 +1,1355 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="浮萍漂泊本无根，天涯游子君莫问" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="https://github.com/schillerGao" title="Hi schillerGao(高龙)" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="很多技术大牛和公司都推崇使用pod管理第三方库，可以节省很多时间，同时更加方便的管理第三方库，为平台化做准备。使用pod管理第三方库，首先第一步是基本使用pod,并且能够解决所有的bug和文件管理，第二步是实现私有pod的管理，管理途牛自己的第三方库，第三步，和sdk集成。
+实现步骤
+基本使用pod
+导入、pod各文件的管理
+完全集成
+
+项目中配置Cocoapods解决方案
+Cocoapods简介">
+<meta property="og:type" content="article">
+<meta property="og:title" content="App引入pod管理第三方库">
+<meta property="og:url" content="http://yoursite.com/2016/08/01/ios/pod管理第三方库/index.html">
+<meta property="og:site_name" content="Hi schillerGao(高龙)">
+<meta property="og:description" content="很多技术大牛和公司都推崇使用pod管理第三方库，可以节省很多时间，同时更加方便的管理第三方库，为平台化做准备。使用pod管理第三方库，首先第一步是基本使用pod,并且能够解决所有的bug和文件管理，第二步是实现私有pod的管理，管理途牛自己的第三方库，第三步，和sdk集成。
+实现步骤
+基本使用pod
+导入、pod各文件的管理
+完全集成
+
+项目中配置Cocoapods解决方案
+Cocoapods简介">
+<meta property="og:image" content="http://yoursite.com/Users/schiller/Desktop/事件管理/cocoapods/first.png">
+<meta property="og:image" content="http://oasv9w1m8.bkt.clouddn.com/update_cocoapods.png">
+<meta property="og:updated_time" content="2016-12-06T14:22:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="App引入pod管理第三方库">
+<meta name="twitter:description" content="很多技术大牛和公司都推崇使用pod管理第三方库，可以节省很多时间，同时更加方便的管理第三方库，为平台化做准备。使用pod管理第三方库，首先第一步是基本使用pod,并且能够解决所有的bug和文件管理，第二步是实现私有pod的管理，管理途牛自己的第三方库，第三步，和sdk集成。
+实现步骤
+基本使用pod
+导入、pod各文件的管理
+完全集成
+
+项目中配置Cocoapods解决方案
+Cocoapods简介">
+<meta name="twitter:image" content="http://yoursite.com/Users/schiller/Desktop/事件管理/cocoapods/first.png">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> App引入pod管理第三方库 | Hi schillerGao(高龙) </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">高龙的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+
+
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'm6MupqWb8-J_VwiMZsWk','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              App引入pod管理第三方库
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-08-01T10:15:37+08:00" content="2016-08-01">
+            2016-08-01
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2016/08/01/ios/pod管理第三方库/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/ios/pod管理第三方库/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2016/08/01/ios/pod管理第三方库/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><em>很多技术大牛和公司都推崇使用pod管理第三方库，可以节省很多时间，同时更加方便的管理第三方库，为平台化做准备。使用pod管理第三方库，首先第一步是基本使用pod,并且能够解决所有的bug和文件管理，第二步是实现私有pod的管理，管理途牛自己的第三方库，第三步，和sdk集成。</em></p>
+<h4 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h4><ul>
+<li>基本使用pod</li>
+<li>导入、pod各文件的管理</li>
+<li>完全集成</li>
+</ul>
+<h4 id="项目中配置Cocoapods解决方案"><a href="#项目中配置Cocoapods解决方案" class="headerlink" title="项目中配置Cocoapods解决方案"></a>项目中配置Cocoapods解决方案</h4><ol>
+<li><p><strong>Cocoapods简介</strong></p>
+<blockquote>
+<p>Cocoapods是OS X和iOS下的一个第三方库管理工具，并且支持Objective-C和swifit语言。通过Cocoapods为项目添加称为”Pods”的依赖库（这些库必须是Cocoapods所支持的），并且轻松实现第三方库的版本管理。</p>
+<p>引入Cocoapods的意义：</p>
+<p>Cocoapods在引入第三方库时自动为我们完成各种配置，包括配置编译阶段、连接器选项、甚至是ARC环境下的-fno-objc-arc配置等</p>
+<p>Cocoapods可以很方便的查找第三方库，可以快速方便的寻找到优秀的第三方库以及它们的各种信息。</p>
+<p>Cocoapods 官方网站：</p>
+<p><a href="">https://cocoapods.org/</a></p>
+<p>Cocoapods整个项目托管在github上， 所有的Pods依赖库也都依赖github</p>
+<p><a href="https://github.com/CocoaPods" target="_blank" rel="external">https://github.com/CocoaPods</a></p>
+</blockquote>
+</li>
+</ol>
+<ol>
+<li><p><strong>Cocoapods发展背景</strong></p>
+<blockquote>
+<p>Cocoapods创建于2011年，目前Cocoapods团队有17位核心开发人员以及多达5000多个开源项目。Cocoapods的存在为代码分发提供了非常便捷的解决方案。<br>​</p>
+</blockquote>
+</li>
+<li><p><strong>Cocoapods核心组件</strong></p>
+<blockquote>
+<p>Cocoapods是用Ruby写的，所以在安装时有时要更新ruby源。Cocoapods在解析过程中最重要的几个包的路径分别是：CocoaPods/CocoaPods、 CocoaPods/Core和 CocoaPods/Xcodeproj，其中Core提供了CocoaPods相关文件，主要是podfile和podspecs。</p>
+<p>podfile：该文件用于配置项目所需的第三方库，可以被高度订制。</p>
+<p>podspec：该文件描述一个库如何被加入到工程文件中。.podspec文件可以标识该第三方库所需要的源码文件、依赖库、编译选项，以及其他的第三方库所需的配置。<br>​</p>
+</blockquote>
+</li>
+<li><p><strong>Cocoapods与项目sdk化、gitmodule的关系与解决方案</strong></p>
+<blockquote>
+<p>待研究</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="安装与使用Cocoapods"><a href="#安装与使用Cocoapods" class="headerlink" title="安装与使用Cocoapods"></a>安装与使用Cocoapods</h4><ol>
+<li><p><strong>CocoaPods安装步骤</strong></p>
+<blockquote>
+<ul>
+<li><p><strong>升级Ruby环境</strong></p>
+<p>终端输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   $sudo gem update --system</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p><strong>安装CocoaPods要访问cocoapods.org,该网站已经被天朝墙壁，需要用淘宝镜像来安装</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   1、gem sources --removehttps://rubygems.org/</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   2、gem sources -ahttp://ruby.taobao.org/</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   3、gem sources -l </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p><strong>安装Cocoapods</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   sudo gem install cocoapods</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>Pod 常用命令</strong></p>
+<blockquote>
+<p>搜索类库名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; pod search AFNetworking</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>cd 到工程文件目录，然后创建 podfile文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; $ touch Podfile（创建Podfile文件）</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>vim编辑podfile,并通过wq保存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&gt; platform :ios, &apos;7.0&apos;</div><div class="line">&gt; inhibit_all_warnings!</div><div class="line">&gt; pod &apos;MBProgressHUD&apos;, &apos;0.9.1&apos;</div><div class="line">&gt; pod &apos;BlocksKit&apos;, &apos;2.2.5&apos;</div><div class="line">&gt; pod &apos;pop&apos;, &apos;1.0.8&apos;</div><div class="line">&gt; pod &apos;JGProgressHUD&apos;, &apos;1.2.7&apos;</div><div class="line">&gt; pod &apos;UIView+Positioning&apos;, &apos;1.1&apos;</div><div class="line">&gt; pod &apos;Masonry&apos;, &apos;0.6.2&apos;</div><div class="line">&gt; pod &apos;LGAlertView&apos;, &apos;1.0.0&apos;</div><div class="line">&gt; pod &apos;AFNetworking&apos;, &apos;3.0.4&apos;</div><div class="line">&gt; pod &apos;MJExtension&apos;, &apos;3.0.8&apos;</div><div class="line">&gt; pod &apos;PureLayout&apos;, &apos;3.0.1&apos;</div><div class="line">&gt; pod &apos;SDWebImage&apos;, &apos;3.7.3&apos;</div><div class="line">&gt; pod &apos;SSZipArchive&apos;, &apos;1.0.1&apos;</div><div class="line">&gt; pod &apos;JSPatch&apos;, &apos;0.1.5&apos;</div><div class="line">&gt; pod &apos;TMCache&apos;, &apos;2.1.0&apos;</div><div class="line">&gt; pod &apos;FLEX&apos;, &apos;2.2.0&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>以后打开工程名为 .xcworkspace文件打开工程</p>
+<p>pod常见命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; 更新第三方库： pod update导入第三方库：</div><div class="line">&gt; pod install 可以删除podfile中某个库的代码，然后： pod install </div><div class="line">&gt; 删除第三方库 ：pod uninstall </div><div class="line">&gt; 查看Cocoapods版本： pod --version</div><div class="line">&gt; 查找第三方库： pod search AFNetworking</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>pod语义化版本规范</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt; pod &apos;AFNetworking&apos;  // 不显式指定依赖库版本，表示每次都获取最新的版本</div><div class="line">&gt; pod &apos;AFNetworking&apos;, &apos;2.0&apos;  //只使用2.0版本</div><div class="line">&gt; pod &apos;AFNetworking&apos;, &apos;&gt; 2.0&apos;     //使用高于2.0的版本  </div><div class="line">&gt; pod &apos;AFNetworking&apos;, &apos;&gt;= 2.0&apos;     //使用大于或等于2.0的版本  </div><div class="line">&gt; pod &apos;AFNetworking&apos;, &apos;&lt; 2.0&apos;     //使用小于2.0的版本  </div><div class="line">&gt; pod &apos;AFNetworking&apos;, &apos;&lt;= 2.0&apos;     //使用小于或等于2.0的版本  </div><div class="line">&gt; pod &apos;AFNetworking&apos;, &apos;~&gt; 0.1.2&apos;     //使用大于等于0.1.2但小于0.2的版本  </div><div class="line">&gt; pod &apos;AFNetworking&apos;, &apos;~&gt;0.1&apos;     //使用大于等于0.1但小于1.0的版本  </div><div class="line">&gt; pod &apos;AFNetworking&apos;, &apos;~&gt;0&apos;     //高于0的版本，写这个限制和什么都不写是一个效果，都表示使用最新版本</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>更新Cocoapods</p>
+<p>$sudo gem update –system //先更新gem, 国内需要切换源//gem安装位置：/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/gem</p>
+<p>$gem sources –remove <a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a></p>
+<p>$gem sources –add <a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a> </p>
+<p>注意：这是淘宝ruby镜像官网，已经换成了https协议<a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a></p>
+<p>$gem sources -l  //查看当前ruby源版本</p>
+<p>$sudo gem install cocoapods //安装cocoapods</p>
+<p>$pod setup<br>​</p>
+</blockquote>
+</li>
+<li><p><strong>Podfile.lock</strong></p>
+<blockquote>
+<p>podfile.lock 文件用来保存安装的Pods依赖库的版本，该文件最大的用处在于多人开发。对于没有在Podfile中指定Pods依赖库版本的写法如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; pod &apos;AFNetworking&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>这句话用于获取当前AFNetworking这个Pods依赖库的最新版本。 当团队中的某个人执行完pod install 命令后，生成的Podfile.lock 文件就记录下了当时最新的Pods 依赖库的版本，这是团队中的其他人check下这份包含Podfile.lock文件的工程以后，再去执行pod install 命令时，获取下来的Pods 依赖库的版本就和最开始用户成员获取到的版本一致，也就是说版本号已经被锁定了。如果没有Podfile.lock文件，后续所有用户成员执行pod install 命令都会获取最新的AFNetworking ，这就可能造成同一个团队使用的依赖库版本不一致，对团队协作来说是个极大的bug! ，在这种情况下，如果团队想使用当前最新的版本的AFNetworking依赖库，有两种解决方案</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   更改Podfile,使其指向最新版本的AFNetworking依赖库</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;   执行 pod update 命令</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><strong>Podfile.lock文件详解</strong></li>
+</ul>
+<p>Podfile.lock文件会在你修改了Podfile文件使用的依赖库或者运行pod update 命令时生成新的Podfile.lock文件并覆盖原来的Podfile.lock<br>​</p>
+<ol>
+<li><strong>配置.gitignore文件</strong></li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">文件（文件夹）</th>
+<th>说明</th>
+<th>来源</th>
+<th>是否必须提交版本控制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Podfile</td>
+<td>依赖配置文件</td>
+<td>自己手动生成或者通过cocoapods-xcode-plugin生成</td>
+<td>是</td>
+</tr>
+<tr>
+<td style="text-align:left">Podfile.lock</td>
+<td>当前使用的库的信息</td>
+<td>用Cocoapods引入库时生成</td>
+<td>团队协作必须提交版本控制</td>
+</tr>
+<tr>
+<td style="text-align:left">Pods</td>
+<td>依赖库缓存目录</td>
+<td>用Cocoapods引入依赖库时生成的缓存目录</td>
+<td>否</td>
+</tr>
+<tr>
+<td style="text-align:left">*.xcworkspace</td>
+<td>带有库配置信息的工作空间</td>
+<td>用Cocoapods引入库时声称</td>
+<td>可选</td>
+</tr>
+</tbody>
+</table>
+<p>   因为<code>CocoaPods</code>支持语义化版本号，所以需要<code>Podfile.lock</code>文件记住当前使用的版本，当然这个文件也不是必须。不过提交这个的好处是，可以提醒团队里面的人，依赖库版本已经更新！</p>
+<blockquote>
+<ol>
+<li>Pods文件夹加入版本控制，原因是如果加入gitignore ，不加入版本控制，如果某人更换了Pod第三方库，则全体成员需要 pod install 更新Pod依赖库，而更新Pod需要安装Cocoapods等软件，有些电脑上 pod install 速度非常慢，鉴于这个考虑将Pods 加入版本控制。</li>
+<li>鉴于第二个考虑，Pods第三方库的更新由一个人控制，由架构组控制，进而通知全体开发人员。</li>
+<li>此外，.xcworkspace 为工作目录树，更加应该加入版本控制。</li>
+<li>podfile、Podfile.lock这种Cocoapods强烈要求加入版本控制，防止其它人更换第三方库导致第三方库版本不一致，而导致开发悲剧。<br>​</li>
+<li><strong>Podfile文件配置</strong></li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">platform :ios, &apos;7.0&apos;</div><div class="line">inhibit_all_warnings!</div></pre></td></tr></table></figure>
+<p>   配置成功会显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Please close any current Xcode sessions and use `App.xcworkspace` for this project from now on.</div></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>Podfile与target</strong></p>
+<blockquote>
+<p>Podfile本质上是用来描述Xcode工程中的targets用的。如果我们不显式指定Podfile对应的target，Cocoapods会创建一个名为default的隐式target，会和我们工程中的第一个target对应。换句话说，如果在Podfile中没有指定target，那么只有工程中的第一个target能够使用Podfile中的描述的Pods依赖库。根据需要，给不同的target指定Pods依赖库.</p>
+<ul>
+<li><p>例如，名称为TuniuApp的target和TuniuApp pro的target都需要Reachabilitiy、SBJson、AFNetworking三个Pods依赖库，可以使用link_with关键字来实现，将Podfile写成如下形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;   link_with &apos;App&apos;, &apos;App pro&apos;</div><div class="line">&gt;   platform :ios </div><div class="line">&gt;   pod &apos;Reachability&apos;, &apos;~&gt; 3.0.0&apos;</div><div class="line">&gt;   pod &apos;SBJson&apos;, &apos;~&gt; 2.6.0&apos;</div><div class="line">&gt;</div><div class="line">&gt;   platform :ios , &apos;7.0&apos;</div><div class="line">&gt;   pod &apos;AFNetworking&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>不同的target使用完全不同的Pods依赖库</p>
+<p>CocoaPodsTest这个target使用的是Reachability、SBJson、AFNetworking三个依赖库，但Second这个target只需要使用OpenUDID这一个依赖库，这时可以使用target关键字，Podfile的描述方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt;   target :&apos;TuniuApp&apos; do  </div><div class="line">&gt;   platform :ios    </div><div class="line">&gt;   pod &apos;Reachability&apos;,  &apos;~&gt; 3.0.0&apos;    </div><div class="line">&gt;   pod &apos;SBJson&apos;, &apos;~&gt; 4.0.0&apos;    </div><div class="line">&gt;       </div><div class="line">&gt;   platform :ios, &apos;7.0&apos;    </div><div class="line">&gt;   pod &apos;AFNetworking&apos;, &apos;~&gt; 2.0&apos;  </div><div class="line">&gt;   end  </div><div class="line">&gt;     </div><div class="line">&gt;   target :&apos;TuniuApp pro&apos; do  </div><div class="line">&gt;   pod &apos;OpenUDID&apos;, &apos;~&gt; 1.0.0&apos;  </div><div class="line">&gt;   end  </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>​</p>
+<p>​<br>​</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>Cocoapods与持续集成</strong></p>
+</li>
+<li><p><strong>Cocoapods与SDK</strong></p>
+</li>
+<li><p><strong>Cocoapods与gitmodule</strong></p>
+</li>
+<li><p><strong>Cocopods集成时间表</strong></p>
+<blockquote>
+<ol>
+<li><p>将原来的手动添加的第三方库迁移到现在的Cocoapods管理第三方库，需要将原来第三方库的配置相关的文件删除干净。Cocoapods会将第三方库的所有需要配置的静态库或者文件集成在libPods.a静态库中，在Build Phases中可以找到这个.a静态库。鉴于这个考虑，我们需要删除原来手动添加的第三方库的配置文件。</p>
+</li>
+<li><p>纪录所有的原来的第三方库的配置文件，一并删除</p>
+<ul>
+<li>AFNetworking</li>
+<li>FLEX</li>
+<li>FMDB</li>
+</ul>
+</li>
+<li><p>迁移工作计</p>
+<ul>
+<li>8.0.1集成Cocoapods,将FLEX第三方库纳入版本控制。FLEX是工程项目中的DEBUG调试工具，对途牛的业务没有影响，换句话说，风险可控*</li>
+<li><em>8.0.2集成Cocoapods等第三方库，删除原来库的配置文件。风险可控</em></li>
+<li><em>8.0.3集成主App的第三方库</em></li>
+<li><em>8.0.4集成子模块的第三方库</em></li>
+<li><em>8.0.5集成私有Pods,将途牛项目的公共模块私有Pods管理</em></li>
+<li><em>将在8.0.6全部集成完善</em></li>
+</ul>
+<p>根据项目进展和相关难度调整时间。<br>​</p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p><strong>常见问题汇总</strong></p>
+<blockquote>
+<ol>
+<li><p>Pods依赖库已经更新</p>
+</li>
+<li><p>Cocoapods无法安装的问题。</p>
+<p>Mac系统升级到10.11使用Cocoapods出现pod:command not found 解决方案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    $ sudo gem install -n /usr/local/bin cocoapods</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>   如果podupdate 或者pod install 还卡在哪儿，则</p>
+<ol>
+<li><p>pod install 或者pod update 速度慢的问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;    查看ruby源，更换为淘宝镜像，如果还出现问题，则</div><div class="line">&gt;    原因可能是：当执行以上两个命令时会升级Cocoapods的Specs仓库，加一个参数就可以省略这一步，然后速度可能会提升。参数命令如下：</div><div class="line">&gt;    pod install --verbose --no-repo-update</div><div class="line">&gt;    pod update --verbose --no-repo-update </div><div class="line">&gt;    执行完命令以后有时还是会报错，不妨更新一下本地repo</div><div class="line">&gt;    pod repo update </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>这个问题是比较常见的问题</p>
+<p><a href="http://stackoverflow.com/questions/17072396/cocoapods-errors-on-project-build" target="_blank" rel="external">http://stackoverflow.com/questions/17072396/cocoapods-errors-on-project-build</a></p>
+</li>
+<li><p>需要加入gitignore的文件：</p>
+</li>
+<li><p>对途牛包大小的影响、对编译时间和编译速度的影响</p>
+</li>
+<li><p>如何更新第三方库</p>
+</li>
+<li><p>第三方库与项目代码中的文件重名冲突</p>
+</li>
+<li><p>第三方库的sdk版本与项目sdk版本不符时解决方案</p>
+</li>
+<li><p>Cocoapods软件版本更新</p>
+</li>
+<li><p>Cocoapods 目前版本为 0.39.0， 最新的1.0.0为测试版</p>
+</li>
+<li><p>当两个库同时需要使用AFNetworking时，Cocoapods会确定一个同时能被这两个库使用的版本，然后将同一个安装版本链接到两个不同的库中。</p>
+</li>
+<li><p>安装pod install 第三方库过程中，Cocoapods会使用递归来分析所有的需求，并且建立一个代码相关性的图，最后将Podfile序列化为Podfile.lock</p>
+</li>
+<li><p>选择的文件夹对：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    Could not automatically select an Xcode project. Specify one in your Podfile like so: xcodeproj &apos;path/to/Project.xcodeproj&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>   问题出在你选择的项目文件夹不对，应该选择Iphone文件夹集成Cocoapods</p>
+<ol>
+<li><p>如果项目中有与Pod同名的文件。编译不会通过。</p>
+</li>
+<li><p>对于那些不在Cocoapods公共Git仓库中的库，可以用任何一个Git,Mercurial或者是SVN仓库取代，并且还可以指定具体的commit，branch或者tag。 即私有pod。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    pod &apos;Y&apos;, :git =&gt; &apos;https://github.com/NSHipster/Y.git&apos;, :commit =&gt; &apos;b4dc0ffee&apos; </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>   ​</p>
+</blockquote>
+</li>
+<li><p><strong>逐步集成私有pod</strong></p>
+<blockquote>
+<ol>
+<li><p>Spec Repo </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;    Spec Repo 是所有Pods的一个索引，就是一个容器，所有公开的Pods都在里面，实际上是Git仓库，remote端在Github上，当你使用了Cocoapods后它会被clone到本地的 ~/.cocoapods/repos目录下，可以进入这个目录下，有一个master文件夹，这个文件夹就是官方的 Spec Repo 了。目录的结构是这样的</div><div class="line">&gt;     .</div><div class="line">&gt;     --&gt;Specs--&gt;[SPEC_NAME]--&gt;[VERSION]--&gt;[SPEC_NAME].podspec</div><div class="line">&gt;     因此，如果我们要创建自己的类似于master的私有Spec Repo ,这里我们可以fork官方的Repo，也可以自己创建，个人建议不fork，因为你只是想添加自己的Pods,没有必要把现有的公开的Pods都copy一份，所以创建一个Git仓库，这里我选择Coding，因为Coding可以创建私有库。也可以自己搭建服务器，创建私有库。 </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>coding上创建Git仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;    通过cocoapods创建的目录本身在git管理下，我们需要给它添加远程仓库，可以去github或者coding创建私有库，拿到ssh地址，然后cd到私有组件项目</div><div class="line">&gt;    git add .</div><div class="line">&gt;    git commit -s -m &quot;Initial commit of Library&quot;</div><div class="line">&gt;    git remote add origin https://gitcoding.net/u/schiller/myProject #添加远端仓库</div><div class="line">&gt;    git push origin master #提交到远端仓库</div><div class="line">&gt;    git tag -m &quot;first release&quot; &quot;0.1.0&quot; #打标签</div><div class="line">&gt;    git push --tags </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    这是我Coding上私有Pods Spec仓库链接：https://coding.net/u/schiller/p/MyDemoSpec/git</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>   创建完成后在终端执行如下命令</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;    $ pod repo add [Private Repo Name] [Github HTTPS clone URL]</div><div class="line">&gt;    例如我创建的MyDemoSpec： pod repo add MyDemoSpec https://git.coding.net/schiller/MyDemoSpec.git</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>   如果创建成功的话，进入到 ~/.cocoapods/repos目录下就可以看到MyDemoSpec这个目录了。第一步完成。</p>
+<p>   注意：如果其他人共同使用这个私有SpecRepo的话在他对应Git仓库的权限的前提下执行相同的命令添加这个Spec Repo 即可。</p>
+<ol>
+<li><p>创建Pod项目工程文件</p>
+<blockquote>
+<ul>
+<li><p>首先将组件从项目中拆分出来，组建自己的组件库</p>
+</li>
+<li><p>然后用 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;   $ pod lib create PodLibrary </div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>向Pod文件夹中添加库文件和资源，然后配置podspec文件，模块文件放在Pod/Classes中，然后执行 pod update 命令</p>
+</li>
+<li><p>每次向Pod添加了新的文件或者以后更新了podspec的版本都需要重新执行一遍pod update命令</p>
+</li>
+<li><p>测试无误后，将项目推送到远程仓库，并编辑podspec</p>
+<ul>
+<li><p>编辑podspec </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;        Pod::Spec.new do |s|</div><div class="line">&gt;    &gt;          s.name             = &quot;PodLibrary&quot;</div><div class="line">&gt;    &gt;          s.version          = &quot;0.1.0&quot;</div><div class="line">&gt;    &gt;          #项目总结</div><div class="line">&gt;    &gt;          s.summary          = &quot;My PodLibrary is a repo for UIButton+Positioning assembly.&quot;</div><div class="line">&gt;    &gt;          #项目描述，貌似描述的文字要多于总结的，否则会报警告</div><div class="line">&gt;    &gt;          s.description      = &lt;&lt;-DESC</div><div class="line">&gt;    &gt;                               My Private UIButton+Positioning assembly</div><div class="line">&gt;    &gt;        * MarkDown format </div><div class="line">&gt;    &gt;        * It is a nice world!</div><div class="line">&gt;    &gt;</div><div class="line">&gt;    &gt;        DESC</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+<p>#项目的主页，要求可以访问<br>s.homepage         = “<a href="https://git.coding.net" target="_blank" rel="external">https://git.coding.net</a>“<br>#项目的证书类型，一开始在git 就要配置好<br>s.license          = ‘MIT’<br>s.author           = { “gaolong” =&gt; “gaolong@tuniu.com” }<br>#最重要的一部分，项目的源地址，目前只支持Http\Https, 不支持SSH，小编曾经犯了一个低级错误，将这个source指向了以前建立的一个Spec.git,然后一直报”The <code>PodLibrary.podspec</code> specification does not validate”的错误，小编又不会调试，所以很丢人的折腾了两个小时。<br>s.source           = { :git =&gt; “<a href="https://git.coding.net/schiller/MyDemoSpec.git" target="_blank" rel="external">https://git.coding.net/schiller/MyDemoSpec.git</a>“, :tag =&gt; “0.1.0” }<br>s.platform     = :ios, ‘7.0’<br>s.requires_arc = true<br>#表示项目的源文件在Pods/Classes文件夹下<br>s.source_files = ‘Pod/Classes/<em>*/</em>‘<br>s.resource_bundles = {<br> ‘PodLibrary’ =&gt; [‘Pod/Assets/*.png’]<br>}</p>
+<p>#项目的依赖库等等</p>
+<h1 id="s-public-header-files-‘Pod-Classes-h’"><a href="#s-public-header-files-‘Pod-Classes-h’" class="headerlink" title="s.public_header_files = ‘Pod/Classes/*/.h’"></a>s.public_header_files = ‘Pod/Classes/<em>*/</em>.h’</h1><h1 id="s-frameworks-‘UIKit’-‘MapKit’"><a href="#s-frameworks-‘UIKit’-‘MapKit’" class="headerlink" title="s.frameworks = ‘UIKit’, ‘MapKit’"></a>s.frameworks = ‘UIKit’, ‘MapKit’</h1><h1 id="s-dependency-‘AFNetworking’-‘-gt-2-3’"><a href="#s-dependency-‘AFNetworking’-‘-gt-2-3’" class="headerlink" title="s.dependency ‘AFNetworking’, ‘~&gt; 2.3’"></a>s.dependency ‘AFNetworking’, ‘~&gt; 2.3’</h1><p>end</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;</div><div class="line">&gt;    &gt;     编辑podspec文件之后，需要验证该文件是否可用，如果有任何WARNING 或者ERROR都是不行的，它就不能被添加到Spec repo ，需要执行以下代码验证</div><div class="line">&gt;    &gt;</div><div class="line">&gt;    &gt;     ``` shell</div><div class="line">&gt;    &gt;     $ pod lib lint </div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>当你看到
+</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;     -&gt; PodLibrary (0.1.0)</div><div class="line">&gt;    &gt;     PodLibrary passesd validation</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>说明验证通过了。
+</code></pre><ul>
+<li><p>配置私有组件项目</p>
+<blockquote>
+<ol>
+<li><p>配置.gitignore</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;   &gt;    每次记住修改完.podspec文件后要上传到本地Specs仓库，pod push，会自动push到远端仓库；</div><div class="line">&gt;    &gt;   &gt;    要给私有组件项目配置.gitignore,否则私有项目的维护会很困难</div><div class="line">&gt;    &gt;   &gt;    私有项目gitignore配置如下：</div><div class="line">&gt;    &gt;   &gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>私有组件项目配置依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;   &gt;    s.dependency即为私有组件配置依赖，包括第三方依赖库和静态库，静态文件、配置非arc等。</div><div class="line">&gt;    &gt;   &gt;    其中依赖库的版本如 AFNetworking 的版本要和项目中的项目中的AFNetworking版本兼容，否则会出现版本不一致的报错，无法给项目安装该私有组件库。</div><div class="line">&gt;    &gt;   &gt;    例如：</div><div class="line">&gt;    &gt;   &gt;    -｀AFNerworking(= 3.0.4)` required by `Podfile`</div><div class="line">&gt;    &gt;   &gt;    - `AFNerworking(= 3.0.4)` required by `Podfile.lock`</div><div class="line">&gt;    &gt;   &gt;    - `AFNerworking(~&gt; 2.3)` required by `podTestLibrary(1.0.0)`</div><div class="line">&gt;    &gt;   &gt;    显然是两个版本不符，pod不知道加载哪一个了。</div><div class="line">&gt;    &gt;   &gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>放大是<br>​</li>
+</ol>
+</blockquote>
+</li>
+<li>备用<br>​</li>
+</ul>
+</blockquote>
+</li>
+<li><p>本地测试PodSpec文件</p>
+<blockquote>
+<p>我们可以创建一个新的项目，这个项目的Podfile 文件直接指定刚才创建好的podspec文件，看是否可用（我这里选Demos ,这个我的测试项目），在Podfile中我们可以这样编辑，有两种方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt; platform :ios, &apos;7.0&apos;</div><div class="line">&gt;    &gt; pod &apos;PodLibrary&apos;, :path =&gt; &apos;/Users/schiller/Desktop/PodLibrary/PodLibrary.podspec&apos; #指定podspec 文件</div><div class="line">&gt;    &gt; #或者这样</div><div class="line">&gt;    &gt; pod &apos;PodLibrary&apos;, :path =&gt; &apos;/Users/schiller/Desktop/PodLibrary&apos; #指定路径</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>然后执行pod install 命令安装第三方库，就像安装AFNetworking那样安装自己的公共组件库，然后发现库文件被加到Pods子项目去了。测试无误后进行下一步，提交podspec到Spec repo中。<br>​</p>
+</blockquote>
+</li>
+<li><p>向Spec Repo提交podspec</p>
+<blockquote>
+<p>回顾一下我们1,2两步所做的工作，接下来我们向我们的私有Spec Repo提交podspec，只需要一个命令，要cd 到私有项目的目录下执行该命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt; $pod repo push MyDemoSpec PodLibrary.podspec #前面是本地Repo名字，后面是podspec名字</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>蛋疼的报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;   [!]The `PodLibrary.podspec` specification does not validate </div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>  小编在第三步执行pod lib lint 命令，一直显示该文件pass validate ,但是将 私有项目push 到 本地spec仓库时出现以上报错，于是小编机智地执行一下命令</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;   $pod repo push MyDemoSpec PodLibrary.podspec --allow-warnings </div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>  允许报警，然而并没有起到作用</p>
+<p>  于是小编查看详细日志</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;   $pod repo push MyDemoSpec PodLibrary.podspec --verbose</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>  当小编看到错误原因是自己将s.source源地址写成了之前的源地址的时候，小编内心是崩溃的，QAQ</p>
+<ul>
+<li><p>所以首先一定要确定自己的podspec通过验证无误，再一个就是删除无用的注释，尽量规范，完成之后，这个名叫PodLibrary的组建就添加到了我们的私有Spec Repo ,可以进入~/.cocoapods/repos/MyDemoSpec目录下查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;   在MyDemoSpec目录下，有PodLibrary文件夹，下面有0.1.0文件夹，PodLibrary.podspec</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li>然后我们执行pod search ,就会发现自己的库可以搜到了。<br>​</li>
+</ul>
+</blockquote>
+</li>
+<li><p>使用制作好的Pod</p>
+<blockquote>
+<p>完成一系列操作，就可以使用自己制作好的pod了，回顾一下，就可以弄清楚这个Pod私有库的原理了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt; 原理：</div><div class="line">&gt;    &gt;     有一个私有项目(私有组件，PodLibrary)，该私有项目的.podspec文件有s.source源指向coding的私有Git仓库；在自己的Cocoapods目录下 ， 即~/.cocoapods/repos 仓库下有一个存放私有库链接的Spec(MyDemoSpec，同样要给这个私有的MyDemoSpec建立远端仓库),该spec用来管理私有组件的.podspec，所以私有组件的.podspec文件要push到MyDemoSpec上去；</div><div class="line">&gt;    &gt;     然后某个项目需要用到私有库，只需要在podfile中加上MyDemoSpec的链接，然后pod update 就实现了将私有组件加载到需要的项目中。每次pod install 时，pod会根据私有spec仓库的.podspec文件找到PodLibrary这个私有组件的链接，然后将PodLibrary私有组件download到项目中，以Pod以来库的形式实现。</div><div class="line">&gt;    &gt;     同样的道理，之前的公有库的实现方式只是通过~/.cocoapods/repos中的master spec库寻找到需要的存放在Cocoapods上的公有项目，因为master中存放了所有的Cocoapods支持的第三方库的链接，每次pod install ,pod会去master找AFNetworking 的source源链接，该源链接在cocoapods上，然后download下载下来，就在项目中集成了AFNetworking Pods依赖库.</div><div class="line">&gt;    &gt;     验证：cd 到~/.cocoapods/repos , cd 到master ,cd到Specs,ls -a ,会发现将近6000个公有库，然后cd 到AFNetworking ,ls -a 发现AFNetworking的所有版本，然后cd 到某个版本，发现AFNetworking.podspec.json 文件。就是传说中的.podspec配置文件，然后查看配置，在s.source一栏中发现&quot;git&quot;: &quot;https://github.com/AFNetworking/AFNetworking.git&quot;,这就是spec保存的AFNetworking 组件的源地址，pod根据spec文件保存的这个地址找到源文件，然后就是pod install 安装AFNetworking 了。</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>我们在项目中可以这样使用自己的私有组件Pod,我们在podfile中这么写，然后再pod install ，就会发现项目中的Pods有PodLibrary这个组件了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;   platform :ios, &apos;7.0&apos;</div><div class="line">&gt;    &gt;   inhibit_all_warnings!</div><div class="line">&gt;    &gt;</div><div class="line">&gt;    &gt;   #公有库</div><div class="line">&gt;    &gt;   source &apos;https://github.com/CocoaPods/Specs.git&apos;</div><div class="line">&gt;    &gt;</div><div class="line">&gt;    &gt;   pod &apos;MBProgressHUD&apos;, &apos;0.9.1&apos;</div><div class="line">&gt;    &gt;</div><div class="line">&gt;    &gt;   #私有库</div><div class="line">&gt;    &gt;   source &apos;https://git.coding.net/schiller/MyDemoSpec.git&apos;</div><div class="line">&gt;    &gt;</div><div class="line">&gt;    &gt;   pod &apos;PodLibrary&apos;, &apos;~&gt; 0.1.0&apos;</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li>至此，私有pod集成完毕<br>​</li>
+</ul>
+</blockquote>
+</li>
+<li><p>删除私有库</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt; $ pod repo remove MyDemoSpec</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>备用<br>​</p>
+</blockquote>
+</li>
+<li><p>部署到公有库</p>
+<blockquote>
+<p>代码创建好了，当然可以提交到公有库了，比如想让大伙都来用自己的组件，这个对个人和团队的影响力是有一定提升的。之前需要审核一两天的时间，现在有了trunk，提价即可使用了。</p>
+<ol>
+<li><p>首先将代码上传到github</p>
+</li>
+<li><p>注册trunk服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;    pod trunk register wskrdfeai@gmail.com &apos;laughmaker&apos; --description=&apos;我爱我的因我觉得欢喜&apos; --verbose</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>可查看注册信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;    pod trunk me </div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>将仓库上传到公有库中心</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;    pod trunk push MyDmeoSpec</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>也可以将其他人添加进来一起开发</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    &gt;    pod trunk add-owner ProjectName(项目名) email(要添加进来的人)</div><div class="line">&gt;    &gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>至此添加完毕，其他人直接在podfile中就可以搜索和添加你的公有项目了。<br>​</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p><strong>提供私有pod测试项目</strong></p>
+<blockquote>
+<p>大家可以通过我已经建立好的项目来调试私有pod，熟悉私有库建立方法，这是小编的项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; Specs的仓库:  https://git.coding.net/schiller/GLSpecs.git</div><div class="line">&gt; 私有组件仓库:  https://git.coding.net/schiller/podTestLibrary.git</div><div class="line">&gt; 测试Cocoapods的demo: https://github.com/schillerGao/MyGLDemos.git </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>完毕</p>
+</blockquote>
+</li>
+</ol>
+<ol>
+<li><p><strong>Cocoapods制作篇，创建属于自己或者团队的开源项目，供他人使用</strong></p>
+<blockquote>
+<p>可以通过创建自己的依赖库，用来提升个人实力和影响力，或者团队实力和影响力。<br>​</p>
+</blockquote>
+</li>
+<li><p><strong>使用Cocoapods里没有的第三方库新版本（奇巧淫技）</strong></p>
+<blockquote>
+<p>我们以PlayHavenSDK为例，我们在Cocoapods/Specs这个仓库可以看到，PlayHavenSDK最新版本为1.11.0。而<a href="https://github.com/playhaven/sdk-ios" target="_blank" rel="external">playhaven / sdk-ios</a>里面的tag，已经有了1.12.1这个版本。CocoaPods的Spec repository已经落后了两个版本。这时我们想使用最新版，需要的就是一个更新的spec。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt; Pod::Spec.new do |s|</div><div class="line">&gt;     s.name = &apos;PlayHavenSDK&apos;</div><div class="line">&gt;     s.version = &apos;1.12.1&apos;</div><div class="line">&gt;     s.license = &apos;MIT&apos;</div><div class="line">&gt;     s.summary = &apos;PlayHaven is a real-time mobile game marketing platform to help you take control of the business of your games.&apos;</div><div class="line">&gt;     s.homepage = &apos;http://playhaven.com&apos;</div><div class="line">&gt;     s.author = &#123; &apos;Sam Stewart&apos; =&gt; &apos;sam@playhaven.com&apos; &#125;</div><div class="line">&gt;     s.source = &#123; :git =&gt; &apos;https://github.com/playhaven/sdk-ios.git&apos;, :tag =&gt; &apos;1.12.1&apos; &#125;</div><div class="line">&gt;     s.description = &quot;PlayHaven is a real-time mobile game marketing platform to help you take control of the business of your games. Acquire, retain, re-engage, and monetize your players with the help of PlayHaven&apos;s powerful marketing platform. Integrate once and embrace the flexibility of the web as you build, schedule, deploy, and analyze your in-game promotions and monetization in real-time through PlayHaven&apos;s easy-to-use, web-based dashboard. An API token and secret is required to use this SDK. These tokens uniquely identify your app to PlayHaven and prevent others from making requests to the API on your behalf. To get a token and secret, please visit the PlayHaven developer dashboard at https://dashboard.playhaven.com.&quot;</div><div class="line">&gt;     s.platform = :ios</div><div class="line">&gt;     # PlayHaven includes prefixed versions of SBJson and OpenUDID</div><div class="line">&gt;     s.source_files = &apos;Cache&apos;, &apos;src&apos;, &apos;WaterWorks&apos;, &apos;JSON&apos;, &apos;OpenUDID&apos;</div><div class="line">&gt;     s.frameworks = &apos;SystemConfiguration&apos;, &apos;CFNetwork&apos;, &apos;StoreKit&apos;, &apos;CoreGraphics&apos;, &apos;QuartzCore&apos;</div><div class="line">&gt;     s.weak_frameworks = &apos;AdSupport&apos;</div><div class="line">&gt; end</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>这里我们注意到s.source这一行配置，指向了playhaven/sdk-ios.git仓库的1.12.1这个tag，表示这个spec将使用这个tag的代码。我们将它保存到本地的一个目录中，如<code>~/Desktop/PlayHavenSDK/PlayHavenSDK.podspec</code>。我们回到Xcode project目录中，打开Podfile，添加<code>pod &#39;PlayHavenSDK&#39;, :podspec =&gt; &#39;~/Desktop/PlayHavenSDK/PlayHavenSDK.podspec&#39;</code>，接着运行<code>pod update</code>即可。</p>
+<p>PS: 当然这个podspec也可以不放在本地，比如放在gist上。</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h5><ol>
+<li>Cocoapods官网</li>
+<li>Cocoapods 错误汇总 <a href="https://github.com/CocoaPods/CocoaPods/issues" target="_blank" rel="external">https://github.com/CocoaPods/CocoaPods/issues</a></li>
+<li>Cocoapods帮助界面<a href="http://guides.cocoapods.org/using/using-cocoapods.html" target="_blank" rel="external">http://guides.cocoapods.org/using/using-cocoapods.html</a></li>
+</ol>
+<h4 id="实战篇"><a href="#实战篇" class="headerlink" title="实战篇"></a>实战篇</h4><p><em>本人决定在途牛项目切一个cocoapodsDev分支，用来检测使用cocoapods管理第三方库和本地库的一些bug，提前预演，如果能够完全弄好，就迁移到dev分支中。</em></p>
+<h5 id="切分支、集成cocoapods"><a href="#切分支、集成cocoapods" class="headerlink" title="切分支、集成cocoapods"></a>切分支、集成cocoapods</h5><ol>
+<li><p>选择tuniuapp-iphone/Iphone 目录。该目录下有.xcodeproj文件。</p>
+</li>
+<li><p>新建Podfile文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd  ~/tuniuapp-iphone/Iphone</div><div class="line">$ ls -a</div><div class="line">$ touch Podfile</div><div class="line">$ vi Podfile</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">platform :ios, &apos;7.0&apos;</div><div class="line">inhibit_all_warnings!</div><div class="line">#公有库</div><div class="line"></div><div class="line">#私有库</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行pod install命令，执行结果如下</p>
+<p> <img src="/Users/schiller/Desktop/事件管理/cocoapods/first.png" alt="first"></p>
+</li>
+<li><p>项目新增文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Iphone/Podfile</div><div class="line">Iphone/Podfile.lock</div><div class="line">Iphone/Pods/Manifest.lock</div><div class="line">Iphone/Pods/Pods.xcodeproj/proj.pbxproj</div></pre></td></tr></table></figure>
+</li>
+<li><p>更新cocoapods版本</p>
+<p><img src="http://oasv9w1m8.bkt.clouddn.com/update_cocoapods.png" alt="update"></p>
+</li>
+<li><p>over</p>
+</li>
+</ol>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/02/ios/OCgitignore配置/" rel="prev">.gitignore配置</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/01/ios/多线程异步刷新数据/" rel="next">iOS获取异步数据并刷新界面dispatch_asyn的使用</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/08/01/ios/pod管理第三方库/"
+                   data-title="App引入pod管理第三方库" data-url="http://yoursite.com/2016/08/01/ios/pod管理第三方库/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="高龙" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">高龙</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">浮萍漂泊本无根，天涯游子君莫问</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="https://github.com/schillerGao" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/schillerGao" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank">Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/b1704a5943fe/latest_articles" target="_blank">简书</a>
+              </span>
+            
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.codingdemo.com" target="_blank">Favori</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://mindhacks.cn/" target="_blank">刘未鹏</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.ruanyifeng.com/home.html" target="_blank">阮一峰</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://ibruce.info/" target="_blank">不如</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://gongchuangsu.com/" target="_blank">贱贱的梦想</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.qiuchengjia.cn/" target="_blank">戎码人生</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.jvaeyhcd.cc/" target="_blank">Jvaryhcd</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bianmaren.com/" target="_blank">编码人</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://liuyuanwai.cn/" target="_blank">劉員外</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://bolt.coding.me" target="_blank">bolt</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现步骤"><span class="nav-number">1.</span> <span class="nav-text">实现步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目中配置Cocoapods解决方案"><span class="nav-number">2.</span> <span class="nav-text">项目中配置Cocoapods解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装与使用Cocoapods"><span class="nav-number">3.</span> <span class="nav-text">安装与使用Cocoapods</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-public-header-files-‘Pod-Classes-h’"><span class="nav-number"></span> <span class="nav-text">s.public_header_files = ‘Pod/Classes/*/.h’</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-frameworks-‘UIKit’-‘MapKit’"><span class="nav-number"></span> <span class="nav-text">s.frameworks = ‘UIKit’, ‘MapKit’</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-dependency-‘AFNetworking’-‘-gt-2-3’"><span class="nav-number"></span> <span class="nav-text">s.dependency ‘AFNetworking’, ‘~> 2.3’</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考文档"><span class="nav-number">0.1.</span> <span class="nav-text">参考文档</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实战篇"><span class="nav-number">1.</span> <span class="nav-text">实战篇</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#切分支、集成cocoapods"><span class="nav-number">1.1.</span> <span class="nav-text">切分支、集成cocoapods</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高龙</span>
+
+  <div class="powered-by"></div>
+  <div class="powered-by">
+    Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  </div>
+
+  <div class="theme-info">
+    浮萍漂泊本无根 天涯游子君莫问
+  </div>
+
+  <!-- busuanzi -->
+  
+    <div class="powered-by">
+    <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+    </div>
+  
+
+</div>
+
+<!--
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+<!--
+<div class="powered-by"></div>
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+-->
+
+<!-- busuanzi -->
+<!--
+
+  <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gaolongeric"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
