@@ -39,37 +39,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="使用过这种模式的一些著名开源库
-MJExtension
-TNStepper
-PullToRefresh
-参考文献：http://www.jianshu.com/p/e59bb8f59302
-
-基本原理
-KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性被修改后，则对象就会接到通知。简而言之，每次指定的被观察的对象的属性被修改后，KVO就会自动通知相应的观察者了。">
+<meta name="description" content="自定义layout：自定义layout并将该layout赋值给UICollectionView
+初始化CollectionView
+代码
+12345678910111213141516&amp;gt; - (UICollectionView *)collectionView&amp;gt; &amp;#123;&amp;gt;     if (!_collectionView) &amp;#123;&amp;gt;       //此处定义的C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KVO／KVC模式研究">
-<meta property="og:url" content="http://yoursite.com/2016/08/01/KVO／KVC模式研究/index.html">
+<meta property="og:title" content="自定义layout">
+<meta property="og:url" content="http://yoursite.com/2016/09/30/自定义layout/index.html">
 <meta property="og:site_name" content="Hi schillerGao(高龙)">
-<meta property="og:description" content="使用过这种模式的一些著名开源库
-MJExtension
-TNStepper
-PullToRefresh
-参考文献：http://www.jianshu.com/p/e59bb8f59302
-
-基本原理
-KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性被修改后，则对象就会接到通知。简而言之，每次指定的被观察的对象的属性被修改后，KVO就会自动通知相应的观察者了。">
-<meta property="og:updated_time" content="2016-12-06T14:09:51.000Z">
+<meta property="og:description" content="自定义layout：自定义layout并将该layout赋值给UICollectionView
+初始化CollectionView
+代码
+12345678910111213141516&amp;gt; - (UICollectionView *)collectionView&amp;gt; &amp;#123;&amp;gt;     if (!_collectionView) &amp;#123;&amp;gt;       //此处定义的C">
+<meta property="og:updated_time" content="2016-12-08T11:53:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KVO／KVC模式研究">
-<meta name="twitter:description" content="使用过这种模式的一些著名开源库
-MJExtension
-TNStepper
-PullToRefresh
-参考文献：http://www.jianshu.com/p/e59bb8f59302
-
-基本原理
-KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性被修改后，则对象就会接到通知。简而言之，每次指定的被观察的对象的属性被修改后，KVO就会自动通知相应的观察者了。">
+<meta name="twitter:title" content="自定义layout">
+<meta name="twitter:description" content="自定义layout：自定义layout并将该layout赋值给UICollectionView
+初始化CollectionView
+代码
+12345678910111213141516&amp;gt; - (UICollectionView *)collectionView&amp;gt; &amp;#123;&amp;gt;     if (!_collectionView) &amp;#123;&amp;gt;       //此处定义的C">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -79,7 +67,7 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
   };
 </script>
 
-  <title> KVO／KVC模式研究 | Hi schillerGao(高龙) </title>
+  <title> 自定义layout | Hi schillerGao(高龙) </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -219,7 +207,7 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
           
           
             
-              KVO／KVC模式研究
+              自定义layout
             
           
         </h1>
@@ -228,8 +216,8 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-08-01T10:15:37+08:00" content="2016-08-01">
-            2016-08-01
+          <time itemprop="dateCreated" datetime="2016-09-30T19:26:49+08:00" content="2016-09-30">
+            2016-09-30
           </time>
         </span>
 
@@ -240,11 +228,11 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/08/01/KVO／KVC模式研究/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/KVO／KVC模式研究/" itemprop="commentsCount"></span>
+              <a href="/2016/09/30/自定义layout/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/30/自定义layout/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/08/01/KVO／KVC模式研究/#comments" itemprop="discussionUrl">
+              <a href="/2016/09/30/自定义layout/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -259,55 +247,14 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
       
 
       
-        <span itemprop="articleBody"><h5 id="使用过这种模式的一些著名开源库"><a href="#使用过这种模式的一些著名开源库" class="headerlink" title="使用过这种模式的一些著名开源库"></a>使用过这种模式的一些著名开源库</h5><ol>
-<li>MJExtension</li>
-<li>TNStepper</li>
-<li>PullToRefresh</li>
-<li>参考文献：<a href="http://www.jianshu.com/p/e59bb8f59302" target="_blank" rel="external">http://www.jianshu.com/p/e59bb8f59302</a></li>
-</ol>
-<h5 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h5><blockquote>
-<p>KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性被修改后，则对象就会接到通知。简而言之，每次指定的被观察的对象的属性被修改后，KVO就会自动通知相应的观察者了。</p>
-<ol>
-<li><p>给某个对象object的属性添加观察者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;    [object addObserver:self forKeyPath:@&quot;age&quot;         </div><div class="line">&gt;                     options:NSKeyValueObservingOptionNew  </div><div class="line">&gt;                       context:nil];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
+        <span itemprop="articleBody"><p><em>自定义layout：自定义layout并将该layout赋值给UICollectionView</em></p>
+<h4 id="初始化CollectionView"><a href="#初始化CollectionView" class="headerlink" title="初始化CollectionView"></a>初始化CollectionView</h4><blockquote>
+<p>代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt; - (UICollectionView *)collectionView</div><div class="line">&gt; &#123;</div><div class="line">&gt;     if (!_collectionView) &#123;</div><div class="line">&gt;       //此处定义的CYCircleLayout可以继承自UICollectionViewLayout或者UIConllectionFlowLayout等</div><div class="line">&gt;         CYCircleLayout  *layout = [[CYCircleLayout alloc] init];</div><div class="line">&gt;         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, 600) collectionViewLayout:layout];</div><div class="line">&gt;         _collectionView.delegate = self;</div><div class="line">&gt;         _collectionView.dataSource = self;</div><div class="line">&gt;</div><div class="line">&gt;         _collectionView.backgroundColor = [UIColor whiteColor];</div><div class="line">&gt;         UINib *nib = [UINib nibWithNibName:@&quot;GLCollectionCell&quot; bundle:nil];</div><div class="line">&gt;         [_collectionView registerNib:nib forCellWithReuseIdentifier:@&quot;cell&quot;];</div><div class="line">&gt;     &#125;</div><div class="line">&gt;     return _collectionView;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
-<p>&gt;</p>
-<blockquote>
-<ol>
-<li><p>object对象的属性age 发生变化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    age += 50;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<ol>
-<li><p>紧接上一步，自动调用KVO函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;    -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;</div><div class="line">&gt;    //keyPath == age</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<ol>
-<li>over.</li>
-</ol>
-</blockquote>
-<h5 id="案例与源码"><a href="#案例与源码" class="headerlink" title="案例与源码"></a>案例与源码</h5><blockquote>
-<p><em>这里提供源码</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt; #import &lt;Foundation/Foundation.h&gt;</div><div class="line">&gt;</div><div class="line">&gt; @interface myKVO : NSObject</div><div class="line">&gt;</div><div class="line">&gt; @property (nonatomic,assign)int num;</div><div class="line">&gt;</div><div class="line">&gt; @end</div><div class="line">&gt;</div><div class="line">&gt; #import &quot;myKVO.h&quot;</div><div class="line">&gt;</div><div class="line">&gt; @implementation myKVO</div><div class="line">&gt;</div><div class="line">&gt; @synthesize num;</div><div class="line">&gt;</div><div class="line">&gt; @end</div><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt; #import &quot;ViewController.h&quot;</div><div class="line">&gt; #import &quot;myKVO.h&quot;</div><div class="line">&gt;</div><div class="line">&gt; @interface ViewController ()</div><div class="line">&gt;</div><div class="line">&gt; @property (nonatomic,strong)myKVO *myKVO;</div><div class="line">&gt;</div><div class="line">&gt; @end</div><div class="line">&gt;</div><div class="line">&gt; @implementation ViewController</div><div class="line">&gt;</div><div class="line">&gt;</div><div class="line">&gt; - (void)viewDidLoad &#123;</div><div class="line">&gt;     [super viewDidLoad];</div><div class="line">&gt;     </div><div class="line">&gt;     self.myKVO = [[myKVO alloc]init];</div><div class="line">&gt;     </div><div class="line">&gt;     /*1.注册对象myKVO为被观察者:</div><div class="line">&gt;      option中，</div><div class="line">&gt;       NSKeyValueObservingOptionOld 以字典的形式提供 “初始对象数据”;</div><div class="line">&gt;       NSKeyValueObservingOptionNew 以字典的形式提供 “更新后新的数据”;</div><div class="line">&gt;      */</div><div class="line">&gt;     [self.myKVO addObserver:self forKeyPath:@&quot;num&quot; options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];</div><div class="line">&gt;     </div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; /* 2.只要object的keyPath属性发生变化，就会调用此回调方法，进行相应的处理：UI更新：*/</div><div class="line">&gt; -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary&lt;NSString *,id&gt; *)change context:(void *)context</div><div class="line">&gt; &#123;</div><div class="line">&gt;     if([keyPath isEqualToString:@&quot;num&quot;] &amp;&amp; object == self.myKVO)</div><div class="line">&gt;     &#123;</div><div class="line">&gt;         // 响应变化处理：UI更新（label文本改变）</div><div class="line">&gt;         self.label.text = [NSString stringWithFormat:@&quot;当前的num值为：%@&quot;,[change valueForKey:@&quot;new&quot;]];</div><div class="line">&gt;         </div><div class="line">&gt;         //上文注册时，枚举为2个，因此可以提取change字典中的新、旧值的这两个方法</div><div class="line">&gt;         NSLog(@&quot;\noldnum:%@ newnum:%@&quot;,[change valueForKey:@&quot;old&quot;],[change valueForKey:@&quot;new&quot;]);</div><div class="line">&gt;     &#125;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; - (void)viewDidDisappear:(BOOL)animated</div><div class="line">&gt; &#123;</div><div class="line">&gt;   /* 3.移除KVO */</div><div class="line">&gt;     [self removeObserver:self forKeyPath:@&quot;num&quot; context:nil];</div><div class="line">&gt; &#125;</div><div class="line">&gt; //按钮事件</div><div class="line">&gt; - (IBAction)changeNum:(UIButton *)sender &#123;</div><div class="line">&gt;     //按一次，使num的值+1</div><div class="line">&gt;     self.myKVO.num = self.myKVO.num + 1;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; @end</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<h5 id="与其它可替代方案的优势和劣势比较"><a href="#与其它可替代方案的优势和劣势比较" class="headerlink" title="与其它可替代方案的优势和劣势比较"></a>与其它可替代方案的优势和劣势比较</h5><blockquote>
-<ol>
-<li>KVO与setter方法，</li>
-</ol>
-</blockquote>
+<h4 id="自定义Layout布局类"><a href="#自定义Layout布局类" class="headerlink" title="自定义Layout布局类"></a>自定义Layout布局类</h4><blockquote>
+<p>代码：这是一个将layout做成圆形的布局，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&gt; - (NSMutableArray *)attrsArray</div><div class="line">&gt; &#123;</div><div class="line">&gt;     if (!_attrsArray) &#123;</div><div class="line">&gt;         _attrsArray = [NSMutableArray array];</div><div class="line">&gt;     &#125;</div><div class="line">&gt;     return _attrsArray;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; - (void)prepareLayout</div><div class="line">&gt; &#123;</div><div class="line">&gt;     [super prepareLayout];</div><div class="line">&gt;     [self.attrsArray removeAllObjects];</div><div class="line">&gt;     NSInteger count = [self.collectionView numberOfItemsInSection:0];</div><div class="line">&gt;     CGFloat radius = 70;</div><div class="line">&gt;     //圆心的位置</div><div class="line">&gt;     CGFloat oX = self.collectionView.frame.size.width * 0.5;</div><div class="line">&gt;     CGFloat oY = self.collectionView.frame.size.height * 0.5;</div><div class="line">&gt;     </div><div class="line">&gt;   //对每个cell的布局做修正。</div><div class="line">&gt;     for (NSInteger i = 0; i &lt; count; i++) &#123;</div><div class="line">&gt;         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];</div><div class="line">&gt;         UICollectionViewLayoutAttributes *attrs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];</div><div class="line">&gt;         </div><div class="line">&gt;         attrs.size = CGSizeMake(100, 100);</div><div class="line">&gt;         CGFloat angle = (2*M_PI/count) * i;</div><div class="line">&gt;         CGFloat centerX = oX + radius * sin(angle);</div><div class="line">&gt;         CGFloat centerY = oY + radius * cos(angle);</div><div class="line">&gt;         attrs.center = CGPointMake(centerX, centerY);</div><div class="line">&gt;         [self.attrsArray addObject:attrs];</div><div class="line">&gt;     &#125;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect</div><div class="line">&gt; &#123;</div><div class="line">&gt;     return self.attrsArray;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure></blockquote>
 </span>
       
     </div>
@@ -319,13 +266,13 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/01/pod管理第三方库/" rel="prev">App引入pod管理第三方库</a>
+              <a href="/2016/10/09/Podspec文件配置详解/" rel="prev">Podspec文件配置详解</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/01/Cocoapods/" rel="next">Xcode project中引入Cocoapods管理</a>
+              <a href="/2016/09/29/UINavigationController等类的API研究/" rel="next">UINavigationController等类的API研究</a>
             
           </div>
         </div>
@@ -350,8 +297,8 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/08/01/KVO／KVC模式研究/"
-                   data-title="KVO／KVC模式研究" data-url="http://yoursite.com/2016/08/01/KVO／KVC模式研究/">
+              <div class="ds-thread" data-thread-key="2016/09/30/自定义layout/"
+                   data-title="自定义layout" data-url="http://yoursite.com/2016/09/30/自定义layout/">
               </div>
             
           </div>
@@ -497,7 +444,7 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用过这种模式的一些著名开源库"><span class="nav-number">1.</span> <span class="nav-text">使用过这种模式的一些著名开源库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本原理"><span class="nav-number">2.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#案例与源码"><span class="nav-number">3.</span> <span class="nav-text">案例与源码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#与其它可替代方案的优势和劣势比较"><span class="nav-number">4.</span> <span class="nav-text">与其它可替代方案的优势和劣势比较</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化CollectionView"><span class="nav-number">1.</span> <span class="nav-text">初始化CollectionView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义Layout布局类"><span class="nav-number">2.</span> <span class="nav-text">自定义Layout布局类</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

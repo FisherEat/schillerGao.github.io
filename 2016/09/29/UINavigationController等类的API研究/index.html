@@ -39,37 +39,35 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="使用过这种模式的一些著名开源库
-MJExtension
-TNStepper
-PullToRefresh
-参考文献：http://www.jianshu.com/p/e59bb8f59302
+<meta name="description" content="重要的导航类
+参考文献：http://www.jianshu.com/p/aaa4b89dbba1
+纯代码实现导航控制器
 
-基本原理
-KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性被修改后，则对象就会接到通知。简而言之，每次指定的被观察的对象的属性被修改后，KVO就会自动通知相应的观察者了。">
+代码
+1234567&amp;gt;     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];&amp;gt;        self.window.backgroundColor = [">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KVO／KVC模式研究">
-<meta property="og:url" content="http://yoursite.com/2016/08/01/KVO／KVC模式研究/index.html">
+<meta property="og:title" content="UINavigationController等类的API研究">
+<meta property="og:url" content="http://yoursite.com/2016/09/29/UINavigationController等类的API研究/index.html">
 <meta property="og:site_name" content="Hi schillerGao(高龙)">
-<meta property="og:description" content="使用过这种模式的一些著名开源库
-MJExtension
-TNStepper
-PullToRefresh
-参考文献：http://www.jianshu.com/p/e59bb8f59302
+<meta property="og:description" content="重要的导航类
+参考文献：http://www.jianshu.com/p/aaa4b89dbba1
+纯代码实现导航控制器
 
-基本原理
-KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性被修改后，则对象就会接到通知。简而言之，每次指定的被观察的对象的属性被修改后，KVO就会自动通知相应的观察者了。">
-<meta property="og:updated_time" content="2016-12-06T14:09:51.000Z">
+代码
+1234567&amp;gt;     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];&amp;gt;        self.window.backgroundColor = [">
+<meta property="og:image" content="http://oasv9w1m8.bkt.clouddn.com/nav3.png">
+<meta property="og:image" content="http://oasv9w1m8.bkt.clouddn.com/nav1.png">
+<meta property="og:image" content="http://oasv9w1m8.bkt.clouddn.com/nav2.png">
+<meta property="og:updated_time" content="2016-12-08T11:52:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KVO／KVC模式研究">
-<meta name="twitter:description" content="使用过这种模式的一些著名开源库
-MJExtension
-TNStepper
-PullToRefresh
-参考文献：http://www.jianshu.com/p/e59bb8f59302
+<meta name="twitter:title" content="UINavigationController等类的API研究">
+<meta name="twitter:description" content="重要的导航类
+参考文献：http://www.jianshu.com/p/aaa4b89dbba1
+纯代码实现导航控制器
 
-基本原理
-KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性被修改后，则对象就会接到通知。简而言之，每次指定的被观察的对象的属性被修改后，KVO就会自动通知相应的观察者了。">
+代码
+1234567&amp;gt;     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];&amp;gt;        self.window.backgroundColor = [">
+<meta name="twitter:image" content="http://oasv9w1m8.bkt.clouddn.com/nav3.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -79,7 +77,7 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
   };
 </script>
 
-  <title> KVO／KVC模式研究 | Hi schillerGao(高龙) </title>
+  <title> UINavigationController等类的API研究 | Hi schillerGao(高龙) </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -219,7 +217,7 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
           
           
             
-              KVO／KVC模式研究
+              UINavigationController等类的API研究
             
           
         </h1>
@@ -228,8 +226,8 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-08-01T10:15:37+08:00" content="2016-08-01">
-            2016-08-01
+          <time itemprop="dateCreated" datetime="2016-09-29T22:16:36+08:00" content="2016-09-29">
+            2016-09-29
           </time>
         </span>
 
@@ -240,11 +238,11 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/08/01/KVO／KVC模式研究/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/KVO／KVC模式研究/" itemprop="commentsCount"></span>
+              <a href="/2016/09/29/UINavigationController等类的API研究/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/29/UINavigationController等类的API研究/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/08/01/KVO／KVC模式研究/#comments" itemprop="discussionUrl">
+              <a href="/2016/09/29/UINavigationController等类的API研究/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -259,54 +257,48 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
       
 
       
-        <span itemprop="articleBody"><h5 id="使用过这种模式的一些著名开源库"><a href="#使用过这种模式的一些著名开源库" class="headerlink" title="使用过这种模式的一些著名开源库"></a>使用过这种模式的一些著名开源库</h5><ol>
-<li>MJExtension</li>
-<li>TNStepper</li>
-<li>PullToRefresh</li>
-<li>参考文献：<a href="http://www.jianshu.com/p/e59bb8f59302" target="_blank" rel="external">http://www.jianshu.com/p/e59bb8f59302</a></li>
-</ol>
-<h5 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h5><blockquote>
-<p>KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性被修改后，则对象就会接到通知。简而言之，每次指定的被观察的对象的属性被修改后，KVO就会自动通知相应的观察者了。</p>
+        <span itemprop="articleBody"><p><em>重要的导航类</em></p>
+<p><em>参考文献：<a href="http://www.jianshu.com/p/aaa4b89dbba1" target="_blank" rel="external">http://www.jianshu.com/p/aaa4b89dbba1</a></em></p>
+<h5 id="纯代码实现导航控制器"><a href="#纯代码实现导航控制器" class="headerlink" title="纯代码实现导航控制器"></a>纯代码实现导航控制器</h5><blockquote>
 <ol>
-<li><p>给某个对象object的属性添加观察者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;    [object addObserver:self forKeyPath:@&quot;age&quot;         </div><div class="line">&gt;                     options:NSKeyValueObservingOptionNew  </div><div class="line">&gt;                       context:nil];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<li><p>代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">&gt;        self.window.backgroundColor = [UIColor whiteColor];</div><div class="line">&gt;        self.viewController = [[UIStoryboard storyboardWithName:@&quot;Main&quot; bundle:nil] instantiateInitialViewController];</div><div class="line">&gt;        self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];</div><div class="line">&gt;        self.window.rootViewController = self.navigationController;</div><div class="line">&gt;        [self.window makeKeyAndVisible];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 </blockquote>
 <p>&gt;</p>
 <blockquote>
 <ol>
-<li><p>object对象的属性age 发生变化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    age += 50;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<li>over</li>
+</ol>
+</blockquote>
+<h5 id="Storyboard实现导航"><a href="#Storyboard实现导航" class="headerlink" title="Storyboard实现导航"></a>Storyboard实现导航</h5><blockquote>
+<p><em>storyboard实现简单的导航，无须一行代码。步骤：</em></p>
+<ol>
+<li><p>新建一个工程，在Main.storyboard中将原来的Viewcontroller删除。</p>
+</li>
+<li><p>拖入一个NavigationController，删除不必要的那个TableViewController。将该navigationcontroller设置为initial controller ，push到下个viewcontroller时设置为rootviewcontroller</p>
+</li>
+<li><p>拖入一个新的ViewController，将该viewcontroller的class设置为自定义的VC。</p>
+</li>
+<li><p>如果默认的storyboard不是Main,可以设置为自定义的：</p>
+<p><img src="http://oasv9w1m8.bkt.clouddn.com/nav3.png" alt="nav3"></p>
+</li>
+<li><p>截图：</p>
+<p><img src="http://oasv9w1m8.bkt.clouddn.com/nav1.png" alt="nav1"></p>
+<p><img src="http://oasv9w1m8.bkt.clouddn.com/nav2.png" alt="nav2"></p>
+</li>
+<li><p>over</p>
 </li>
 </ol>
 </blockquote>
-<p>&gt;</p>
-<blockquote>
-<ol>
-<li><p>紧接上一步，自动调用KVO函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;    -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;</div><div class="line">&gt;    //keyPath == age</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<h5 id="纯代码实现tabbar导航"><a href="#纯代码实现tabbar导航" class="headerlink" title="纯代码实现tabbar导航"></a>纯代码实现tabbar导航</h5><blockquote>
+<p><em>导航容器有两种，tabbar也是一种导航方式。</em></p>
+<p>代码实现：</p>
+<p>over</p>
 </blockquote>
-<p>&gt;</p>
-<blockquote>
-<ol>
-<li>over.</li>
-</ol>
-</blockquote>
-<h5 id="案例与源码"><a href="#案例与源码" class="headerlink" title="案例与源码"></a>案例与源码</h5><blockquote>
-<p><em>这里提供源码</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt; #import &lt;Foundation/Foundation.h&gt;</div><div class="line">&gt;</div><div class="line">&gt; @interface myKVO : NSObject</div><div class="line">&gt;</div><div class="line">&gt; @property (nonatomic,assign)int num;</div><div class="line">&gt;</div><div class="line">&gt; @end</div><div class="line">&gt;</div><div class="line">&gt; #import &quot;myKVO.h&quot;</div><div class="line">&gt;</div><div class="line">&gt; @implementation myKVO</div><div class="line">&gt;</div><div class="line">&gt; @synthesize num;</div><div class="line">&gt;</div><div class="line">&gt; @end</div><div class="line">&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">&gt;</div><div class="line">&gt; #import &quot;ViewController.h&quot;</div><div class="line">&gt; #import &quot;myKVO.h&quot;</div><div class="line">&gt;</div><div class="line">&gt; @interface ViewController ()</div><div class="line">&gt;</div><div class="line">&gt; @property (nonatomic,strong)myKVO *myKVO;</div><div class="line">&gt;</div><div class="line">&gt; @end</div><div class="line">&gt;</div><div class="line">&gt; @implementation ViewController</div><div class="line">&gt;</div><div class="line">&gt;</div><div class="line">&gt; - (void)viewDidLoad &#123;</div><div class="line">&gt;     [super viewDidLoad];</div><div class="line">&gt;     </div><div class="line">&gt;     self.myKVO = [[myKVO alloc]init];</div><div class="line">&gt;     </div><div class="line">&gt;     /*1.注册对象myKVO为被观察者:</div><div class="line">&gt;      option中，</div><div class="line">&gt;       NSKeyValueObservingOptionOld 以字典的形式提供 “初始对象数据”;</div><div class="line">&gt;       NSKeyValueObservingOptionNew 以字典的形式提供 “更新后新的数据”;</div><div class="line">&gt;      */</div><div class="line">&gt;     [self.myKVO addObserver:self forKeyPath:@&quot;num&quot; options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];</div><div class="line">&gt;     </div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; /* 2.只要object的keyPath属性发生变化，就会调用此回调方法，进行相应的处理：UI更新：*/</div><div class="line">&gt; -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary&lt;NSString *,id&gt; *)change context:(void *)context</div><div class="line">&gt; &#123;</div><div class="line">&gt;     if([keyPath isEqualToString:@&quot;num&quot;] &amp;&amp; object == self.myKVO)</div><div class="line">&gt;     &#123;</div><div class="line">&gt;         // 响应变化处理：UI更新（label文本改变）</div><div class="line">&gt;         self.label.text = [NSString stringWithFormat:@&quot;当前的num值为：%@&quot;,[change valueForKey:@&quot;new&quot;]];</div><div class="line">&gt;         </div><div class="line">&gt;         //上文注册时，枚举为2个，因此可以提取change字典中的新、旧值的这两个方法</div><div class="line">&gt;         NSLog(@&quot;\noldnum:%@ newnum:%@&quot;,[change valueForKey:@&quot;old&quot;],[change valueForKey:@&quot;new&quot;]);</div><div class="line">&gt;     &#125;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; - (void)viewDidDisappear:(BOOL)animated</div><div class="line">&gt; &#123;</div><div class="line">&gt;   /* 3.移除KVO */</div><div class="line">&gt;     [self removeObserver:self forKeyPath:@&quot;num&quot; context:nil];</div><div class="line">&gt; &#125;</div><div class="line">&gt; //按钮事件</div><div class="line">&gt; - (IBAction)changeNum:(UIButton *)sender &#123;</div><div class="line">&gt;     //按一次，使num的值+1</div><div class="line">&gt;     self.myKVO.num = self.myKVO.num + 1;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; @end</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<h5 id="与其它可替代方案的优势和劣势比较"><a href="#与其它可替代方案的优势和劣势比较" class="headerlink" title="与其它可替代方案的优势和劣势比较"></a>与其它可替代方案的优势和劣势比较</h5><blockquote>
-<ol>
-<li>KVO与setter方法，</li>
-</ol>
+<h5 id="storyboard实现tabbar导航"><a href="#storyboard实现tabbar导航" class="headerlink" title="storyboard实现tabbar导航"></a>storyboard实现tabbar导航</h5><blockquote>
+<p><em>tabbar实现导航</em></p>
 </blockquote>
 </span>
       
@@ -319,13 +311,13 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/01/pod管理第三方库/" rel="prev">App引入pod管理第三方库</a>
+              <a href="/2016/09/30/自定义layout/" rel="prev">自定义layout</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/01/Cocoapods/" rel="next">Xcode project中引入Cocoapods管理</a>
+              <a href="/2016/09/11/hello-world/" rel="next">Hello World — from schillerGao</a>
             
           </div>
         </div>
@@ -350,8 +342,8 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/08/01/KVO／KVC模式研究/"
-                   data-title="KVO／KVC模式研究" data-url="http://yoursite.com/2016/08/01/KVO／KVC模式研究/">
+              <div class="ds-thread" data-thread-key="2016/09/29/UINavigationController等类的API研究/"
+                   data-title="UINavigationController等类的API研究" data-url="http://yoursite.com/2016/09/29/UINavigationController等类的API研究/">
               </div>
             
           </div>
@@ -497,7 +489,7 @@ KVO, 即Key-Value Observing,它提供一种机制，当指定的对象的属性�
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用过这种模式的一些著名开源库"><span class="nav-number">1.</span> <span class="nav-text">使用过这种模式的一些著名开源库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本原理"><span class="nav-number">2.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#案例与源码"><span class="nav-number">3.</span> <span class="nav-text">案例与源码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#与其它可替代方案的优势和劣势比较"><span class="nav-number">4.</span> <span class="nav-text">与其它可替代方案的优势和劣势比较</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#纯代码实现导航控制器"><span class="nav-number">1.</span> <span class="nav-text">纯代码实现导航控制器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Storyboard实现导航"><span class="nav-number">2.</span> <span class="nav-text">Storyboard实现导航</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#纯代码实现tabbar导航"><span class="nav-number">3.</span> <span class="nav-text">纯代码实现tabbar导航</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#storyboard实现tabbar导航"><span class="nav-number">4.</span> <span class="nav-text">storyboard实现tabbar导航</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
